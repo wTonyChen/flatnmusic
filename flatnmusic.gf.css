@@ -6,7 +6,7 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.7.14
+@version 0.7.15
 @author wTonyChen (https://wtonychen.github.io)
 @homepageURL https://wtonychen.github.io/flatnmusic/
 @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -28,7 +28,7 @@
 @var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:#fff}.m-top{background:#fff}.m-nav a{color:grey}.m-nav a:hover{color:#333}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{background:rgba(0,0,0,.1)}.m-srch .parent input:hover{background:rgba(0,0,0,.2)}.m-srch .parent input:focus{background:#fff;box-shadow:inset 0 1px 0 rgba(0,0,0,.1)}.m-topvd{border-color:grey;color:grey}.m-topvd:hover{border-color:#333;color:#333}.m-tlist{border-color:#ccc;background:#f2f2f2}.m-tlist a:hover{background:#dadada}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:#000}"}
 @var select topbar-nav-style "\u9876\u680f\u5bfc\u822a\u98ce\u683c"{"\u5706\u89d2":" ","\u76f4\u89d2":".m-nav a.z-slt{border-radius:0}","\u5927\u5706\u89d2":".m-nav a,.m-nav a.z-slt{transform:scale(.8);border-radius:99vw}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*,*::before,*::after{border-radius:0 !important}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.7.14';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/34/2e/31/39/38/33/33/36';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.7.15';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/34/2e/31/39/38/33/33/36';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}","\u7981\u7528":" "}
 @var text custom-style "\u81ea\u5b9a\u4e49\u6837\u5f0f" " "
 ==/UserStyle== */
 
@@ -84,7 +84,7 @@
     /*[[ui-color-schema]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen 0.7.14 (20201011)
+	Flat-Style Netease Music by wTonyChen 0.7.15 (20201012)
 	https://wtonychen.github.io/flatnmusic/
 	License: Apache License 2.0
 */
@@ -765,7 +765,8 @@
   .u-btn2.other,
   .u-btn-g,
   .m-proifo .name .btn,
-  .u-btn-2 {
+  .u-btn-2,
+  .u-btn-3 {
     background: #c2c2c2;
     border: 2px solid rgba(0, 0, 0, 0);
     box-sizing: border-box;
@@ -776,24 +777,31 @@
   .u-btn2:hover,
   .u-btn2.other:hover,
   .m-proifo .name .btn:hover,
-  .u-btn-2:hover {
+  .u-btn-2:hover,
+  .u-btn-3:hover {
     border: 2px solid #747474;
   }
   .u-btn2:active,
   .u-btn2.other:active,
   .m-proifo .name .btn:active,
-  .u-btn-2:active {
+  .u-btn-2:active,
+  .u-btn-3:active {
     background: #919191;
     border: 2px solid rgba(0, 0, 0, 0);
   }
   .m-proifo .name .btn,
-  .u-btn-2 {
+  .u-btn-2,
+  .u-btn-3 {
     padding: 0;
     text-align: center;
     min-width: 99px;
     text-indent: 0;
   }
-  .m-proifo .name .btn > i {
+  .u-btn-3 {
+    min-width: initial;
+  }
+  .m-proifo .name .btn > i,
+  .u-btn-3 i {
     padding: 0;
     display: block;
     text-align: center;
@@ -1262,7 +1270,7 @@
     background: #fff;
   }
   .n-srch .pgsrch .u-lstlay {
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     top: 40px;
     border: 1px solid #999;
     border-top: 0;
@@ -4083,6 +4091,13 @@
     color: inherit !important;
     margin-top: 0;
   }
+  .u-btn2-1-h,
+  .u-btn2-1-h i,
+  .u-btn2-2-h,
+  .u-btn2-2-h i {
+    height: 31px;
+    line-height: 31px;
+  }
   .u-btn2-2:active i {
     color: #000;
   }
@@ -4278,10 +4293,16 @@
   .m-table .ply::before,
   .n-srchrst .srchsongst .hd .ply::before {
     content: "\e000";
-    background: var(--gc-aa);
-    color: #fff;
+    background: #fff;
+    color: var(--gc-aa);
     border-radius: 99px;
     font-size: 12px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--gc-aa);
+  }
+  .m-table .ply.ply-z-slt::before,
+  .n-srchrst .srchsongst .hd .ply.ply-z-slt::before {
+    background: var(--gc-aa);
+    color: #fff;
     box-shadow: 0 0 0 3px var(--gc-aa);
   }
   .m-table .mv::before,
@@ -5685,6 +5706,11 @@
     .u-dicn-46::before,
     .u-dicn-47::before {
       padding-top: 2px;
+    }
+    .m-table .ply::before,
+    .n-srchrst .srchsongst .hd .ply::before {
+      height: 14px;
+      line-height: 14px;
     }
   }
   body {

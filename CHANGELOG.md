@@ -3,6 +3,16 @@
 > 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
 
 
+0.7.15 / 2020-10-12
+===================
+- 修正辅助脚本的页面判定方式
+- 添加用户搜索`关注`按钮的样式 [(#14)](https://github.com/wTonyChen/flatnmusic/issues/14)
+- 改进歌单播放按钮样式 [(#12)](https://github.com/wTonyChen/flatnmusic/issues/12)
+- 修复歌单播放按钮在 Firefox 显示为椭圆形
+- 修复搜索页的搜索建议出现未预期的圆角
+- 修复歌曲不可用弹窗的按钮未垂直居中
+- 细节优化
+
 0.7.14 / 2020-10-11
 ===================
 - 修正辅助脚本的新功能可能未达到预期
