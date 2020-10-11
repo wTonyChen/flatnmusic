@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.1.6-0.7.13
+// @version 0.1.6-0.7.14
 // @author wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 83+
 // @compatible edge 83+
@@ -105,10 +105,10 @@
           return window.localStorage && (t = localStorage.getItem(e)), t;
         },
         s = n("wkhi-a"),
-        i = n("wkhi-b");
-      if (!i) return void e.parentElement.removeChild(e);
+        r = n("wkhi-b");
+      if (!r) return void e.parentElement.removeChild(e);
       document.documentElement.setAttribute("wk-style-assist", "true");
-      let r = l("wkoptin") || !1,
+      let i = l("wkoptin") || !1,
         o = function () {
           let e = arguments[0];
           for (let t = 1; t < arguments.length; t++) {
@@ -117,7 +117,7 @@
           }
           return e;
         };
-      r &&
+      i &&
         ((DocumentFragment.prototype.appendChildHost =
           DocumentFragment.prototype.appendChild),
         (DocumentFragment.prototype.appendChild = function () {
@@ -217,27 +217,28 @@
             l = document.querySelector(
               s ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
             ),
-            i = [],
-            r = document.querySelector(s ? null : ".m-playbar .btns .prv"),
-            o = document.querySelector(
-              s
-                ? ".m-ctvideo.z-play .controls .wrap .play"
-                : ".m-playbar .btns .ply"
-            ),
-            c = document.querySelector(s ? null : ".m-playbar .btns .nxt"),
-            d = document.querySelector(
-              s ? ".m-ctvideo" : ".m-playbar .btns .ply"
-            );
-          (d = d
-            ? d.classList.contains(s ? "z-play" : "pas")
+            r = [],
+            i =
+              (document.querySelector(s ? null : ".m-playbar .btns .prv"),
+              document.querySelector(
+                s
+                  ? ".m-ctvideo.z-play .controls .wrap .play"
+                  : ".m-playbar .btns .ply"
+              ),
+              document.querySelector(s ? null : ".m-playbar .btns .nxt"),
+              document.querySelector(
+                s ? ".m-ctvideo" : ".m-playbar .btns .ply"
+              ));
+          (i = i
+            ? i.classList.contains(s ? "z-play" : "pas")
               ? "playing"
-              : d.classList.contains(s ? "z-pause" : "ply")
+              : i.classList.contains(s ? "z-pause" : "ply")
               ? "paused"
               : "none"
             : "none"),
             l &&
               l.src &&
-              (i = [
+              (r = [
                 {
                   src: l.src.split("?")[0] + "?param=96y96",
                   sizes: "96x96",
@@ -275,7 +276,7 @@
               title: a ? a.innerText : document.title,
               artist: n ? n.innerText : "",
               album: n ? n.innerText : "",
-              artwork: i,
+              artwork: r,
             };
             !((e, t) => {
               if ("object" == typeof e)
@@ -292,48 +293,16 @@
               ((t = e),
               (navigator.mediaSession.metadata = new MediaMetadata(t)));
           } catch (e) {}
-          navigator.mediaSession.setActionHandler(
-            "play",
-            o
-              ? (e) => {
-                  o && o.click();
-                }
-              : null
-          ),
-            navigator.mediaSession.setActionHandler(
-              "pause",
-              o
-                ? (e) => {
-                    o && o.click();
-                  }
-                : null
-            ),
-            navigator.mediaSession.setActionHandler(
-              "previoustrack",
-              r
-                ? (e) => {
-                    r && r.click();
-                  }
-                : null
-            ),
-            navigator.mediaSession.setActionHandler(
-              "nexttrack",
-              c
-                ? (e) => {
-                    c && c.click();
-                  }
-                : null
-            );
         }
       };
       c(), window.setInterval(c, 2e3);
-      i &&
+      r &&
         (function () {
           if ("/user/update" == location.pathname) {
             let e = (e) => {
               let t = document.querySelector("#baseBox");
               if (t) {
-                let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.1.6-0.7.13</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${s}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+                let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.1.6-0.7.14</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${s}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
                   a =
                     '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                   n = [
@@ -352,14 +321,14 @@
                     },
                     {
                       label:
-                        "&#x542f;&#x7528;&#x5a92;&#x4f53;&#x952e;&#x63a7;&#x5236;&#x548c;&#x5a92;&#x4f53;&#x4fe1;&#x606f;&#x663e;&#x793a;&#xff08;&#x9700;&#x8981;&#x64cd;&#x4f5c;&#x7cfb;&#x7edf;&#x652f;&#x6301;&#xff09;",
+                        "&#x542f;&#x7528;&#x89c6;&#x9891;&#x9875;&#x9762;&#x7684;&#x5a92;&#x4f53;&#x4fe1;&#x606f;&#x663e;&#x793a;",
                       lsm: "wksmusicsessionmeta",
                       test: "'mediaSession' in navigator",
                     },
                   ],
-                  i = "";
+                  r = "";
                 for (let e = 0; e < n.length; e++) {
-                  if (n[e].roi && !r) continue;
+                  if (n[e].roi && !i) continue;
                   let t = !0;
                   if (n[e].test) {
                     t = !1;
@@ -369,16 +338,16 @@
                   }
                   if (!t) continue;
                   let s = l(n[e].lsm);
-                  i += o(
+                  r += o(
                     a,
                     n[e].label,
                     `${s ? "checked " : ""}data-wk-lsm="${n[e].lsm}"`
                   );
                 }
-                i = o(e, i);
+                r = o(e, r);
                 let c = document.createElement("div");
                 (c.className = "n-priv f-cb"),
-                  (c.innerHTML = i),
+                  (c.innerHTML = r),
                   c.addEventListener("change", (e) => {
                     let t = e.target.closest("[data-wk-lsm]"),
                       a = t.dataset.wkLsm;
