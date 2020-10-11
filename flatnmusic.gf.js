@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.1.4-0.7.11
+// @version 0.1.5-0.7.12
 // @author wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 83+
 // @compatible edge 83+
@@ -23,42 +23,42 @@
 
 !(function (e) {
   var t = {};
-  function l(n) {
-    if (t[n]) return t[n].exports;
-    var r = (t[n] = { i: n, l: !1, exports: {} });
-    return e[n].call(r.exports, r, r.exports, l), (r.l = !0), r.exports;
+  function n(l) {
+    if (t[l]) return t[l].exports;
+    var a = (t[l] = { i: l, l: !1, exports: {} });
+    return e[l].call(a.exports, a, a.exports, n), (a.l = !0), a.exports;
   }
-  (l.m = e),
-    (l.c = t),
-    (l.d = function (e, t, n) {
-      l.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
+  (n.m = e),
+    (n.c = t),
+    (n.d = function (e, t, l) {
+      n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: l });
     }),
-    (l.r = function (e) {
+    (n.r = function (e) {
       "undefined" != typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (l.t = function (e, t) {
-      if ((1 & t && (e = l(e)), 8 & t)) return e;
+    (n.t = function (e, t) {
+      if ((1 & t && (e = n(e)), 8 & t)) return e;
       if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-      var n = Object.create(null);
+      var l = Object.create(null);
       if (
-        (l.r(n),
-        Object.defineProperty(n, "default", { enumerable: !0, value: e }),
+        (n.r(l),
+        Object.defineProperty(l, "default", { enumerable: !0, value: e }),
         2 & t && "string" != typeof e)
       )
-        for (var r in e)
-          l.d(
-            n,
-            r,
+        for (var a in e)
+          n.d(
+            l,
+            a,
             function (t) {
               return e[t];
-            }.bind(null, r)
+            }.bind(null, a)
           );
-      return n;
+      return l;
     }),
-    (l.n = function (e) {
+    (n.n = function (e) {
       var t =
         e && e.__esModule
           ? function () {
@@ -67,13 +67,13 @@
           : function () {
               return e;
             };
-      return l.d(t, "a", t), t;
+      return n.d(t, "a", t), t;
     }),
-    (l.o = function (e, t) {
+    (n.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (l.p = ""),
-    l((l.s = 0));
+    (n.p = ""),
+    n((n.s = 0));
 })([
   function (e, t) {
     !(function () {
@@ -84,39 +84,39 @@
         (e.className = "wk-fnm-hi-cfg"),
         document.body.appendChild(e));
       let t = getComputedStyle(e),
-        l = (e) => {
-          let l = t.getPropertyValue("--" + e);
-          if (l)
+        n = (e) => {
+          let n = t.getPropertyValue("--" + e);
+          if (n)
             try {
-              l &&
-                l.indexOf("/") > -1 &&
-                (l = decodeURIComponent(l.replace(/\//g, "%")));
+              n &&
+                n.indexOf("/") > -1 &&
+                (n = decodeURIComponent(n.replace(/\//g, "%")));
             } catch (e) {}
           return (
-            ((0 === l.indexOf('"') && l.lastIndexOf('"') === l.length - 1) ||
-              (0 === l.indexOf("'") && l.lastIndexOf("'") === l.length - 1)) &&
-              (l = l.substr(1, l.length - 2)),
-            l
+            ((0 === n.indexOf('"') && n.lastIndexOf('"') === n.length - 1) ||
+              (0 === n.indexOf("'") && n.lastIndexOf("'") === n.length - 1)) &&
+              (n = n.substr(1, n.length - 2)),
+            n
           );
         },
-        n = (e) => {
+        l = (e) => {
           let t = void 0;
           return window.localStorage && (t = localStorage.getItem(e)), t;
         },
-        r = l("wkhi-a"),
-        o = l("wkhi-b");
-      if (!o) return void e.parentElement.removeChild(e);
+        a = n("wkhi-a"),
+        r = n("wkhi-b");
+      if (!r) return void e.parentElement.removeChild(e);
       document.documentElement.setAttribute("wk-style-assist", "true");
-      let a = n("wkoptin") || !1,
+      let o = l("wkoptin") || !1,
         s = function () {
           let e = arguments[0];
           for (let t = 1; t < arguments.length; t++) {
-            let l = RegExp("\\{" + t + "\\}", "g");
-            e = e.replace(l, arguments[t]);
+            let n = RegExp("\\{" + t + "\\}", "g");
+            e = e.replace(n, arguments[t]);
           }
           return e;
         };
-      a &&
+      o &&
         ((DocumentFragment.prototype.appendChildHost =
           DocumentFragment.prototype.appendChild),
         (DocumentFragment.prototype.appendChild = function () {
@@ -130,80 +130,118 @@
             arguments[0].classList.remove("hidden"),
             this.appendChildHost.call(this, ...arguments);
         })),
-        n("wksfullpl") &&
+        l("wksfullpl") &&
           ((e) => {
-            let t = l("wkhi-c"),
-              n = l("wkhi-d");
-            if (!t || !n) return;
-            (t = t.split("|")), (n = n.split("|"));
+            let t = n("wkhi-c"),
+              l = n("wkhi-d");
+            if (!t || !l) return;
+            (t = t.split("|")), (l = l.split("|"));
             for (let e = 0; e < t.length; e++)
-              for (let l = 0; l < n.length; l++)
-                (r = t[e]),
-                  (o = n[l]),
-                  (document.cookie = `${r};path=${o};max-age=3153600000`);
-            var r, o;
+              for (let n = 0; n < l.length; n++)
+                (a = t[e]),
+                  (r = l[n]),
+                  (document.cookie = `${a};path=${r};max-age=3153600000`);
+            var a, r;
           })();
       let i = (e) => {
         if (
-          (n("wkshiresimages") &&
+          (l("wkshiresimages") &&
             ((e) => {
               let t = document.querySelectorAll("img[data-src]");
               for (let e = 0; e < t; e++)
                 t[e].dataset.src &&
                   "" == t[e].src &&
                   (t[e].src = t[e].dataset.src);
-              let l = window.document.images;
-              for (let e = 0; e < l.length; e++) {
-                let t = l[e].src.split("?")[0];
-                if (l[e].src != t) {
-                  let n = new Image(),
-                    r = (o) => {
-                      l[e] &&
-                        (l[e].src.split("?")[0] == t &&
-                          ((l[e].src = t),
-                          l[e].classList.add("wk-hires-loaded")),
-                        n.removeEventListener("load", r, !1));
+              let n = window.document.images;
+              for (let e = 0; e < n.length; e++) {
+                let t = n[e].src.split("?")[0];
+                if (n[e].src != t) {
+                  let l = new Image(),
+                    a = (r) => {
+                      n[e] &&
+                        (n[e].src.split("?")[0] == t &&
+                          ((n[e].src = t),
+                          n[e].classList.add("wk-hires-loaded")),
+                        l.removeEventListener("load", a, !1));
                     };
-                  n.addEventListener("load", r, !1),
-                    l[e].classList.remove("wk-hires-loaded"),
-                    (n.src = t);
+                  l.addEventListener("load", a, !1),
+                    n[e].classList.remove("wk-hires-loaded"),
+                    (l.src = t);
                 }
               }
             })(),
-          0 == location.pathname.indexOf("/user/"))
+          l("wksimprovedlook"))
         ) {
-          let e = document.querySelector(".m-proifo dt img"),
-            t = document.querySelector(".g-bd");
-          e &&
-            e.src &&
-            t &&
-            (document.documentElement.classList.add("has-upb"),
-            (t.style.cssText = `--upb:url("${e.src}")`));
-          let l = document.querySelector(".m-proifo .name .tit"),
-            n = document.querySelector(".m-proifo .name #j-name-wrap");
-          l &&
+          if (0 == location.pathname.indexOf("/user/")) {
+            let e = document.querySelector(".m-proifo dt img"),
+              t = document.querySelector(".g-bd");
+            e &&
+              e.src &&
+              t &&
+              (document.documentElement.classList.add("has-upb"),
+              (t.style.cssText = `--upb:url("${e.src}")`));
+            let n = document.querySelector(".m-proifo .name .tit"),
+              l = document.querySelector(".m-proifo .name #j-name-wrap");
             n &&
-            ((n.dataset.wkUsernameFull = n.title = l.innerText),
-            n.classList.add("wk-full-username"));
+              l &&
+              ((l.dataset.wkUsernameFull = l.title = n.innerText),
+              l.classList.add("wk-full-username"));
+          }
+          let e = document.querySelector(".g-wrap>.m-info .cover img"),
+            t = document.querySelector(".g-wrap>.m-info");
+          e &&
+            t &&
+            (document.documentElement.classList.add("has-mib"),
+            (t.style.cssText = `--mib:url("${e.src}")`));
         }
-        let t = document.querySelector(".g-wrap>.m-info .cover img"),
-          l = document.querySelector(".g-wrap>.m-info");
-        t &&
-          l &&
-          (document.documentElement.classList.add("has-mib"),
-          (l.style.cssText = `--mib:url("${t.src}")`));
+        if (l("wksmusicsessionmeta") && "mediaSession" in navigator) {
+          let e = document.querySelector(".m-playbar .words .name"),
+            t = document.querySelector(".m-playbar .words .by"),
+            n = document.querySelector(".m-playbar .head img"),
+            l = [],
+            a = document.querySelector(".m-playbar .btns .prv"),
+            r = document.querySelector(".m-playbar .btns .ply"),
+            o = document.querySelector(".m-playbar .btns .nxt");
+          n && n.src && l.push([{ src: n.src.split("?")[0] }]),
+            (navigator.mediaSession.metadata = new MediaMetadata({
+              title: e ? e.innerText : document.title,
+              artist: e ? t.innerText : "",
+              artwork: l,
+            })),
+            navigator.mediaSession.setActionHandler(
+              "play",
+              (e) => !!r && r.click()
+            ),
+            navigator.mediaSession.setActionHandler(
+              "pause",
+              (e) => !!r && r.click()
+            ),
+            navigator.mediaSession.setActionHandler(
+              "previoustrack",
+              (e) => !!a && a.click()
+            ),
+            navigator.mediaSession.setActionHandler(
+              "nexttrack",
+              (e) => !!o && o.click()
+            );
+        }
       };
       i(), window.setInterval(i, 2e3);
-      o &&
+      r &&
         (function () {
           if ("/user/update" == location.pathname) {
             let e = (e) => {
               let t = document.querySelector("#baseBox");
               if (t) {
-                let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.1.4-0.7.11</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
-                  l =
+                let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.1.5-0.7.12</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${a}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+                  n =
                     '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
-                  o = [
+                  r = [
+                    {
+                      label:
+                        "&#x4f7f;&#x7528;&#x6837;&#x5f0f;&#x8868;&#x7684;&#x589e;&#x5f3a;&#x5916;&#x89c2;",
+                      lsm: "wksimprovedlook",
+                    },
                     {
                       label: "&#x663e;&#x793a;&#x5b8c;&#x6574;&#x6b4c;&#x5355;",
                       lsm: "wksfullpl",
@@ -212,15 +250,29 @@
                       label: "&#x663e;&#x793a;&#x9ad8;&#x6e05;&#x56fe;&#x7247;",
                       lsm: "wkshiresimages",
                     },
+                    {
+                      label:
+                        "&#x5728;&#x7cfb;&#x7edf;&#x4e2d;&#x663e;&#x793a;&#x5a92;&#x4f53;&#x4fe1;&#x606f;&#xff08;&#x9700;&#x8981;&#x64cd;&#x4f5c;&#x7cfb;&#x7edf;&#x652f;&#x6301;&#xff09;",
+                      lsm: "wksmusicsessionmeta",
+                      test: "'mediaSession' in navigator",
+                    },
                   ],
                   i = "";
-                for (let e = 0; e < o.length; e++) {
-                  if (o[e].roi && !a) continue;
-                  let t = n(o[e].lsm);
+                for (let e = 0; e < r.length; e++) {
+                  if (r[e].roi && !o) continue;
+                  let t = !0;
+                  if (r[e].test) {
+                    t = !1;
+                    try {
+                      t = !!window.eval(r[e].test);
+                    } catch (e) {}
+                  }
+                  if (!t) continue;
+                  let a = l(r[e].lsm);
                   i += s(
-                    l,
-                    o[e].label,
-                    `${t ? "checked " : ""}data-wk-lsm="${o[e].lsm}"`
+                    n,
+                    r[e].label,
+                    `${a ? "checked " : ""}data-wk-lsm="${r[e].lsm}"`
                   );
                 }
                 i = s(e, i);
@@ -229,12 +281,12 @@
                   (c.innerHTML = i),
                   c.addEventListener("change", (e) => {
                     let t = e.target.closest("[data-wk-lsm]"),
-                      l = t.dataset.wkLsm;
+                      n = t.dataset.wkLsm;
                     t &&
-                      l &&
+                      n &&
                       ((e, t) => {
                         window.localStorage && localStorage.setItem(e, t);
-                      })(l, t.checked ? "1" : "");
+                      })(n, t.checked ? "1" : "");
                   }),
                   t.appendChild(c);
               }

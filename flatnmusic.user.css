@@ -34,7 +34,7 @@
 
 @-moz-document regexp("\\S*\\://music\\.163\\.com/(#/?)?((discover|playlist|my|friend|user|song|artist|search|msg|member|topic|album|program|outchain|dj|download|mv|video|event|activity|lyric|login|prime|series|404)[\\s\\S]*)?"){/*[[helper-integration]]*/@font-face{font-family:Arial;src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:simsun;src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:"Microsoft Yahei";src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:Tahoma;src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:Georgia;src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:"Times New Roman";src:local('/*[[font-1st]]*/'),local("Arial")}@font-face{font-family:Helvetica;src:/*[[font-2nd]]*/local('Segoe UI')}@font-face{font-family:\5b8b\4f53;src:/*[[font-2nd]]*/local('Segoe UI')}@font-face{font-family:Geneva;src:/*[[font-2nd]]*/local('Segoe UI')}/*[[fixed-topbar]]*/@font-face{font-family:Times;src:/*[[font-2nd]]*/local('Segoe UI')}/*[[animation]]*/*{--gc-aa:/*[[color]]*/ !important}/*[[app-download]]*/body{background:/*[[bg-color]]*/ no-repeat !important}/*[[global-radius]]*/@media all{/*[[ui-color-schema]]*/}
 /*
-	Flat-Style Netease Music by wTonyChen 0.7.12 (20201010)
+	Flat-Style Netease Music by wTonyChen 0.7.12 (20201011)
 	https://wtonychen.github.io/flatnmusic/
 	License: Apache License 2.0
 */
