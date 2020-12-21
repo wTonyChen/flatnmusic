@@ -3,6 +3,18 @@
 > 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
 
 
+0.8.0 / 2020-12-22
+===================
+- 细节优化和修复
+- 为 UserCSS 版本添加模糊效果选项 (需要浏览器支持，而且可能会影响性能)
+- 修复歌曲和部分内容操作按钮区可能会出现溢出错位的问题
+- 为首页用户名添加完整显示效果 (用户名旁有图标的情况)
+- 为用户头像添加鼠标悬浮效果
+- 修改歌曲资料页面的适配 [(#15)](https://github.com/wTonyChen/flatnmusic/issues/15)
+- 分享跳转页的适配 [(#16)](https://github.com/wTonyChen/flatnmusic/issues/16)
+- 歌曲页 "VIP 单曲" 标签和 "VIP 尊享" 播放按钮的适配 [(#17)](https://github.com/wTonyChen/flatnmusic/issues/17)
+- 正在播放列表中无法正确显示无来源歌曲的问题 [(#17)](https://github.com/wTonyChen/flatnmusic/issues/17)
+
 0.7.15 / 2020-10-12
 ===================
 - 修正辅助脚本的页面判定方式
