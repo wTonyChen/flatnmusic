@@ -3,6 +3,11 @@
 > 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
 
 
+0.8.1 / 2020-12-22
+===================
+- 细节优化和修复
+- 歌曲页 "VIP 尊享" 播放按钮的适配 [(#17)](https://github.com/wTonyChen/flatnmusic/issues/17)
+
 0.8.0 / 2020-12-22
 ===================
 - 细节优化和修复
