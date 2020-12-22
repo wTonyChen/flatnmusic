@@ -3,6 +3,10 @@
 > 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
 
 
+0.8.2 / 2020-12-22
+===================
+- 为正在播放列表中暂无来源的图标恢复工具提示 [(#17)](https://github.com/wTonyChen/flatnmusic/issues/17)
+
 0.8.1 / 2020-12-22
 ===================
 - 细节优化和修复
