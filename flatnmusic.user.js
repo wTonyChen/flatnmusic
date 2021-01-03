@@ -7,7 +7,8 @@
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
 // @version 0.2.2-0.8.8
-// @author wTonyChen (https://wtonychen.github.io)
+// @author wTonyChen
+// @copyright 2021 wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 87+
 // @compatible edge 87+
 // @compatible opera 73+

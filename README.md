@@ -38,7 +38,7 @@ UserCSS 版本 (适用于 Stylus 扩展，含调整功能)：[![安装样式](ht
 <br>
 
 **辅助用户脚本下载 ![版本](https://img.shields.io/badge/dynamic/json?color=orange&label=%E7%89%88%E6%9C%AC&query=%24.script&url=https://wtonychen.github.io/flatnmusic/VERSIONS&style=flat)**：<br>
-[Greasy Fork](https://greasyfork.org/scripts/369688) | [GitHub](https://wtonychen.github.io/flatnmusic/flatnmusic.user.js)
+[Greasy Fork](https://greasyfork.org/scripts/369688) | [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC) | [GitHub](https://wtonychen.github.io/flatnmusic/flatnmusic.user.js)
 
 > 不了解如何安装？前往了解[如何安装用户脚本?](https://greasyfork.org/help/installing-user-scripts)</a>
 

@@ -1,6 +1,8 @@
 > 🎉 现在 Userstyles.org 上已恢复更新，[点此前往新版](https://userstyles.org/styles/186848) 🎉
 > 
 > 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
+> 
+> 🎉 现已在 [OpenUserJS](%{{downloads.style.oujs}}%) 上进行分发 🎉
 
 
 0.8.8 / 2021-01-04
@@ -8,6 +10,7 @@
 - 细节优化
 - 改进动态顶栏恢复显示机制
 - 修复播放电台节目时，底部播放栏不显示`赞`图标
+- 辅助脚本现已在 OpenUserJS 分发
 
 0.8.7 / 2021-01-03
 ===================
