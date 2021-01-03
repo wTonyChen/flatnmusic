@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name:en Userscript Helper for Flat-Style Netease Music Userstyle 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description:en Provides a better experience for Flat-Style Netease Music Userstyle. 为网易云音乐扁平风格样式表提供更佳的用户体验。
-// @name:zh-CN 适用于网易云音乐扁平风格样式表的辅助用户脚本
-// @description:zh-CN 为网易云音乐扁平风格样式表提供更佳的用户体验。
+// @name:zh 适用于网易云音乐扁平风格样式表的辅助用户脚本
+// @description:zh 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.0-0.8.5
+// @version 0.2.1-0.8.7
 // @author wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 87+
 // @compatible edge 87+
@@ -93,8 +93,8 @@
       312: "2b55",
       313: "274c",
     },
-    n = "/style/web2/emt/emoji_",
-    i = (e) => {
+    i = "/style/web2/emt/emoji_",
+    n = (e) => {
       let t = s.getPropertyValue("--" + e);
       if (t)
         try {
@@ -113,8 +113,8 @@
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    r = i("wkhi-a"),
-    c = i("wkhi-b");
+    r = n("wkhi-a"),
+    c = n("wkhi-b");
   if (!c) return void t.parentElement.removeChild(t);
   document.documentElement.setAttribute("wk-style-assist", "true");
   let m = o("wkoptin") || !1,
@@ -131,17 +131,17 @@
       a = !1,
       s = document.querySelector("#g-topbar"),
       l = document.querySelector("#g_iframe"),
-      n = 0,
-      i = 0;
+      i = 0,
+      n = 0;
     if (!s || !Object.is(window.self, window.top)) return;
     let r = 1.6 * s.getBoundingClientRect().height;
     l.addEventListener("load", (e) => {
-      (i = 0), (n = 0), (t = 0);
+      (n = 0), (i = 0), (t = 0);
       let c = !1,
         m = s.animate([{ transform: "translateY(0)" }], {
           duration: 200,
           fill: "backwards",
-          easing: "ease",
+          easing: "cubic-bezier(.16,1,.29,.99)",
         });
       (m.onfinish = (e) => {
         (c = !0), (s.style.transform = "translateY(0)");
@@ -153,12 +153,12 @@
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (o("wksdscrolling")) {
-                    let t = e - n;
-                    (i = Math.max(Math.min(i + t, r), 0)),
+                    let t = e - i;
+                    (n = Math.max(Math.min(n + t, r), 0)),
                       (s.style.top = "0 !important"),
-                      (s.style.transform = `translateY(-${i}px)`);
-                  } else (s.style.top = ""), (s.style.transform = ""), (i = 0);
-                  n = e;
+                      (s.style.transform = `translateY(-${n}px)`);
+                  } else (s.style.top = ""), (s.style.transform = ""), (n = 0);
+                  i = e;
                 })(t),
                   (a = !1);
               }),
@@ -193,14 +193,14 @@
       })),
     o("wksfullpl") &&
       ((e) => {
-        let t = i("wkhi-c"),
-          a = i("wkhi-d");
+        let t = n("wkhi-c"),
+          a = n("wkhi-d");
         if (t && a) {
           (t = t.split("|")), (a = a.split("|"));
           for (let e = 0; e < t.length; e++)
-            for (let n = 0; n < a.length; n++)
+            for (let i = 0; i < a.length; i++)
               (s = t[e]),
-                (l = a[n]),
+                (l = a[i]),
                 (document.cookie = `${s};path=${l};max-age=3153600000`);
           var s, l;
         }
@@ -217,7 +217,7 @@
             let t = a[e].src.split("?")[0];
             if (a[e].src != t) {
               let s = new Image(),
-                l = (n) => {
+                l = (i) => {
                   a[e] &&
                     (a[e].src.split("?")[0] == t &&
                       ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
@@ -231,9 +231,9 @@
         })(),
       o("wksemojisym") &&
         ((e) => {
-          let t = document.querySelectorAll(`img[src*="${n}"]`);
+          let t = document.querySelectorAll(`img[src*="${i}"]`);
           for (let e = 0; e < t.length; e++) {
-            let a = t[e].src.split(n)[1];
+            let a = t[e].src.split(i)[1];
             a &&
               ((a = a.split(".")[0]),
               !isNaN(+a) &&
@@ -274,43 +274,43 @@
         ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
           "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
       s = "/" == location.pathname,
-      i =
+      n =
         "video" == location.pathname.substring(1).split("/")[0] ||
         "mv" == location.pathname.substring(1).split("/")[0];
     if (
       o("wksmusicsessionmeta") &&
       "mediaSession" in navigator &&
-      (i || (s && !t))
+      (n || (s && !t))
     ) {
       let t = document.querySelector(
-          i ? ".n-mv .title h2" : ".m-playbar .words .name"
+          n ? ".n-mv .title h2" : ".m-playbar .words .name"
         ),
         s = document.querySelector(
-          i ? ".n-mv .title .name" : ".m-playbar .words .by"
+          n ? ".n-mv .title .name" : ".m-playbar .words .by"
         ),
         l = document.querySelector(
-          i ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+          n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
         ),
-        n = [],
+        i = [],
         o =
-          (document.querySelector(i ? null : ".m-playbar .btns .prv"),
+          (document.querySelector(n ? null : ".m-playbar .btns .prv"),
           document.querySelector(
-            i
+            n
               ? ".m-ctvideo.z-play .controls .wrap .play"
               : ".m-playbar .btns .ply"
           ),
-          document.querySelector(i ? null : ".m-playbar .btns .nxt"),
-          document.querySelector(i ? ".m-ctvideo" : ".m-playbar .btns .ply"));
+          document.querySelector(n ? null : ".m-playbar .btns .nxt"),
+          document.querySelector(n ? ".m-ctvideo" : ".m-playbar .btns .ply"));
       (o = o
-        ? o.classList.contains(i ? "z-play" : "pas")
+        ? o.classList.contains(n ? "z-play" : "pas")
           ? "playing"
-          : o.classList.contains(i ? "z-pause" : "ply")
+          : o.classList.contains(n ? "z-pause" : "ply")
           ? "paused"
           : "none"
         : "none"),
         l &&
           l.src &&
-          (n = [
+          (i = [
             {
               src: l.src.split("?")[0] + "?param=96y96",
               sizes: "96x96",
@@ -348,7 +348,7 @@
           title: t ? t.innerText : document.title,
           artist: s ? s.innerText : "",
           album: s ? s.innerText : "",
-          artwork: n,
+          artwork: i,
         };
         !((e, t) => {
           if ("object" == typeof e)
@@ -361,7 +361,7 @@
             } catch (e) {}
           return e == t;
         })(e, a) &&
-          i &&
+          n &&
           ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
       } catch (e) {}
     }
@@ -374,7 +374,7 @@
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.0-0.8.5</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.1-0.8.7</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
                 a =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 s = [
@@ -424,18 +424,18 @@
                   } catch (e) {}
                 }
                 if (!t) continue;
-                let n = o(s[e].lsm);
+                let i = o(s[e].lsm);
                 l += d(
                   a,
                   s[e].label,
-                  `${n ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
+                  `${i ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
                 );
               }
               l = d(e, l);
-              let n = document.createElement("div");
-              (n.className = "n-priv f-cb"),
-                (n.innerHTML = l),
-                n.addEventListener("change", (e) => {
+              let i = document.createElement("div");
+              (i.className = "n-priv f-cb"),
+                (i.innerHTML = l),
+                i.addEventListener("change", (e) => {
                   let t = e.target.closest("[data-wk-lsm]"),
                     a = t.dataset.wkLsm;
                   t &&
@@ -444,7 +444,7 @@
                       window.localStorage && localStorage.setItem(e, t);
                     })(a, t.checked ? "1" : "");
                 }),
-                t.appendChild(n);
+                t.appendChild(i);
             }
           };
           window.addEventListener("load", e);
