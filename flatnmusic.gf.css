@@ -6,7 +6,7 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.8.5
+@version 0.8.6
 @author wTonyChen (https://wtonychen.github.io)
 @homepageURL https://wtonychen.github.io/flatnmusic/
 @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -23,13 +23,13 @@
 @var select animation "\u8fc7\u6e21\u52a8\u753b"{"\u542f\u7528":" ","\u7981\u7528":"*,*::before,*::after{animation-timing-function:step-start !important;transition-timing-function:step-start !important;--alt-aa:all .1s step-start !important;scroll-behavior:initial !important}"}
 @var color color "\u4e3b\u9898\u8272" #c20c0c
 @var color bg-color "\u80cc\u666f\u8272" #fff
-@var select blur-effect "\u6a21\u7cca\u6548\u679c\uff08\u9700\u6d4f\u89c8\u5668\u652f\u6301\uff09"{"\u5173\u95ed":" ","\u5f00\u542f":"@supports(backdrop-filter:none){.u-cover .bottom,.m-dlist .src-video .ply,.m-playbar .bg,.m-playbar .list,div.m-mask,div.m-layer~[class*=auto-],.u-cover .ci,.m-mvlist .tr,.m-mvlist .bl,.n-artist .btn-rz,.n-artist .btnfav,.m-vipcashier-modal-overlay{backdrop-filter:blur(30px) saturate(2)}.m-playbar .list{opacity:1}.m-playbar .bg,.m-playbar .listhd,.m-playbar .listbd{background:rgba(0,0,0,.8)}div.m-mask{background:rgba(0,0,0,.1)}.m-dlist .src-video .ply{border-radius:99vh;opacity:1}.m-ctvideo.z-fullscreen,.m-sysmsg,div.m-layer{animation-name:window-in-alt}div.m-layer.hidden{animation-name:window-in-alt-r;animation-timing-function:var(--gb-al)}}"}
+@var select blur-effect "\u6a21\u7cca\u6548\u679c\uff08\u9700\u6d4f\u89c8\u5668\u652f\u6301\uff09"{"\u5173\u95ed":" ","\u5f00\u542f":"@supports(backdrop-filter:none){.u-cover .bottom,.m-dlist .src-video .ply,.m-playbar .bg,.m-playbar .list,div.m-mask,div.m-layer~[class*=auto-],.u-cover .ci,.m-mvlist .tr,.m-mvlist .bl,.n-artist .btn-rz,.n-artist .btnfav,.m-vipcashier-modal-overlay{backdrop-filter:blur(30px) saturate(2)}.m-playbar .list{opacity:1}.m-playbar .bg,.m-playbar .listhd,.m-playbar .listbd{background:rgba(0,0,0,.8)}div.m-mask{background:rgba(0,0,0,.1)}.m-dlist .src-video .ply{border-radius:99vh;opacity:1}.m-ctvideo.z-fullscreen,div.m-layer{animation-name:window-in-alt}div.m-layer.hidden{animation-name:window-in-alt-r;animation-timing-function:var(--gb-al)}.m-sysmsg{animation:window-in-alt .3s var(--gb-ad) backwards,window-in-alt-r .3s var(--gb-al) 1s forwards}}"}
 @var select app-download "\u9690\u85cf\u5ba2\u6237\u7aef\u4e0b\u8f7d"{"\u53ef\u89c1":" ","\u9690\u85cf":".n-ban .download,.m-multi{display:none !important}.n-ban .ban img{margin:0 auto !important}.n-ban .ban .btnl{left:10px !important}.n-ban .ban .btnr{right:10px !important}.n-ban .dots{width:100% !important}"}
 @var select fixed-topbar "\u9876\u680f\u6eda\u52a8\u72b6\u6001"{"\u56fa\u5b9a\u4e8e\u9876\u90e8":".g-topbar{top:0 !important}","\u8ddf\u968f\u9875\u9762\u6eda\u52a8":" "}
-@var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:#fff}.m-top{background:#fff}.m-nav a{color:grey}.m-nav a:hover{color:#333}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{background:rgba(0,0,0,.1)}.m-srch .parent input:hover{background:rgba(0,0,0,.2)}.m-srch .parent input:focus{background:#fff;box-shadow:inset 0 1px 0 rgba(0,0,0,.1)}.m-topvd{border-color:grey;color:grey}.m-topvd:hover{border-color:#333;color:#333}.m-tlist{border-color:#ccc;background:#f2f2f2}.m-tlist a:hover{background:#dadada}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:#000}"}
+@var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:#fff}.m-top{background:#fff}.m-nav a{color:grey}.m-nav a:hover{color:#333}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.1)}.m-srch .parent input:hover{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.2)}.m-srch .parent input:focus{box-shadow:inset 0 32px 0 0 #fff}.m-topvd{border-color:grey;color:grey}.m-topvd:hover{border-color:#333;color:#333}.m-tlist{border-color:#ccc;background:#f2f2f2}.m-tlist a:hover{background:#dadada}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:#000}"}
 @var select topbar-nav-style "\u9876\u680f\u5bfc\u822a\u98ce\u683c"{"\u5706\u89d2":" ","\u76f4\u89d2":".m-nav a.z-slt{border-radius:0}","\u5927\u5706\u89d2":".m-nav a,.m-nav a.z-slt{transform:scale(.8);border-radius:99vw}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*,*::before,*::after{border-radius:0 !important}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.5';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.6';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}","\u7981\u7528":" "}
 @var text custom-style "\u81ea\u5b9a\u4e49\u6837\u5f0f" " "
 ==/UserStyle== */
 
@@ -86,7 +86,7 @@
     /*[[ui-color-schema]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen 0.8.5 (20210103)
+	Flat-Style Netease Music by wTonyChen 0.8.6 (20210103)
 	https://wtonychen.github.io/flatnmusic/
 	License: Apache License 2.0
 */
@@ -470,6 +470,9 @@
   .m-srch .srchbg {
     overflow: hidden;
   }
+  .m-srch .srchbg:focus-within {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  }
   .m-srch .parent {
     margin: 0;
     display: block;
@@ -480,18 +483,19 @@
   .m-srch .parent input {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    background: none;
     border-radius: 99vh;
     padding: 0 20px;
     box-sizing: border-box;
     position: relative;
     z-index: 999999;
+    box-shadow: inset 0 32px 0 0 rgba(255, 255, 255, 0.85);
   }
   .m-srch .parent input:hover {
-    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 32px 0 0 rgba(255, 255, 255, 0.9);
   }
   .m-srch .parent input:focus {
-    background: #fff;
+    box-shadow: inset 0 32px 0 0 #fff;
   }
   .m-srch .parent label {
     white-space: nowrap;
@@ -871,13 +875,13 @@
     animation: side-in 0.2s var(--gb-ad) backwards;
   }
   div.m-layer {
-    animation: window-in 0.5s var(--gb-ad) backwards;
+    animation: window-in 0.3s var(--gb-ad) backwards;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   }
   div.m-layer.hidden {
-    animation: window-in-r 0.5s var(--gb-ad) both;
+    animation: window-in-r 0.3s var(--gb-ad) both;
     pointer-events: none;
   }
   div.m-layer div.zcnt {
@@ -1180,10 +1184,12 @@
     transition: all 0.3s ease;
     width: 100%;
     box-sizing: border-box;
+    transform: scale(0.95);
   }
   .m-playbar .listlyric p.z-sel {
     font-size: 12px;
     transform: scale(1.2);
+    font-weight: 700;
   }
   .m-tophead .link,
   .m-tophead:hover .link,
@@ -1612,7 +1618,7 @@
     display: block;
     width: 80%;
     height: 5px;
-    background: #b8b8b8;
+    background: rgba(0, 0, 0, 0.4);
     position: absolute;
     bottom: 100%;
     pointer-events: none;
@@ -1625,7 +1631,7 @@
     display: block;
     width: 60%;
     height: 3px;
-    background: #d8d8d8;
+    background: rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: calc(100% + 5px);
     pointer-events: none;
@@ -1634,11 +1640,11 @@
     border-radius: 3px 3px 0 0;
   }
   .g-wrap:hover .m-info .cover::before {
-    height: 10px;
+    height: 15px;
   }
   .g-wrap:hover .m-info .cover::after {
-    bottom: calc(100% + 10px);
-    height: 5px;
+    bottom: calc(100% + 15px);
+    height: 6px;
   }
   .m-cvrlst li,
   .p-prf .m-cvrlst li {
@@ -2356,9 +2362,20 @@
   html[wk-style-assist] .n-artist .sname,
   html[wk-style-assist] .n-artist .salias {
     color: #fff;
+    user-select: none;
+  }
+  html[wk-style-assist] .n-artist .sname {
+    font-weight: 700;
   }
   html[wk-style-assist] .n-artist .salias {
-    opacity: 0.8;
+    opacity: 0.6;
+    font-weight: 300;
+  }
+  .m-dlist .src,
+  .m-dlist .card,
+  .m-dlist .hotrecmt .bar,
+  .m-dlist .showpic {
+    background: rgba(0, 0, 0, 0.1);
   }
   .g-wrap6 {
     padding-top: 60px;
@@ -3239,7 +3256,7 @@
   .m-sysmsg {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     animation: window-in 0.3s var(--gb-ad) backwards,
-      window-in 0.3s var(--gb-ad) 1s forwards reverse;
+      window-in-r 0.3s var(--gb-ad) 1s forwards;
     width: 350px;
     height: 200px;
     box-sizing: border-box;
@@ -3439,8 +3456,23 @@
   .m-back {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   }
-  .m-radio .toplist .tag {
+  .m-radio .toplist .tag,
+  .m-lysearch .srchlist .itm,
+  .m-lysearch .srchlist .sitm,
+  .n-srchrst .srchsongst .item {
     border-radius: 99vh;
+  }
+  .n-srchrst .srchsongst .item {
+    padding: 10px 0 4px 14px;
+  }
+  .n-srchrst .srchsongst .td {
+    margin-right: 10px;
+  }
+  .m-table-2 tr td.first {
+    border-radius: 20px 0 0 20px;
+  }
+  .m-table-2 tr td.last {
+    border-radius: 0 20px 20px 0;
   }
   .m-radio .rditype .box.z-show {
     animation: side-in-x 0.5s var(--gb-ad);
