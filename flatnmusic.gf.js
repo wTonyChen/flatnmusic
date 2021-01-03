@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.1-0.8.7
+// @version 0.2.2-0.8.8
 // @author wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 87+
 // @compatible edge 87+
@@ -93,8 +93,8 @@
       312: "2b55",
       313: "274c",
     },
-    i = "/style/web2/emt/emoji_",
-    n = (e) => {
+    n = "/style/web2/emt/emoji_",
+    i = (e) => {
       let t = s.getPropertyValue("--" + e);
       if (t)
         try {
@@ -113,12 +113,12 @@
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    r = n("wkhi-a"),
-    c = n("wkhi-b");
+    r = i("wkhi-a"),
+    c = i("wkhi-b");
   if (!c) return void t.parentElement.removeChild(t);
   document.documentElement.setAttribute("wk-style-assist", "true");
-  let m = o("wkoptin") || !1,
-    d = function () {
+  let d = o("wkoptin") || !1,
+    m = function () {
       let e = arguments[0];
       for (let t = 1; t < arguments.length; t++) {
         let a = RegExp("\\{" + t + "\\}", "g");
@@ -127,42 +127,50 @@
       return e;
     };
   ((e) => {
-    let t = 0,
-      a = !1,
-      s = document.querySelector("#g-topbar"),
-      l = document.querySelector("#g_iframe"),
+    let t,
+      a = 0,
+      s = !1,
+      l = document.querySelector("#g-topbar"),
+      n = document.querySelector("#g_iframe"),
       i = 0,
-      n = 0;
-    if (!s || !Object.is(window.self, window.top)) return;
-    let r = 1.6 * s.getBoundingClientRect().height;
-    l.addEventListener("load", (e) => {
-      (n = 0), (i = 0), (t = 0);
-      let c = !1,
-        m = s.animate([{ transform: "translateY(0)" }], {
-          duration: 200,
-          fill: "backwards",
-          easing: "cubic-bezier(.16,1,.29,.99)",
-        });
-      (m.onfinish = (e) => {
-        (c = !0), (s.style.transform = "translateY(0)");
-      }),
-        l.contentDocument.addEventListener("scroll", (e) => {
-          c || m.cancel(),
-            (t = l.contentWindow.scrollY),
-            a ||
+      r = 0,
+      c = !0;
+    if (!l || !Object.is(window.self, window.top)) return;
+    let d = 1.6 * l.getBoundingClientRect().height,
+      m = (e) => {
+        t && t.cancel(),
+          (r = 0),
+          (i = 0),
+          (a = 0),
+          (c = !1),
+          (t = l.animate([{ transform: "translateY(0)" }], {
+            duration: 200,
+            fill: "backwards",
+            easing: "cubic-bezier(.16,1,.29,.99)",
+          })),
+          (t.onfinish = (e) => {
+            (c = !0), (l.style.transform = "translateY(0)");
+          });
+      };
+    n.addEventListener("load", (e) => {
+      n.contentWindow.addEventListener("beforeunload", m),
+        n.contentDocument.addEventListener("scroll", (e) => {
+          c || t.cancel(),
+            (a = n.contentWindow.scrollY),
+            s ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (o("wksdscrolling")) {
                     let t = e - i;
-                    (n = Math.max(Math.min(n + t, r), 0)),
-                      (s.style.top = "0 !important"),
-                      (s.style.transform = `translateY(-${n}px)`);
-                  } else (s.style.top = ""), (s.style.transform = ""), (n = 0);
+                    (r = Math.max(Math.min(r + t, d), 0)),
+                      (l.style.top = "0 !important"),
+                      (l.style.transform = `translateY(-${r}px)`);
+                  } else (l.style.top = ""), (l.style.transform = ""), (r = 0);
                   i = e;
-                })(t),
-                  (a = !1);
+                })(a),
+                  (s = !1);
               }),
-              (a = !0));
+              (s = !0));
         });
     });
   })(),
@@ -193,14 +201,14 @@
       })),
     o("wksfullpl") &&
       ((e) => {
-        let t = n("wkhi-c"),
-          a = n("wkhi-d");
+        let t = i("wkhi-c"),
+          a = i("wkhi-d");
         if (t && a) {
           (t = t.split("|")), (a = a.split("|"));
           for (let e = 0; e < t.length; e++)
-            for (let i = 0; i < a.length; i++)
+            for (let n = 0; n < a.length; n++)
               (s = t[e]),
-                (l = a[i]),
+                (l = a[n]),
                 (document.cookie = `${s};path=${l};max-age=3153600000`);
           var s, l;
         }
@@ -217,7 +225,7 @@
             let t = a[e].src.split("?")[0];
             if (a[e].src != t) {
               let s = new Image(),
-                l = (i) => {
+                l = (n) => {
                   a[e] &&
                     (a[e].src.split("?")[0] == t &&
                       ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
@@ -231,9 +239,9 @@
         })(),
       o("wksemojisym") &&
         ((e) => {
-          let t = document.querySelectorAll(`img[src*="${i}"]`);
+          let t = document.querySelectorAll(`img[src*="${n}"]`);
           for (let e = 0; e < t.length; e++) {
-            let a = t[e].src.split(i)[1];
+            let a = t[e].src.split(n)[1];
             a &&
               ((a = a.split(".")[0]),
               !isNaN(+a) &&
@@ -274,43 +282,43 @@
         ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
           "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
       s = "/" == location.pathname,
-      n =
+      i =
         "video" == location.pathname.substring(1).split("/")[0] ||
         "mv" == location.pathname.substring(1).split("/")[0];
     if (
       o("wksmusicsessionmeta") &&
       "mediaSession" in navigator &&
-      (n || (s && !t))
+      (i || (s && !t))
     ) {
       let t = document.querySelector(
-          n ? ".n-mv .title h2" : ".m-playbar .words .name"
+          i ? ".n-mv .title h2" : ".m-playbar .words .name"
         ),
         s = document.querySelector(
-          n ? ".n-mv .title .name" : ".m-playbar .words .by"
+          i ? ".n-mv .title .name" : ".m-playbar .words .by"
         ),
         l = document.querySelector(
-          n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+          i ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
         ),
-        i = [],
+        n = [],
         o =
-          (document.querySelector(n ? null : ".m-playbar .btns .prv"),
+          (document.querySelector(i ? null : ".m-playbar .btns .prv"),
           document.querySelector(
-            n
+            i
               ? ".m-ctvideo.z-play .controls .wrap .play"
               : ".m-playbar .btns .ply"
           ),
-          document.querySelector(n ? null : ".m-playbar .btns .nxt"),
-          document.querySelector(n ? ".m-ctvideo" : ".m-playbar .btns .ply"));
+          document.querySelector(i ? null : ".m-playbar .btns .nxt"),
+          document.querySelector(i ? ".m-ctvideo" : ".m-playbar .btns .ply"));
       (o = o
-        ? o.classList.contains(n ? "z-play" : "pas")
+        ? o.classList.contains(i ? "z-play" : "pas")
           ? "playing"
-          : o.classList.contains(n ? "z-pause" : "ply")
+          : o.classList.contains(i ? "z-pause" : "ply")
           ? "paused"
           : "none"
         : "none"),
         l &&
           l.src &&
-          (i = [
+          (n = [
             {
               src: l.src.split("?")[0] + "?param=96y96",
               sizes: "96x96",
@@ -348,7 +356,7 @@
           title: t ? t.innerText : document.title,
           artist: s ? s.innerText : "",
           album: s ? s.innerText : "",
-          artwork: i,
+          artwork: n,
         };
         !((e, t) => {
           if ("object" == typeof e)
@@ -361,7 +369,7 @@
             } catch (e) {}
           return e == t;
         })(e, a) &&
-          n &&
+          i &&
           ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
       } catch (e) {}
     }
@@ -374,7 +382,7 @@
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.1-0.8.7</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.2-0.8.8</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
                 a =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 s = [
@@ -415,7 +423,7 @@
                 ],
                 l = "";
               for (let e = 0; e < s.length; e++) {
-                if (s[e].roi && !m) continue;
+                if (s[e].roi && !d) continue;
                 let t = !0;
                 if (s[e].test) {
                   t = !1;
@@ -424,18 +432,18 @@
                   } catch (e) {}
                 }
                 if (!t) continue;
-                let i = o(s[e].lsm);
-                l += d(
+                let n = o(s[e].lsm);
+                l += m(
                   a,
                   s[e].label,
-                  `${i ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
+                  `${n ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
                 );
               }
-              l = d(e, l);
-              let i = document.createElement("div");
-              (i.className = "n-priv f-cb"),
-                (i.innerHTML = l),
-                i.addEventListener("change", (e) => {
+              l = m(e, l);
+              let n = document.createElement("div");
+              (n.className = "n-priv f-cb"),
+                (n.innerHTML = l),
+                n.addEventListener("change", (e) => {
                   let t = e.target.closest("[data-wk-lsm]"),
                     a = t.dataset.wkLsm;
                   t &&
@@ -444,7 +452,7 @@
                       window.localStorage && localStorage.setItem(e, t);
                     })(a, t.checked ? "1" : "");
                 }),
-                t.appendChild(i);
+                t.appendChild(n);
             }
           };
           window.addEventListener("load", e);
