@@ -16,7 +16,8 @@
 // @license Apache-2.0
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
-// @updateURL https://wtonychen.github.io/flatnmusic/flatnmusic.user.js
+// @updateURL https://wtonychen.github.io/flatnmusic/flatnmusic.meta.js
+// @downloadURL https://wtonychen.github.io/flatnmusic/flatnmusic.user.js
 // @match http*://music.163.com/*
 // @run-at document-end
 // @grant none
