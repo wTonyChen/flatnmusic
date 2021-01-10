@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.2-0.8.8
+// @version 0.2.3-0.8.9
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://wtonychen.github.io)
 // @compatible chrome 87+
@@ -31,9 +31,9 @@
     ((t = document.createElement("div")),
     (t.className = e),
     document.body.appendChild(t));
-  let a,
-    s = getComputedStyle(t),
-    l = {
+  let l,
+    a = getComputedStyle(t),
+    s = {
       86: "1f603",
       85: "1f60a",
       359: "263a",
@@ -43,7 +43,7 @@
       356: "1f62d",
       362: "1f619",
       352: "1f633",
-      342: "1f61e",
+      87: "1f61e",
       343: "1f601",
       348: "1f61d",
       353: "1f612",
@@ -59,8 +59,8 @@
       115: "1f47f",
       360: "1f604",
       94: "1f61c",
-      87: "1f614",
-      358: "1f625",
+      342: "1f614",
+      358: "1f622",
       33: "2764",
       34: "1f494",
       303: "1f498",
@@ -97,7 +97,7 @@
     },
     n = "/style/web2/emt/emoji_",
     i = (e) => {
-      let t = s.getPropertyValue("--" + e);
+      let t = a.getPropertyValue("--" + e);
       if (t)
         try {
           t &&
@@ -111,72 +111,75 @@
         t
       );
     },
-    o = (e) => {
+    r = (e) => {
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    r = i("wkhi-a"),
-    c = i("wkhi-b");
-  if (!c) return void t.parentElement.removeChild(t);
+    o = (e, t) => {
+      window.localStorage && localStorage.setItem(e, t);
+    },
+    c = i("wkhi-a"),
+    d = i("wkhi-b");
+  if (!d) return void t.parentElement.removeChild(t);
   document.documentElement.setAttribute("wk-style-assist", "true");
-  let d = o("wkoptin") || !1,
-    m = function () {
+  let m = r("wkoptin") || !1,
+    f = function () {
       let e = arguments[0];
       for (let t = 1; t < arguments.length; t++) {
-        let a = RegExp("\\{" + t + "\\}", "g");
-        e = e.replace(a, arguments[t]);
+        let l = RegExp("\\{" + t + "\\}", "g");
+        e = e.replace(l, arguments[t]);
       }
       return e;
     };
   ((e) => {
     let t,
-      a = 0,
-      s = !1,
-      l = document.querySelector("#g-topbar"),
+      l = 0,
+      a = !1,
+      s = document.querySelector("#g-topbar"),
       n = document.querySelector("#g_iframe"),
       i = 0,
-      r = 0,
+      o = 0,
       c = !0;
-    if (!l || !Object.is(window.self, window.top)) return;
-    let d = 1.6 * l.getBoundingClientRect().height,
+    if (!s || !Object.is(window.self, window.top)) return;
+    let d = 1.6 * s.getBoundingClientRect().height,
       m = (e) => {
         t && t.cancel(),
-          (r = 0),
+          (o = 0),
           (i = 0),
-          (a = 0),
+          (l = 0),
           (c = !1),
-          (t = l.animate([{ transform: "translateY(0)" }], {
+          (t = s.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (c = !0), (l.style.transform = "translateY(0)");
+            (c = !0), (s.style.transform = "translateY(0)");
           });
       };
     n.addEventListener("load", (e) => {
       n.contentWindow.addEventListener("beforeunload", m),
         n.contentDocument.addEventListener("scroll", (e) => {
           c || t.cancel(),
-            (a = n.contentWindow.scrollY),
-            s ||
+            (l = n.contentWindow.scrollY),
+            a ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
-                  if (o("wksdscrolling")) {
+                  if (r("wksdscrolling")) {
                     let t = e - i;
-                    (r = Math.max(Math.min(r + t, d), 0)),
-                      (l.style.top = "0 !important"),
-                      (l.style.transform = `translateY(-${r}px)`);
-                  } else (l.style.top = ""), (l.style.transform = ""), (r = 0);
+                    (o = Math.max(Math.min(o + t, d), 0)),
+                      (s.style.top = "0 !important"),
+                      (s.style.transform = `translateY(-${o}px)`);
+                  } else (s.style.top = ""), (s.style.transform = ""), (o = 0);
                   i = e;
-                })(a),
-                  (s = !1);
+                })(l),
+                  (a = !1);
               }),
-              (s = !0));
+              (a = !0));
         });
     });
   })(),
-    o("wksplayinguiani") &&
+    r("wksplayinguiani") &&
       ((DocumentFragment.prototype.appendChildHost =
         DocumentFragment.prototype.appendChild),
       (DocumentFragment.prototype.appendChild = function () {
@@ -201,61 +204,71 @@
           arguments[0].classList.remove("hidden"),
           this.appendChildHost.call(this, ...arguments);
       })),
-    o("wksfullpl") &&
+    r("wksfullpl") &&
       ((e) => {
         let t = i("wkhi-c"),
-          a = i("wkhi-d");
-        if (t && a) {
-          (t = t.split("|")), (a = a.split("|"));
+          l = i("wkhi-d");
+        if (t && l) {
+          (t = t.split("|")), (l = l.split("|"));
           for (let e = 0; e < t.length; e++)
-            for (let n = 0; n < a.length; n++)
-              (s = t[e]),
-                (l = a[n]),
-                (document.cookie = `${s};path=${l};max-age=3153600000`);
-          var s, l;
+            for (let n = 0; n < l.length; n++)
+              (a = t[e]),
+                (s = l[n]),
+                (document.cookie = `${a};path=${s};max-age=3153600000`);
+          var a, s;
         }
       })();
-  let f = (e) => {
+  let x = (e) => {
     if (
-      (o("wkshiresimages") &&
+      (r("wkshiresimages") &&
         ((e) => {
           let t = document.querySelectorAll("img[data-src]");
           for (let e = 0; e < t; e++)
             t[e].dataset.src && "" == t[e].src && (t[e].src = t[e].dataset.src);
-          let a = document.querySelectorAll('img[src*="param="]');
-          for (let e = 0; e < a.length; e++) {
-            let t = a[e].src.split("?")[0];
-            if (a[e].src != t) {
-              let s = new Image(),
-                l = (n) => {
-                  a[e] &&
-                    (a[e].src.split("?")[0] == t &&
-                      ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
-                    s.removeEventListener("load", l, !1));
+          let l = document.querySelectorAll('img[src*="param="]');
+          for (let e = 0; e < l.length; e++) {
+            let t = l[e].src.split("?")[0];
+            if (l[e].src != t) {
+              let a = new Image(),
+                s = (n) => {
+                  l[e] &&
+                    (l[e].src.split("?")[0] == t &&
+                      ((l[e].src = t), l[e].classList.add("wk-hires-loaded")),
+                    a.removeEventListener("load", s, !1));
                 };
-              s.addEventListener("load", l, !1),
-                a[e].classList.remove("wk-hires-loaded"),
-                (s.src = t);
+              a.addEventListener("load", s, !1),
+                l[e].classList.remove("wk-hires-loaded"),
+                (a.src = t);
             }
           }
         })(),
-      o("wksemojisym") &&
+      r("wksemojisym") &&
         ((e) => {
           let t = document.querySelectorAll(`img[src*="${n}"]`);
           for (let e = 0; e < t.length; e++) {
-            let a = t[e].src.split(n)[1];
-            a &&
-              ((a = a.split(".")[0]),
-              !isNaN(+a) &&
-                l[+a] &&
+            let l = t[e].src.split(n)[1];
+            l &&
+              ((l = l.split(".")[0]),
+              !isNaN(+l) &&
+                s[+l] &&
                 (t[
                   e
-                ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="AppleColorEmoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
-                  l[+a]
+                ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
+                  s[+l]
                 };</text></svg>`));
           }
         })(),
-      o("wksimprovedlook"))
+      r("wklrctrans") &&
+        ((e) => {
+          if (!Object.is(window.self, window.top)) return;
+          let t = document.querySelectorAll(
+            ".m-playbar .listlyric>p:not(.wk-upgraded)"
+          );
+          for (let e = 0; e < t.length; e++)
+            (t[e].innerText = t[e].innerText.split("\n")[0]),
+              t[e].classList.add("wk-upgraded");
+        })(),
+      r("wksimprovedlook"))
     ) {
       if ("user" == location.pathname.substring(1).split("/")[0]) {
         let e = document.querySelector(".m-proifo dt img"),
@@ -265,12 +278,12 @@
           t &&
           (document.documentElement.classList.add("has-upb"),
           (t.style.cssText = `--upb:url("${e.src}")`));
-        let a = document.querySelector(".m-proifo .name .tit"),
-          s = document.querySelector(".m-proifo .name #j-name-wrap");
-        a &&
-          s &&
-          ((s.dataset.wkUsernameFull = s.title = a.innerText),
-          s.classList.add("wk-full-username"));
+        let l = document.querySelector(".m-proifo .name .tit"),
+          a = document.querySelector(".m-proifo .name #j-name-wrap");
+        l &&
+          a &&
+          ((a.dataset.wkUsernameFull = a.title = l.innerText),
+          a.classList.add("wk-full-username"));
       }
       let e = document.querySelector(".g-wrap>.m-info .cover img"),
         t = document.querySelector(".g-wrap>.m-info");
@@ -283,26 +296,26 @@
         location.hash &&
         ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
           "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
-      s = "/" == location.pathname,
+      a = "/" == location.pathname,
       i =
         "video" == location.pathname.substring(1).split("/")[0] ||
         "mv" == location.pathname.substring(1).split("/")[0];
     if (
-      o("wksmusicsessionmeta") &&
+      r("wksmusicsessionmeta") &&
       "mediaSession" in navigator &&
-      (i || (s && !t))
+      (i || (a && !t))
     ) {
       let t = document.querySelector(
           i ? ".n-mv .title h2" : ".m-playbar .words .name"
         ),
-        s = document.querySelector(
+        a = document.querySelector(
           i ? ".n-mv .title .name" : ".m-playbar .words .by"
         ),
-        l = document.querySelector(
+        s = document.querySelector(
           i ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
         ),
         n = [],
-        o =
+        r =
           (document.querySelector(i ? null : ".m-playbar .btns .prv"),
           document.querySelector(
             i
@@ -311,53 +324,53 @@
           ),
           document.querySelector(i ? null : ".m-playbar .btns .nxt"),
           document.querySelector(i ? ".m-ctvideo" : ".m-playbar .btns .ply"));
-      (o = o
-        ? o.classList.contains(i ? "z-play" : "pas")
+      (r = r
+        ? r.classList.contains(i ? "z-play" : "pas")
           ? "playing"
-          : o.classList.contains(i ? "z-pause" : "ply")
+          : r.classList.contains(i ? "z-pause" : "ply")
           ? "paused"
           : "none"
         : "none"),
-        l &&
-          l.src &&
+        s &&
+          s.src &&
           (n = [
             {
-              src: l.src.split("?")[0] + "?param=96y96",
+              src: s.src.split("?")[0] + "?param=96y96",
               sizes: "96x96",
               type: "image/jpeg",
             },
             {
-              src: l.src.split("?")[0] + "?param=128y128",
+              src: s.src.split("?")[0] + "?param=128y128",
               sizes: "128x128",
               type: "image/jpeg",
             },
             {
-              src: l.src.split("?")[0] + "?param=192y192",
+              src: s.src.split("?")[0] + "?param=192y192",
               sizes: "192x192",
               type: "image/jpeg",
             },
             {
-              src: l.src.split("?")[0] + "?param=256y256",
+              src: s.src.split("?")[0] + "?param=256y256",
               sizes: "256x256",
               type: "image/jpeg",
             },
             {
-              src: l.src.split("?")[0] + "?param=384y384",
+              src: s.src.split("?")[0] + "?param=384y384",
               sizes: "384x384",
               type: "image/jpeg",
             },
             {
-              src: l.src.split("?")[0] + "?param=512y512",
+              src: s.src.split("?")[0] + "?param=512y512",
               sizes: "512x512",
               type: "image/jpeg",
             },
-            { src: l.src.split("?")[0], sizes: "any", type: "image/jpeg" },
+            { src: s.src.split("?")[0], sizes: "any", type: "image/jpeg" },
           ]);
       try {
         let e = {
           title: t ? t.innerText : document.title,
-          artist: s ? s.innerText : "",
-          album: s ? s.innerText : "",
+          artist: a ? a.innerText : "",
+          album: a ? a.innerText : "",
           artwork: n,
         };
         !((e, t) => {
@@ -370,23 +383,25 @@
               t = JSON.stringify(t);
             } catch (e) {}
           return e == t;
-        })(e, a) &&
+        })(e, l) &&
           i &&
-          ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
+          ((l = e), (navigator.mediaSession.metadata = new MediaMetadata(l)));
       } catch (e) {}
     }
   };
-  f(),
-    window.setInterval(f, 500),
-    c &&
+  x(),
+    window.setInterval(x, 500),
+    d &&
       (function () {
         if ("/user/update" == location.pathname) {
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.2-0.8.8</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
-                a =
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.3-0.8.9</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+                l =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
+                a =
+                  '<li><label>{1}:&nbsp;<input type="number" class="u-txt txt" {2}></label></li>',
                 s = [
                   {
                     label:
@@ -414,7 +429,7 @@
                   },
                   {
                     label:
-                      "&#x5c06;&#x8868;&#x60c5;&#x56fe;&#x7247;&#x66ff;&#x6362;&#x6210; Emoji &#x8868;&#x60c5; (Beta)",
+                      "&#x5c06;&#x8868;&#x60c5;&#x56fe;&#x7247;&#x66ff;&#x6362;&#x6210; Emoji &#x8868;&#x60c5;",
                     lsm: "wksemojisym",
                   },
                   {
@@ -422,10 +437,15 @@
                       "&#x4f7f;&#x7528;&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x548c;&#x7a97;&#x53e3;&#x7684;&#x589e;&#x5f3a;&#x52a8;&#x753b; (&#x5237;&#x65b0;&#x9875;&#x9762;&#x5e94;&#x7528;&#x66f4;&#x6539;, Beta)",
                     lsm: "wksplayinguiani",
                   },
+                  {
+                    label:
+                      "&#x9690;&#x85cf;&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x7684;&#x6b4c;&#x8bcd;&#x7ffb;&#x8bd1; (Beta)",
+                    lsm: "wklrctrans",
+                  },
                 ],
-                l = "";
+                n = "";
               for (let e = 0; e < s.length; e++) {
-                if (s[e].roi && !d) continue;
+                if (s[e].roi && !m) continue;
                 let t = !0;
                 if (s[e].test) {
                   t = !1;
@@ -434,27 +454,36 @@
                   } catch (e) {}
                 }
                 if (!t) continue;
-                let n = o(s[e].lsm);
-                l += m(
-                  a,
-                  s[e].label,
-                  `${n ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
-                );
+                let i = r(s[e].lsm);
+                "n" == s[e].t
+                  ? (n += f(
+                      a,
+                      s[e].label,
+                      `${
+                        isNaN(i) || 0 == i ? "" : `value="${i}" `
+                      }data-wk-lsm="${s[e].lsm}"`
+                    ))
+                  : (n += f(
+                      l,
+                      s[e].label,
+                      `${i ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
+                    ));
               }
-              l = m(e, l);
-              let n = document.createElement("div");
-              (n.className = "n-priv f-cb"),
-                (n.innerHTML = l),
-                n.addEventListener("change", (e) => {
+              n = f(e, n);
+              let i = document.createElement("div");
+              (i.className = "n-priv f-cb flatnmusic-settings"),
+                (i.style.display = "none"),
+                (i.innerHTML = n),
+                i.addEventListener("change", (e) => {
                   let t = e.target.closest("[data-wk-lsm]"),
-                    a = t.dataset.wkLsm;
+                    l = t.dataset.wkLsm;
                   t &&
-                    a &&
-                    ((e, t) => {
-                      window.localStorage && localStorage.setItem(e, t);
-                    })(a, t.checked ? "1" : "");
+                    l &&
+                    ("checkbox" == t.type
+                      ? o(l, t.checked ? "1" : "")
+                      : o(l, t.value));
                 }),
-                t.appendChild(n);
+                t.appendChild(i);
             }
           };
           window.addEventListener("load", e);

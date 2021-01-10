@@ -6,7 +6,7 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.8.8
+@version 0.8.9
 @author wTonyChen
 @copyright 2021 wTonyChen (https://wtonychen.github.io)
 @homepageURL https://wtonychen.github.io/flatnmusic/
@@ -31,7 +31,7 @@
 @var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:#fff}.m-top{background:#fff}.m-nav a{color:grey}.m-nav a:hover{color:#333}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.1)}.m-srch .parent input:hover{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.2)}.m-srch .parent input:focus{box-shadow:inset 0 32px 0 0 #fff}.m-topvd{border-color:grey;color:grey}.m-topvd:hover{border-color:#333;color:#333}.m-tlist{border-color:#ccc;background:#f2f2f2}.m-tlist a:hover{background:#dadada}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:#000}"}
 @var select topbar-nav-style "\u9876\u680f\u5bfc\u822a\u98ce\u683c"{"\u5706\u89d2":" ","\u76f4\u89d2":".m-nav a.z-slt{border-radius:0}","\u5927\u5706\u89d2":".m-nav a,.m-nav a.z-slt{transform:scale(.8);border-radius:99vw}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*,*::before,*::after{border-radius:0 !important}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.8';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.9';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
 @var text custom-style "\u81ea\u5b9a\u4e49\u6837\u5f0f" " "
 ==/UserStyle== */
 
@@ -88,7 +88,7 @@
     /*[[ui-color-schema]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen 0.8.8 (20210104)
+	Flat-Style Netease Music by wTonyChen 0.8.9 (20210110)
 	https://wtonychen.github.io/flatnmusic/
 	License: Apache License 2.0
 */
@@ -586,6 +586,7 @@
     border-radius: 99vh;
     top: 0;
     height: calc(100% - 2px) !important;
+    box-shadow: 0 2px 0 #000;
   }
   .m-tlist {
     display: block !important;
@@ -1125,9 +1126,6 @@
   .n-sltlyr dd.last {
     padding-bottom: 16px;
   }
-  .n-sltlyr dd .z-slt {
-    border-radius: 99vh;
-  }
   .n-sltlyr .f-cb {
     border-bottom: 1px solid #e6e6e6;
   }
@@ -1181,7 +1179,7 @@
   }
   .m-playbar .listlyric p {
     line-height: 20px;
-    padding: 5px 50px;
+    padding: 10px 50px;
     font-size: 12px;
     transition: all 0.3s ease;
     width: 100%;
@@ -1191,7 +1189,7 @@
   .m-playbar .listlyric p.z-sel {
     font-size: 12px;
     transform: scale(1.2);
-    font-weight: 700;
+    -webkit-text-stroke: currentColor 0.4px;
   }
   .m-tophead .link,
   .m-tophead:hover .link,
@@ -2134,8 +2132,69 @@
   .n-sltlyr,
   .n-ltlst li a.z-slt,
   .n-ltlst li a.z-slt:hover,
-  .n-singer .u-btn2 {
+  .n-singer .u-btn2,
+  .n-setce .sentence,
+  .n-music,
+  .n-setce .sentence li,
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector,
+  .ant-select-dropdown > div,
+  .ant-select-item,
+  .n-bind .topban,
+  .n-bind .bind {
     border-radius: 5px;
+  }
+  .ant-select-dropdown {
+    display: block !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: none;
+    padding: 0;
+    overflow: visible;
+    background: none;
+    box-shadow: none;
+  }
+  .ant-select-item {
+    color: #000 !important;
+    font-weight: 400 !important;
+    font-size: 12px;
+  }
+  .ant-select-item:hover {
+    background: #dadada;
+  }
+  .ant-select-item:active {
+    background: #c2c2c2;
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled):active {
+    background: #85caff;
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled):hover {
+    background: #5fb2f2;
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background: #85caff;
+  }
+  .ant-select-dropdown > div {
+    transform: translateY(-44px);
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+    padding: 8px 2px;
+    transition: all 0.3s var(--gb-ad);
+    opacity: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    clip-path: polygon(0 0, 100% 0, 100% 40px, 0 40px);
+  }
+  .ant-select-dropdown:not(.ant-select-dropdown-hidden) > div {
+    transform: translateY(calc(-50% - 24px));
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: ant-dropdown-ani 0.3s var(--gb-ad) backwards;
+  }
+  .ant-select-dropdown:not(.ant-select-dropdown-hidden) {
+    pointer-events: initial;
+  }
+  div.n-lyric-layer .lylabtn {
+    border-radius: 0 0 5px 5px;
   }
   .n-sltlyr .f-cb:hover {
     background: rgba(0, 0, 0, 0.05);
@@ -3175,6 +3234,9 @@
     font-weight: 700;
     border: 0;
   }
+  .m-emts .emtitm {
+    border-radius: 5px;
+  }
   .m-emts .emtitm img,
   .m-cmmt .cmmts img {
     box-shadow: none;
@@ -3301,6 +3363,9 @@
   }
   .m-lycifo .f-cb .u-cover.u-cover-6.f-fl > img {
     transform: scale(1.5);
+  }
+  .u-cover .nb {
+    line-height: 1.15;
   }
   .m-playbar .words,
   .m-pbar .time {
@@ -3439,7 +3504,7 @@
   #g_nav2,
   .g-topbar {
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100vh);
+    clip-path: polygon(0 -9%, 100% -9%, 100% 100vh, 0 100vh);
   }
   .m-playbar,
   .g-ft {
@@ -3463,7 +3528,9 @@
   .m-radio .toplist .tag,
   .m-lysearch .srchlist .itm,
   .m-lysearch .srchlist .sitm,
-  .n-srchrst .srchsongst .item {
+  .n-srchrst .srchsongst .item,
+  .m-schlist li a,
+  .n-sltlyr dd .z-slt {
     border-radius: 99vh;
   }
   .n-srchrst .srchsongst .item {
@@ -3709,12 +3776,12 @@
   }
   .m-timeline .m-timeact.j-flag {
     display: block;
-    animation: tl-act 0.3s var(--gb-ad) 1.8s backwards;
+    animation: tl-act 0.3s var(--gb-ad) 1s backwards;
   }
   .m-timeline .m-timeact.j-flag::before {
     content: "";
     display: block;
-    animation: tl-act-pos 0.3s var(--gb-ad) 1.5s backwards;
+    animation: tl-act-pos 0.3s var(--gb-ad) 0.7s backwards;
   }
   .m-timeline .m-dlist .showpic:not(.f-hide) {
     animation: side-in-x 0.3s var(--gb-ad) backwards;
@@ -4528,7 +4595,7 @@
     color: #000;
   }
   .g-mymusic .p-mymusic .g-sd3 {
-    animation: fade-in 0.3s ease 2s backwards;
+    animation: fade-in 0.3s ease 1s backwards;
   }
   .m-tlist .icn::before,
   .u-icn-36::before,
@@ -4891,7 +4958,11 @@
   .u-icn-69::before {
     transform: rotate(90deg);
   }
-  .m-dlist .src .cover {
+  .m-dlist .src .cover,
+  .m-dlist .mng,
+  .m-dlist .mng li,
+  .m-dlist .mng .li,
+  .n-base .avatar {
     border-radius: 5px;
     overflow: hidden;
   }
@@ -5856,6 +5927,18 @@
     to {
       opacity: 0;
       transform: var(--gb-af) var(--gb-ai);
+    }
+  }
+  @keyframes ant-dropdown-ani {
+    0% {
+      transform: translateY(-44px);
+      clip-path: polygon(0 0, 100% 0, 100% 40px, 0 40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(calc(-50% - 24px));
+      opacity: 1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
   }
   @keyframes side-in-x {
