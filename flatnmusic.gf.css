@@ -6,9 +6,9 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.8.10
+@version 0.8.11
 @author wTonyChen
-@copyright 2021 wTonyChen (https://wtonychen.github.io)
+@copyright 2021 wTonyChen (https://github.com/wTonyChen)
 @homepageURL https://wtonychen.github.io/flatnmusic/
 @supportURL https://github.com/wTonyChen/flatnmusic/issues
 @updateURL https://wtonychen.github.io/flatnmusic/flatnmusic.user.css
@@ -16,7 +16,7 @@
 @compatible edge 87+
 @compatible opera 73+
 @compatible firefox 84+
-@license Apache-2.0
+@license GPL-3.0
 @preprocessor uso
 @var select font-1st "\u9996\u9009\u5b57\u4f53"["Segoe UI","Arial","Avenir Next","Bahnschrift","Calibri","Century Gothic","Comic Sans MS","Corbel","Lucida Sans","Noto Sans","Roboto","Tahoma","Trebuchet MS","Tw Cen MT","Ubuntu","Verdana","Cambria","Century","Times New Roman"]
 @var select font-2nd "\u5907\u9009\u5b57\u4f53"{"\u5fae\u8f6f\u96c5\u9ed1":"local('Microsoft YaHei UI'),local('Microsoft YaHei'),","\u5fae\u8f6f\u6b63\u9ed1":"local('Microsoft JhengHei UI'),local('Microsoft JhengHei'),","\u7b49\u7ebf":"local('FZDengXian'),local('DengXian'),","\u9ed1\u4f53":"local('Heiti SC'),local('Heiti TC'),local('SimHei'),","\u5706\u4f53":"local('Yuanti SC'),local('Yuanti TC'),local('YouYuan'),","\u534e\u6587\u4eff\u5b8b":"local('STFangSong'),","\u534e\u6587\u6977\u4f53":"local('STKaiTi'),","\u534e\u6587\u96b6\u4e66":"local('STLiTi'),","\u534e\u6587\u5b8b\u4f53":"local('STSong'),","\u534e\u6587\u7ec6\u9ed1":"local('STXiHei'),","\u534e\u6587\u65b0\u9b4f":"local('STXinWei'),","\u534e\u6587\u4e2d\u5b8b":"local('STZhongSong'),","Hiragino Sans":"local('Hiragino Sans GB'),local('Hiragino Sans CNS'),local('Hiragino Sans'),","Noto Sans CJK":"local('Noto Sans CJK SC'),local('Noto Sans CJK TC'),","PingFang":"local('PingFang SC'),local('PingFang TC'),local('PingFang HK'),"}
@@ -28,10 +28,11 @@
 @var select app-download "\u9690\u85cf\u5ba2\u6237\u7aef\u4e0b\u8f7d"{"\u53ef\u89c1":" ","\u9690\u85cf":".n-ban .download,.m-multi{display:none !important}.n-ban .ban img{margin:0 auto !important}.n-ban .ban .btnl{left:10px !important}.n-ban .ban .btnr{right:10px !important}.n-ban .dots{width:100% !important}"}
 @var select fixed-topbar "\u9876\u680f\u6eda\u52a8\u72b6\u6001"{"\u56fa\u5b9a\u4e8e\u9876\u90e8":".g-topbar{top:0 !important}","\u8ddf\u968f\u9875\u9762\u6eda\u52a8":" "}
 @var select navbar-dont-cover-scrollbar "\u9876\u680f\u4e0d\u8986\u76d6\u6eda\u52a8\u6761"{"\u4e0d\u542f\u7528":" ","\u542f\u7528":".g-topbar{min-width:initial}"}
+@var select no-artist-alias "\u6b4c\u624b\u9875\u4e0d\u663e\u793a\u522b\u540d"{"\u4e0d\u542f\u7528":" ","\u542f\u7528":".n-artist .salias{display:none}"}
 @var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:#fff}.m-top{background:#fff}.m-nav a{color:grey}.m-nav a:hover{color:#333}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.1)}.m-srch .parent input:hover{box-shadow:inset 0 32px 0 0 rgba(0,0,0,.2)}.m-srch .parent input:focus{box-shadow:inset 0 32px 0 0 #fff}.m-topvd{border-color:grey;color:grey}.m-topvd:hover{border-color:#333;color:#333}.m-tlist{border-color:#ccc;background:#f2f2f2}.m-tlist a:hover{background:#dadada}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:#000}"}
 @var select topbar-nav-style "\u9876\u680f\u5bfc\u822a\u98ce\u683c"{"\u5706\u89d2":" ","\u76f4\u89d2":".m-nav a.z-slt{border-radius:0}","\u5927\u5706\u89d2":".m-nav a,.m-nav a.z-slt{transform:scale(.8);border-radius:99vw}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*,*::before,*::after{border-radius:0 !important}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.10';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u96c6\u6210"{"\u542f\u7528":".wk-fnm-hi-cfg{--wkhi-a:'0.8.11';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/37/2e/35/2e/31/39/38/35/35/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
 @var text custom-style "\u81ea\u5b9a\u4e49\u6837\u5f0f" " "
 ==/UserStyle== */
 
@@ -88,9 +89,9 @@
     /*[[ui-color-schema]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen 0.8.10 (20210112)
+	Flat-Style Netease Music by wTonyChen (https://github.com/wTonyChen) 0.8.11 (20210112)
 	https://wtonychen.github.io/flatnmusic/
-	License: Apache License 2.0
+	License: GNU 通用公共许可证
 */
   @font-face {
     font-family: nmdl2;
@@ -261,8 +262,12 @@
   .m-table {
     border-color: transparent;
   }
-  .m-table td {
-    padding: 0 10px;
+  .m-table td,
+  .m-table th {
+    padding: 0 5px;
+  }
+  .m-table .w1 {
+    width: 60px;
   }
   .m-table .hd,
   .m-table td {
@@ -283,6 +288,8 @@
   }
   .m-table .hd .num {
     order: 1;
+    text-align: center;
+    white-space: nowrap;
   }
   .m-table .txt {
     height: 100%;
@@ -290,6 +297,13 @@
   }
   .m-table th {
     background: #fff;
+  }
+  .m-table .w2,
+  .m-table-1 .w2-1 {
+    width: 83px;
+  }
+  .g-mymusic .m-table .w2 {
+    width: 103px;
   }
   .m-table .soil {
     display: none;
@@ -355,6 +369,20 @@
   .m-subnav .nav a:hover {
     color: #000;
   }
+  .f-r-white-icon {
+    line-height: 14px;
+    font-size: 1.4em;
+    left: 34px;
+    color: #fff;
+    background: 0 0;
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .f-r-white-icon::before {
+    content: "\ae";
+    font-family: "Segoe UI", sans-serif;
+  }
   .m-subnav .nav a em {
     white-space: nowrap;
   }
@@ -363,7 +391,6 @@
     color: var(--gc-aa);
     font-weight: 700;
     -webkit-text-stroke: currentColor 0.3px;
-    text-stroke: currentColor 0.3px;
   }
   .m-subnav .nav a em {
     color: inherit !important;
@@ -406,7 +433,6 @@
     color: #000;
     margin: 0;
     -webkit-text-stroke: 0.2px currentColor;
-    text-stroke: 0.2px currentColor;
     font-weight: 700;
     border-radius: 10px 10px 0 0;
   }
@@ -866,6 +892,7 @@
     text-align: center;
     color: inherit;
     white-space: nowrap;
+    width: initial;
   }
   .u-btn2.u-btn2-dis {
     color: rgba(0, 0, 0, 0.3);
@@ -973,6 +1000,9 @@
     font-family: nmdl2;
     transform: var(--gb-aa);
     text-indent: 0;
+  }
+  div.m-layer-down .left .btn {
+    border-radius: 99vh;
   }
   .m-vol {
     transition: all 0.3s var(--gb-al);
@@ -3040,9 +3070,6 @@
     padding: 0;
     margin: 0;
   }
-  .g-sd2 {
-    background: #fff;
-  }
   .n-sgernav .tit {
     padding: 50px 14px 14px 14px;
   }
@@ -3186,10 +3213,18 @@
     pointer-events: none;
     transition: all 0.3s var(--gb-al);
   }
+  .u-phonewrap .options .itm,
+  .u-slt ul li {
+    margin: 2px;
+  }
   .lg， .n-cmdsd .type {
     border-radius: 30px;
   }
+  .n-cmdsd .type .icn {
+    transform: scale(0.8);
+  }
   .m-toast .box,
+  .u-phonewrap .options .itm,
   .u-slt ul a {
     border-radius: 5px;
   }
@@ -3549,6 +3584,9 @@
   .has-upb .m-record {
     background: #fff;
   }
+  .m-record li .hd .num {
+    text-align: center;
+  }
   .has-upb .u-icn2-5 {
     border-radius: 100%;
   }
@@ -3588,6 +3626,10 @@
   .n-disk,
   .p-mymusic .m-table {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  }
+  .g-sd2 {
+    background: #fff;
+    box-shadow: 0 -500px 0 #fff, 0 0 50px rgb(0, 0, 0, 0.1);
   }
   .m-lysearch .srchlist .itm,
   .m-lysearch .srchlist .sitm,
@@ -3773,7 +3815,7 @@
     content: "\6bcf\65e5\6b4c\66f2\63a8\8350\a\6839\636e\4f60\7684\97f3\4e50\53e3\5473\751f\6210\ff0c\6bcf\5929\36\3a\30\30\66f4\65b0";
     white-space: pre-line;
     position: absolute;
-    top: 40px;
+    top: 50px;
     left: 200px;
     font-size: 22px;
     line-height: 40px;
@@ -3910,6 +3952,7 @@
     color: #000;
     background: 0 0;
     border-radius: 5px;
+    margin: 2px;
   }
   .n-top50 .choose:hover {
     background: #dadada;
@@ -4608,6 +4651,9 @@
     align-items: center;
     position: absolute;
   }
+  .m-record .opt > * {
+    transform: scale(0.8);
+  }
   .m-table .opt.hshow,
   .m-table .opt[style*="none"] {
     visibility: hidden;
@@ -5191,6 +5237,7 @@
   .m-playbar .playicn {
     margin: 7.5px 0;
     position: relative;
+    animation: playicn-in 0.5s var(--gb-ad);
   }
   .m-playbar .list li .col-3 {
     display: none;
@@ -6067,13 +6114,13 @@
     }
     #g_mymusic > .g-bd3 {
       left: initial;
-      right: max(min(980px - 100vw, 240px), 0);
+      right: clamp(0.01px, 980px - 100vw, 240px);
       min-height: 445px;
     }
   }
   @media (max-width: 996px) {
     #g_mymusic > .g-bd3 > .n-musicsd {
-      transform: translateX(max(min(980px - 100vw, 10px), 0));
+      transform: translateX(clamp(0.01px, 980px - 100vw, 10px));
       z-index: 3;
       background: #fff;
       transition: all 0.3s var(--gb-ad);
@@ -6085,7 +6132,7 @@
       filter: contrast(0.5);
     }
     #g_mymusic > .g-bd3 > .n-musicsd:hover {
-      transform: translateX(max(min(980px - 100vw, 240px), 0));
+      transform: translateX(clamp(0.01px, 980px - 100vw, 240px));
       filter: contrast(1);
     }
   }
@@ -6178,6 +6225,12 @@
   @keyframes window-in-alt {
     0% {
       transform: scale(1.2) var(--gb-ai);
+      opacity: 0;
+    }
+  }
+  @keyframes playicn-in {
+    0% {
+      transform: scale(2) var(--gb-ai);
       opacity: 0;
     }
   }
@@ -6400,5 +6453,8 @@
     :-a {
       --a: b;
     } /*[[topbar-nav-style]]*/
+    :-c {
+      --a: b;
+    } /*[[no-artist-alias]]*/
   } /*[[custom-style]]*/
 }

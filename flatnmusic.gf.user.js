@@ -8,12 +8,12 @@
 // @namespace wTonyChen.flatnmusich
 // @version 0.2.3-0.8.9
 // @author wTonyChen
-// @copyright 2021 wTonyChen (https://wtonychen.github.io)
+// @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 87+
 // @compatible edge 87+
 // @compatible opera 73+
 // @compatible firefox 84+
-// @license Apache-2.0
+// @license GPL-3.0
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
 // @updateURL https://openuserjs.org/meta/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC.meta.js
