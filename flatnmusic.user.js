@@ -13,7 +13,7 @@
 // @compatible edge 89+
 // @compatible opera 74+
 // @compatible firefox 86+
-// @license GPL-3.0
+// @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
 // @updateURL https://wtonychen.github.io/flatnmusic/flatnmusic.meta.js

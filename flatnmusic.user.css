@@ -16,7 +16,7 @@
 @compatible edge 89+
 @compatible opera 74+
 @compatible firefox 86+
-@license GPL-3.0
+@license GPL-3.0-or-later
 @preprocessor uso
 @var select font-1st "\u9996\u9009\u5b57\u4f53"["Segoe UI","Arial","Avenir Next","Bahnschrift","Calibri","Century Gothic","Comic Sans MS","Corbel","Lucida Sans","Noto Sans","Roboto","Tahoma","Trebuchet MS","Tw Cen MT","Ubuntu","Verdana","Cambria","Century","Times New Roman"]
 @var select font-2nd "\u5907\u9009\u5b57\u4f53"{"\u5fae\u8f6f\u96c5\u9ed1":"local('Microsoft YaHei UI'),local('Microsoft YaHei'),","\u5fae\u8f6f\u6b63\u9ed1":"local('Microsoft JhengHei UI'),local('Microsoft JhengHei'),","\u7b49\u7ebf":"local('FZDengXian'),local('DengXian'),","\u9ed1\u4f53":"local('Heiti SC'),local('Heiti TC'),local('SimHei'),","\u5706\u4f53":"local('Yuanti SC'),local('Yuanti TC'),local('YouYuan'),","\u534e\u6587\u4eff\u5b8b":"local('STFangSong'),","\u534e\u6587\u6977\u4f53":"local('STKaiTi'),","\u534e\u6587\u96b6\u4e66":"local('STLiTi'),","\u534e\u6587\u5b8b\u4f53":"local('STSong'),","\u534e\u6587\u7ec6\u9ed1":"local('STXiHei'),","\u534e\u6587\u65b0\u9b4f":"local('STXinWei'),","\u534e\u6587\u4e2d\u5b8b":"local('STZhongSong'),","Hiragino Sans":"local('Hiragino Sans GB'),local('Hiragino Sans CNS'),local('Hiragino Sans'),","Noto Sans CJK":"local('Noto Sans CJK SC'),local('Noto Sans CJK TC'),","PingFang":"local('PingFang SC'),local('PingFang TC'),local('PingFang HK'),"}
