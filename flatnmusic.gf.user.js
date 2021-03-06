@@ -9,10 +9,10 @@
 // @version 0.2.3-0.8.9
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
-// @compatible chrome 87+
-// @compatible edge 87+
-// @compatible opera 73+
-// @compatible firefox 84+
+// @compatible chrome 89+
+// @compatible edge 89+
+// @compatible opera 74+
+// @compatible firefox 86+
 // @license GPL-3.0
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
