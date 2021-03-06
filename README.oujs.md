@@ -64,6 +64,6 @@
 
 ## 许可
 
-[GNU 通用公共许可证](https://github.com/wTonyChen/flatnmusic/blob/master/LICENSE)
+[GNU General Public License](https://github.com/wTonyChen/flatnmusic/blob/master/LICENSE)
 
 您可以在 [https://www.gnu.org/licenses/translations.html](https://www.gnu.org/licenses/translations.html) 查看许可证的翻译版本。
