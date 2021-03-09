@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.3-0.8.9
+// @version 0.2.3-0.8.17
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 89+
@@ -218,7 +218,7 @@
           var a, s;
         }
       })();
-  let x = (e) => {
+  let p = (e) => {
     if (
       (r("wkshiresimages") &&
         ((e) => {
@@ -389,15 +389,15 @@
       } catch (e) {}
     }
   };
-  x(),
-    window.setInterval(x, 500),
+  p(),
+    window.setInterval(p, 500),
     d &&
       (function () {
         if ("/user/update" == location.pathname) {
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.3-0.8.9</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.3-0.8.17</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
                 l =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 a =
@@ -405,11 +405,12 @@
                 s = [
                   {
                     label:
-                      "&#x4f7f;&#x7528;&#x6837;&#x5f0f;&#x8868;&#x7684;&#x589e;&#x5f3a;&#x5916;&#x89c2;",
+                      "&#x6837;&#x5f0f;&#x8868;&#x589e;&#x5f3a;&#x5916;&#x89c2;",
                     lsm: "wksimprovedlook",
                   },
                   {
-                    label: "&#x663e;&#x793a;&#x5b8c;&#x6574;&#x6b4c;&#x5355;",
+                    label:
+                      "&#x663e;&#x793a;&#x6b4c;&#x5355;&#x5185;&#x5168;&#x90e8;&#x97f3;&#x4e50;",
                     lsm: "wksfullpl",
                   },
                   {
@@ -418,28 +419,28 @@
                   },
                   {
                     label:
-                      "&#x542f;&#x7528;&#x89c6;&#x9891;&#x9875;&#x9762;&#x7684;&#x5a92;&#x4f53;&#x4fe1;&#x606f;&#x663e;&#x793a;",
+                      "&#x89c6;&#x9891;&#x9875;&#x9762;&#x5a92;&#x4f53;&#x4fe1;&#x606f;&#x663e;&#x793a;&#x652f;&#x6301;",
                     lsm: "wksmusicsessionmeta",
                     test: "'mediaSession' in navigator",
                   },
                   {
                     label:
-                      "&#x4f7f;&#x7528;&#x52a8;&#x6001;&#x56fa;&#x5b9a;&#x7684;&#x9876;&#x680f; (&#x4f1a;&#x5ffd;&#x7565; &#x9876;&#x680f;&#x6eda;&#x52a8;&#x72b6;&#x6001; &#x8bbe;&#x7f6e;, Beta)",
+                      "&#x9876;&#x680f;&#x52a8;&#x6001;&#x56fa;&#x5b9a; (&#x5ffd;&#x7565;&#x9876;&#x680f;&#x6eda;&#x52a8;&#x72b6;&#x6001;&#x8bbe;&#x7f6e;)",
                     lsm: "wksdscrolling",
                   },
                   {
                     label:
-                      "&#x5c06;&#x8868;&#x60c5;&#x56fe;&#x7247;&#x66ff;&#x6362;&#x6210; Emoji &#x8868;&#x60c5;",
+                      "&#x8868;&#x60c5;&#x56fe;&#x7247;&#x4ee5;&#x7cfb;&#x7edf; Emoji &#x8868;&#x60c5;&#x663e;&#x793a;",
                     lsm: "wksemojisym",
                   },
                   {
                     label:
-                      "&#x4f7f;&#x7528;&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x548c;&#x7a97;&#x53e3;&#x7684;&#x589e;&#x5f3a;&#x52a8;&#x753b; (&#x5237;&#x65b0;&#x9875;&#x9762;&#x5e94;&#x7528;&#x66f4;&#x6539;, Beta)",
+                      "&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x548c;&#x7a97;&#x53e3;&#x7684;&#x589e;&#x5f3a;&#x52a8;&#x753b; (&#x5237;&#x65b0;&#x9875;&#x9762;&#x5e94;&#x7528;&#x66f4;&#x6539;)",
                     lsm: "wksplayinguiani",
                   },
                   {
                     label:
-                      "&#x9690;&#x85cf;&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x7684;&#x6b4c;&#x8bcd;&#x7ffb;&#x8bd1; (Beta)",
+                      "&#x9690;&#x85cf;&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x5185;&#x6b4c;&#x8bcd;&#x7ffb;&#x8bd1;",
                     lsm: "wklrctrans",
                   },
                 ],
