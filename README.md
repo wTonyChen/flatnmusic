@@ -4,9 +4,7 @@
 <br>
 <hr>
 
-> 喜欢的话，就右上角⭐收藏一波⭐吧 :)
->
-> 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
+> 喜欢的话，就右上角⭐收藏⭐来支持一下我吧 :)
 
 <hr>
 <br>

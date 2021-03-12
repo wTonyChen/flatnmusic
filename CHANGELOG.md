@@ -1,9 +1,10 @@
-> 🎉 现在 Userstyles.org 上已恢复更新，[点此前往新版](https://userstyles.org/styles/186848) 🎉
-> 
-> 🎉 现已在 [Greasy Fork](https://greasyfork.org/scripts/406821) 上进行分发 🎉
-> 
-> 🎉 现已在 [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC) 上进行分发用户脚本 🎉
+> 此更新日志适用于这些位置的更新内容: [GitHub](https://github.com/wTonyChen/flatnmusic) | [Greasy Fork (Style)](https://greasyfork.org/scripts/406821) | [Greasy Fork (Script)](https://greasyfork.org/scripts/369688) | [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC)
 
+
+0.8.18 / 2021-03-13
+===================
+- 细节优化
+- 增加一个新的选项
 
 0.8.17 / 2021-03-10
 ===================
@@ -41,7 +42,6 @@
 - 细节优化
 - 改进动态顶栏恢复显示机制
 - 修复播放电台节目时，底部播放栏不显示 `赞` 图标
-- 辅助脚本现已在 OpenUserJS 分发
 
 0.8.7 / 2021-01-03
 ===================
