@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.9-0.9.8
+// @version 0.2.10-0.9.9
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 90+
@@ -32,8 +32,8 @@
     (t.className = e),
     document.body.appendChild(t));
   let a,
-    l = getComputedStyle(t),
-    s = {
+    s = getComputedStyle(t),
+    l = {
       86: "1f603",
       85: "1f60a",
       359: "263a",
@@ -97,7 +97,7 @@
     },
     i = "/style/web2/emt/emoji_",
     n = (e) => {
-      let t = l.getPropertyValue("--" + e);
+      let t = s.getPropertyValue("--" + e);
       if (t)
         try {
           t &&
@@ -115,10 +115,10 @@
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    r = (e, t) => {
+    c = (e, t) => {
       window.localStorage && localStorage.setItem(e, t);
     },
-    c = n("wkhi-a"),
+    r = n("wkhi-a"),
     o = n("wkhi-b");
   if (!o) return void t.parentElement.removeChild(t);
   document.documentElement.setAttribute("wk-style-assist", "true");
@@ -134,52 +134,61 @@
   ((e) => {
     let t,
       a = 0,
-      l = !1,
-      s = document.querySelector("#g-topbar"),
+      s = !1,
+      l = document.querySelector("#g-topbar"),
       i = document.querySelector("#g_iframe"),
       n = 0,
-      r = 0,
-      c = !0;
-    if (!s || !Object.is(window.self, window.top)) return;
-    let o = 1.6 * s.getBoundingClientRect().height,
+      c = 0,
+      r = !0;
+    if (!l || !Object.is(window.self, window.top)) return;
+    let o = 1.6 * l.getBoundingClientRect().height,
       d = (e) => {
         t && t.cancel(),
-          (r = 0),
+          (c = 0),
           (n = 0),
           (a = 0),
-          (c = !1),
-          (t = s.animate([{ transform: "translateY(0)" }], {
+          (r = !1),
+          (t = l.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (c = !0), (s.style.transform = "translateY(0)");
+            (r = !0), (l.style.transform = "translateY(0)");
           });
       };
     i.addEventListener("load", (e) => {
       i.contentWindow.addEventListener("beforeunload", d),
         i.contentDocument.addEventListener("scroll", (e) => {
-          c || t.cancel(),
+          r || t.cancel(),
             (a = i.contentWindow.scrollY),
-            l ||
+            s ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (x("wksdscrolling")) {
                     let t = e - n;
-                    (r = Math.max(Math.min(r + t, o), 0)),
-                      (s.style.top = "0 !important"),
-                      (s.style.transform = `translateY(-${r}px)`);
-                  } else (s.style.top = ""), (s.style.transform = ""), (r = 0);
+                    (c = Math.max(Math.min(c + t, o), 0)),
+                      (l.style.top = "0 !important"),
+                      (l.style.transform = `translateY(-${c}px)`);
+                  } else (l.style.top = ""), (l.style.transform = ""), (c = 0);
                   n = e;
                 })(a),
-                  (l = !1);
+                  (s = !1);
               }),
-              (l = !0));
+              (s = !0));
         });
     });
-  })(),
-    x("wklrctrans") && document.body.classList.add("wk-playlist-applied"),
+  })();
+  let f = (e) => {
+    if (!Object.is(window.self, window.top)) return;
+    let t = document.querySelectorAll(
+      ".m-playbar .listlyric>p:not(.wk-upgraded)"
+    );
+    for (let e = 0; e < t.length; e++)
+      (t[e].innerText = t[e].innerText.split("\n")[0]),
+        t[e].classList.add("wk-upgraded");
+  };
+  x("wklrctrans") && document.body.classList.add("wk-playlist-applied"),
     (DocumentFragment.prototype.appendChildHost =
       DocumentFragment.prototype.appendChild),
     (DocumentFragment.prototype.appendChild = function () {
@@ -189,7 +198,11 @@
         arguments[0].parentElement
       ) {
         let e = arguments[0].cloneNode(!0);
-        arguments[0].parentElement.insertBefore(e, arguments[0]),
+        arguments[0].dataset &&
+          arguments[0].dataset.wkAdvisedSize &&
+          ((e.style.minHeight = arguments[0].dataset.wkAdvisedSize + "px"),
+          (arguments[0].dataset.wkAdvisedSize = "")),
+          arguments[0].parentElement.insertBefore(e, arguments[0]),
           e.addEventListener("animationend", (t) => {
             e.remove();
           }),
@@ -198,12 +211,12 @@
       let e = "",
         t = x("wkspipfont"),
         a = x("wkspipfont2"),
-        l = x("wkspipfsize"),
-        s = x("wkspipfweight"),
+        s = x("wkspipfsize"),
+        l = x("wkspipfweight"),
         i = x("wkspipletterspacing"),
         n = x("wkspipwordspacing"),
-        r = x("wkspiplinespacing"),
-        c = x("wkspiplineheight"),
+        c = x("wkspiplinespacing"),
+        r = x("wkspiplineheight"),
         o = x("wkspipcustomstyle");
       if ("STYLE" == arguments[0].tagName) {
         x("wklrctrans") && (e += ".container>.line>.compare{display:none}");
@@ -212,24 +225,24 @@
           a && d.push(`"${a.replace(/"/g, '\\"')}"`),
           d.length > 0 &&
             (e += `.container{font-family:${d.join(",")} !important}`),
-          s &&
-            !isNaN(+s) &&
-            (e += `.container,.container *{font-weight:${+s} !important}`),
           l &&
             !isNaN(+l) &&
-            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+l}px !important}`),
+            (e += `.container,.container *{font-weight:${+l} !important}`),
+          s &&
+            !isNaN(+s) &&
+            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+s}px !important}`),
           i &&
             !isNaN(+i) &&
             (e += `.container,.container *{letter-spacing:${+i}px !important}`),
           n &&
             !isNaN(+n) &&
             (e += `.container,.container *{word-spacing:${+n}px !important}`),
-          r &&
-            !isNaN(+r) &&
-            (e += `.container>.line{padding:${+r}px 0 !important}`),
           c &&
             !isNaN(+c) &&
-            (e += `.container>.line{line-height:${+c}px !important}`),
+            (e += `.container>.line{padding:${+c}px 0 !important}`),
+          r &&
+            !isNaN(+r) &&
+            (e += `.container>.line{line-height:${+r}px !important}`),
           e &&
             (this.appendChildHost.call(
               this,
@@ -253,6 +266,14 @@
           "g_playlist" == arguments[0].id &&
           (arguments[0].classList.remove("hidden"),
           document.body.classList.add("wk-playlist-showing")),
+        x("wksplayinguiani") &&
+          arguments[0].classList &&
+          arguments[0].classList.contains("m-layer") &&
+          arguments[0].dataset &&
+          setTimeout((e) => {
+            arguments[0].dataset.wkAdvisedSize = arguments[0].clientHeight;
+          }, 50),
+        x("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(f, 50),
         this.appendChildHost.call(this, ...arguments)
       );
     }),
@@ -264,18 +285,19 @@
           (t = t.split("|")), (a = a.split("|"));
           for (let e = 0; e < t.length; e++)
             for (let i = 0; i < a.length; i++)
-              (l = t[e]),
-                (s = a[i]),
-                (document.cookie = `${l};path=${s};max-age=3153600000`);
-          var l, s;
+              (s = t[e]),
+                (l = a[i]),
+                (document.cookie = `${s};path=${l};max-age=3153600000`);
+          var s, l;
         }
       })(),
     x("wkslowbrightness") &&
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter = "brightness(.5)");
-  let f = (e) => {
+  let m = (e) => {
     if (
-      (x("wkshiresimages") &&
+      (x("wklrctrans") && f(),
+      x("wkshiresimages") &&
         ((e) => {
           let t = document.querySelectorAll("img[data-src]");
           for (let e = 0; e < t; e++)
@@ -284,16 +306,16 @@
           for (let e = 0; e < a.length; e++) {
             let t = a[e].src.split("?")[0];
             if (a[e].src != t) {
-              let l = new Image(),
-                s = (i) => {
+              let s = new Image(),
+                l = (i) => {
                   a[e] &&
                     (a[e].src.split("?")[0] == t &&
                       ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
-                    l.removeEventListener("load", s, !1));
+                    s.removeEventListener("load", l, !1));
                 };
-              l.addEventListener("load", s, !1),
+              s.addEventListener("load", l, !1),
                 a[e].classList.remove("wk-hires-loaded"),
-                (l.src = t);
+                (s.src = t);
             }
           }
         })(),
@@ -305,23 +327,13 @@
             a &&
               ((a = a.split(".")[0]),
               !isNaN(+a) &&
-                s[+a] &&
+                l[+a] &&
                 (t[
                   e
                 ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
-                  s[+a]
+                  l[+a]
                 };</text></svg>`));
           }
-        })(),
-      x("wklrctrans") &&
-        ((e) => {
-          if (!Object.is(window.self, window.top)) return;
-          let t = document.querySelectorAll(
-            ".m-playbar .listlyric>p:not(.wk-upgraded)"
-          );
-          for (let e = 0; e < t.length; e++)
-            (t[e].innerText = t[e].innerText.split("\n")[0]),
-              t[e].classList.add("wk-upgraded");
         })(),
       x("wksimprovedlook"))
     ) {
@@ -334,11 +346,11 @@
           (document.documentElement.classList.add("has-upb"),
           (t.style.cssText = `--upb:url("${e.src}")`));
         let a = document.querySelector(".m-proifo .name .tit"),
-          l = document.querySelector(".m-proifo .name #j-name-wrap");
+          s = document.querySelector(".m-proifo .name #j-name-wrap");
         a &&
-          l &&
-          ((l.dataset.wkUsernameFull = l.title = a.innerText),
-          l.classList.add("wk-full-username"));
+          s &&
+          ((s.dataset.wkUsernameFull = s.title = a.innerText),
+          s.classList.add("wk-full-username"));
       }
       let e = document.querySelector(".g-wrap>.m-info .cover img"),
         t = document.querySelector(".g-wrap>.m-info");
@@ -351,22 +363,22 @@
         location.hash &&
         ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
           "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
-      l = "/" == location.pathname,
+      s = "/" == location.pathname,
       n =
         "video" == location.pathname.substring(1).split("/")[0] ||
         "mv" == location.pathname.substring(1).split("/")[0];
     if (
       x("wksmusicsessionmeta") &&
       "mediaSession" in navigator &&
-      (n || (l && !t))
+      (n || (s && !t))
     ) {
       let t = document.querySelector(
           n ? ".n-mv .title h2" : ".m-playbar .words .name"
         ),
-        l = document.querySelector(
+        s = document.querySelector(
           n ? ".n-mv .title .name" : ".m-playbar .words .by"
         ),
-        s = document.querySelector(
+        l = document.querySelector(
           n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
         ),
         i = [],
@@ -386,46 +398,46 @@
           ? "paused"
           : "none"
         : "none"),
-        s &&
-          s.src &&
+        l &&
+          l.src &&
           (i = [
             {
-              src: s.src.split("?")[0] + "?param=96y96",
+              src: l.src.split("?")[0] + "?param=96y96",
               sizes: "96x96",
               type: "image/jpeg",
             },
             {
-              src: s.src.split("?")[0] + "?param=128y128",
+              src: l.src.split("?")[0] + "?param=128y128",
               sizes: "128x128",
               type: "image/jpeg",
             },
             {
-              src: s.src.split("?")[0] + "?param=192y192",
+              src: l.src.split("?")[0] + "?param=192y192",
               sizes: "192x192",
               type: "image/jpeg",
             },
             {
-              src: s.src.split("?")[0] + "?param=256y256",
+              src: l.src.split("?")[0] + "?param=256y256",
               sizes: "256x256",
               type: "image/jpeg",
             },
             {
-              src: s.src.split("?")[0] + "?param=384y384",
+              src: l.src.split("?")[0] + "?param=384y384",
               sizes: "384x384",
               type: "image/jpeg",
             },
             {
-              src: s.src.split("?")[0] + "?param=512y512",
+              src: l.src.split("?")[0] + "?param=512y512",
               sizes: "512x512",
               type: "image/jpeg",
             },
-            { src: s.src.split("?")[0], sizes: "any", type: "image/jpeg" },
+            { src: l.src.split("?")[0], sizes: "any", type: "image/jpeg" },
           ]);
       try {
         let e = {
           title: t ? t.innerText : document.title,
-          artist: l ? l.innerText : "",
-          album: l ? l.innerText : "",
+          artist: s ? s.innerText : "",
+          album: s ? s.innerText : "",
           artwork: i,
         };
         !((e, t) => {
@@ -444,20 +456,20 @@
       } catch (e) {}
     }
   };
-  f(),
-    window.setInterval(f, 500),
+  m(),
+    window.setInterval(m, 500),
     o &&
       (function () {
         if ("/user/update" == location.pathname) {
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.9-0.9.8</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.10-0.9.9</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1">{1}</ul></div>`,
                 a =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
-                l =
+                s =
                   '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>&#x4fee;&#x6539;</i></a>&nbsp;<label>{1}</label></li>',
-                s = [
+                l = [
                   {
                     label:
                       "&#x6837;&#x5f0f;&#x8868;&#x589e;&#x5f3a;&#x5916;&#x89c2;",
@@ -559,27 +571,27 @@
                   },
                 ],
                 i = "";
-              for (let e = 0; e < s.length; e++) {
-                if (s[e].roi && !d) continue;
+              for (let e = 0; e < l.length; e++) {
+                if (l[e].roi && !d) continue;
                 let t = !0;
-                if (s[e].test) {
+                if (l[e].test) {
                   t = !1;
                   try {
-                    t = !!window.eval(s[e].test);
+                    t = !!window.eval(l[e].test);
                   } catch (e) {}
                 }
                 if (!t) continue;
-                let n = x(s[e].lsm);
-                "n" == s[e].t || "t" == s[e].t
+                let n = x(l[e].lsm);
+                "n" == l[e].t || "t" == l[e].t
                   ? (i += p(
-                      l,
-                      s[e].label,
-                      `data-wk-lsm="${s[e].lsm}" data-wk-t="${s[e].t}" data-wk-l="${s[e].label}"`
+                      s,
+                      l[e].label,
+                      `data-wk-lsm="${l[e].lsm}" data-wk-t="${l[e].t}" data-wk-l="${l[e].label}"`
                     ))
                   : (i += p(
                       a,
-                      s[e].label,
-                      `${n ? "checked " : ""}data-wk-lsm="${s[e].lsm}"`
+                      l[e].label,
+                      `${n ? "checked " : ""}data-wk-lsm="${l[e].lsm}"`
                     ));
               }
               i = p(e, i);
@@ -594,25 +606,25 @@
                   t &&
                     a &&
                     ("checkbox" == t.type
-                      ? r(a, t.checked ? "1" : "")
-                      : r(a, t.value));
+                      ? c(a, t.checked ? "1" : "")
+                      : c(a, t.value));
                 }),
                 t.appendChild(n),
                 n.addEventListener("click", (e) => {
                   let t = e.target.closest("[data-wk-t]");
                   if (!t || !t.dataset) return;
                   let a = t.dataset.wkLsm,
-                    l = t.dataset.wkT,
-                    s = t.dataset.wkL,
+                    s = t.dataset.wkT,
+                    l = t.dataset.wkL,
                     i = x(a);
                   if (t && a) {
                     let e = window.prompt(
-                      "&#x8bf7;&#x8f93;&#x5165;" + s,
+                      "&#x8bf7;&#x8f93;&#x5165;" + l,
                       i || ""
                     );
-                    if ("n" == l && isNaN(+e) && "" != e)
+                    if ("n" == s && isNaN(+e) && "" != e)
                       return void alert("&#x65e0;&#x6548;&#x7684;&#x503c;");
-                    null != e && r(a, e || "");
+                    null != e && c(a, e || "");
                   }
                 });
             }
