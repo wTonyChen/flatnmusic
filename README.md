@@ -74,7 +74,7 @@ UserCSS 版本 (适用于 Stylus 扩展，含调整功能)：[![安装样式](ht
 
 <details>
 <summary>展开首页截图（背景色顶栏）</summary>
-  
+
 ![首页截图（背景色顶栏）](https://wtonychen.github.io/flatnmusic/screenshots/home-white.png)
 
 </details>

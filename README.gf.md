@@ -70,37 +70,51 @@
 
 <details>
 <summary>展开首页截图</summary>
+
 ![首页截图](https://wtonychen.github.io/flatnmusic/screenshots/home.png)
+
 </details>
 
 <details>
 <summary>展开首页截图（背景色顶栏）</summary>
+
 ![首页截图（背景色顶栏）](https://wtonychen.github.io/flatnmusic/screenshots/home-white.png)
+
 </details>
 
 <details>
 <summary>展开歌单页截图</summary>
+
 ![歌单页截图](https://wtonychen.github.io/flatnmusic/screenshots/playlists.png)
+
 </details>
 
 <details>
 <summary>展开电台页截图</summary>
+
 ![电台页截图](https://wtonychen.github.io/flatnmusic/screenshots/podcast.png)
+
 </details>
 
 <details>
 <summary>展开用户页截图</summary>
+
 ![用户页截图](https://wtonychen.github.io/flatnmusic/screenshots/user.png)
+
 </details>
 
 <details>
 <summary>展开歌手页截图</summary>
+
 ![歌手页截图](https://wtonychen.github.io/flatnmusic/screenshots/artist.png)
+
 </details>
 
 <details>
 <summary>展开榜单页截图</summary>
+
 ![榜单页截图](https://wtonychen.github.io/flatnmusic/screenshots/board.png)
+
 </details>
 
 <br>
