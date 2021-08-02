@@ -6,13 +6,13 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.11-0.9.11
+// @version 0.2.12-0.9.12
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
-// @compatible chrome 91+
-// @compatible edge 91+
-// @compatible opera 76+
-// @compatible firefox 89+
+// @compatible chrome 92+
+// @compatible edge 92+
+// @compatible opera 77+
+// @compatible firefox 90+
 // @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -31,8 +31,8 @@
     ((t = document.createElement("div")),
     (t.className = e),
     document.body.appendChild(t));
-  let s,
-    a = getComputedStyle(t),
+  let a,
+    s = getComputedStyle(t),
     l = {
       86: "1f603",
       85: "1f60a",
@@ -97,7 +97,7 @@
     },
     i = "/style/web2/emt/emoji_",
     n = (e) => {
-      let t = a.getPropertyValue("--" + e);
+      let t = s.getPropertyValue("--" + e);
       if (t)
         try {
           t &&
@@ -115,10 +115,10 @@
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    o = (e, t) => {
+    r = (e, t) => {
       window.localStorage && localStorage.setItem(e, t);
     },
-    r = n("wkhi-a"),
+    o = n("wkhi-a"),
     c = n("wkhi-b");
   if (!c) return void t.parentElement.removeChild(t);
   document.documentElement.setAttribute("wk-style-assist", "true");
@@ -126,56 +126,56 @@
     p = function () {
       let e = arguments[0];
       for (let t = 1; t < arguments.length; t++) {
-        let s = RegExp("\\{" + t + "\\}", "g");
-        e = e.replace(s, arguments[t]);
+        let a = RegExp("\\{" + t + "\\}", "g");
+        e = e.replace(a, arguments[t]);
       }
       return e;
     };
   ((e) => {
     let t,
-      s = 0,
-      a = !1,
+      a = 0,
+      s = !1,
       l = document.querySelector("#g-topbar"),
       i = document.querySelector("#g_iframe"),
       n = 0,
-      o = 0,
-      r = !0;
+      r = 0,
+      o = !0;
     if (!l || !Object.is(window.self, window.top)) return;
     let c = 1.6 * l.getBoundingClientRect().height,
       d = (e) => {
         t && t.cancel(),
-          (o = 0),
+          (r = 0),
           (n = 0),
-          (s = 0),
-          (r = !1),
+          (a = 0),
+          (o = !1),
           (t = l.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (r = !0), (l.style.transform = "translateY(0)");
+            (o = !0), (l.style.transform = "translateY(0)");
           });
       };
     i.addEventListener("load", (e) => {
       i.contentWindow.addEventListener("beforeunload", d),
         i.contentDocument.addEventListener("scroll", (e) => {
-          r || t.cancel(),
-            (s = i.contentWindow.scrollY),
-            a ||
+          o || t.cancel(),
+            (a = i.contentWindow.scrollY),
+            s ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (x("wksdscrolling")) {
                     let t = e - n;
-                    (o = Math.max(Math.min(o + t, c), 0)),
+                    (r = Math.max(Math.min(r + t, c), 0)),
                       (l.style.top = "0 !important"),
-                      (l.style.transform = `translateY(-${o}px)`);
-                  } else (l.style.top = ""), (l.style.transform = ""), (o = 0);
+                      (l.style.transform = `translateY(-${r}px)`);
+                  } else (l.style.top = ""), (l.style.transform = ""), (r = 0);
                   n = e;
-                })(s),
-                  (a = !1);
+                })(a),
+                  (s = !1);
               }),
-              (a = !0));
+              (s = !0));
         });
     });
   })();
@@ -210,39 +210,39 @@
       }
       let e = "",
         t = x("wkspipfont"),
-        s = x("wkspipfont2"),
-        a = x("wkspipfsize"),
+        a = x("wkspipfont2"),
+        s = x("wkspipfsize"),
         l = x("wkspipfweight"),
         i = x("wkspipletterspacing"),
         n = x("wkspipwordspacing"),
-        o = x("wkspiplinespacing"),
-        r = x("wkspiplineheight"),
+        r = x("wkspiplinespacing"),
+        o = x("wkspiplineheight"),
         c = x("wkspipcustomstyle");
       if ("STYLE" == arguments[0].tagName) {
         x("wklrctrans") && (e += ".container>.line>.compare{display:none}");
         let d = [];
         t && d.push(`"${t.replace(/"/g, '\\"')}"`),
-          s && d.push(`"${s.replace(/"/g, '\\"')}"`),
+          a && d.push(`"${a.replace(/"/g, '\\"')}"`),
           d.length > 0 &&
             (e += `.container{font-family:${d.join(",")} !important}`),
           l &&
             !isNaN(+l) &&
             (e += `.container,.container *{font-weight:${+l} !important}`),
-          a &&
-            !isNaN(+a) &&
-            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+a}px !important}`),
+          s &&
+            !isNaN(+s) &&
+            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+s}px !important}`),
           i &&
             !isNaN(+i) &&
             (e += `.container,.container *{letter-spacing:${+i}px !important}`),
           n &&
             !isNaN(+n) &&
             (e += `.container,.container *{word-spacing:${+n}px !important}`),
-          o &&
-            !isNaN(+o) &&
-            (e += `.container>.line{padding:${+o}px 0 !important}`),
           r &&
             !isNaN(+r) &&
-            (e += `.container>.line{line-height:${+r}px !important}`),
+            (e += `.container>.line{padding:${+r}px 0 !important}`),
+          o &&
+            !isNaN(+o) &&
+            (e += `.container>.line{line-height:${+o}px !important}`),
           e &&
             (this.appendChildHost.call(
               this,
@@ -280,15 +280,15 @@
     x("wksfullpl") &&
       ((e) => {
         let t = n("wkhi-c"),
-          s = n("wkhi-d");
-        if (t && s) {
-          (t = t.split("|")), (s = s.split("|"));
+          a = n("wkhi-d");
+        if (t && a) {
+          (t = t.split("|")), (a = a.split("|"));
           for (let e = 0; e < t.length; e++)
-            for (let i = 0; i < s.length; i++)
-              (a = t[e]),
-                (l = s[i]),
-                (document.cookie = `${a};path=${l};max-age=3153600000`);
-          var a, l;
+            for (let i = 0; i < a.length; i++)
+              (s = t[e]),
+                (l = a[i]),
+                (document.cookie = `${s};path=${l};max-age=3153600000`);
+          var s, l;
         }
       })(),
     x("wkslowcontrast") &&
@@ -298,180 +298,209 @@
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter =
         document.documentElement.style.filter + " brightness(.5)");
-  let m = (e) => {
-    if (
-      (x("wklrctrans") && f(),
-      x("wkshiresimages") &&
-        ((e) => {
-          let t = document.querySelectorAll("img[data-src]");
-          for (let e = 0; e < t; e++)
-            t[e].dataset.src && "" == t[e].src && (t[e].src = t[e].dataset.src);
-          let s = document.querySelectorAll('img[src*="param="]');
-          for (let e = 0; e < s.length; e++) {
-            let t = s[e].src.split("?")[0];
-            if (s[e].src != t) {
-              let a = new Image(),
-                l = (i) => {
-                  s[e] &&
-                    (s[e].src.split("?")[0] == t &&
-                      ((s[e].src = t), s[e].classList.add("wk-hires-loaded")),
-                    a.removeEventListener("load", l, !1));
-                };
-              a.addEventListener("load", l, !1),
-                s[e].classList.remove("wk-hires-loaded"),
-                (a.src = t);
-            }
-          }
-        })(),
-      x("wksemojisym") &&
-        ((e) => {
-          let t = document.querySelectorAll(`img[src*="${i}"]`);
-          for (let e = 0; e < t.length; e++) {
-            let s = t[e].src.split(i)[1];
-            s &&
-              ((s = s.split(".")[0]),
-              !isNaN(+s) &&
-                l[+s] &&
-                (t[
+  let m = {
+      kw7: (e) => {
+        !isNaN(+e) &&
+          +e > 99999 &&
+          +e < 1e6 &&
+          alert(
+            ((e) => {
+              let t = "" + e,
+                a = 0,
+                s = t.length;
+              for (let e = 0; e < s; e++) {
+                let l = (
+                  t[e].codePointAt() * (s - e) * (e + 1) +
+                  1 +
                   e
-                ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
-                  l[+s]
-                };</text></svg>`));
-          }
-        })(),
-      x("wksimprovedlook"))
-    ) {
-      if ("user" == location.pathname.substring(1).split("/")[0]) {
-        let e = document.querySelector(".m-proifo dt img"),
-          t = document.querySelector(".g-bd");
-        e &&
-          e.src &&
-          t &&
-          (document.documentElement.classList.add("has-upb"),
-          (t.style.cssText = `--upb:url("${e.src}")`));
-        let s = document.querySelector(".m-proifo .name .tit"),
-          a = document.querySelector(".m-proifo .name #j-name-wrap");
-        s &&
+                ).toString(26);
+                a += l
+                  .substr(l.length - 1, 1)
+                  .toUpperCase()
+                  .codePointAt();
+              }
+              let l = ((9301 * a + 49297) % 233280) / 233280;
+              return Math.round(1e5 + 899999 * l);
+            })(e)
+          );
+      },
+    },
+    u = (e) => {
+      if (
+        (x("wklrctrans") && f(),
+        x("wkshiresimages") &&
+          ((e) => {
+            let t = document.querySelectorAll("img[data-src]");
+            for (let e = 0; e < t; e++)
+              t[e].dataset.src &&
+                "" == t[e].src &&
+                (t[e].src = t[e].dataset.src);
+            let a = document.querySelectorAll('img[src*="param="]');
+            for (let e = 0; e < a.length; e++) {
+              let t = a[e].src.split("?")[0];
+              if (a[e].src != t) {
+                let s = new Image(),
+                  l = (i) => {
+                    a[e] &&
+                      (a[e].src.split("?")[0] == t &&
+                        ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
+                      s.removeEventListener("load", l, !1));
+                  };
+                s.addEventListener("load", l, !1),
+                  a[e].classList.remove("wk-hires-loaded"),
+                  (s.src = t);
+              }
+            }
+          })(),
+        x("wksemojisym") &&
+          ((e) => {
+            let t = document.querySelectorAll(`img[src*="${i}"]`);
+            for (let e = 0; e < t.length; e++) {
+              let a = t[e].src.split(i)[1];
+              a &&
+                ((a = a.split(".")[0]),
+                !isNaN(+a) &&
+                  l[+a] &&
+                  (t[
+                    e
+                  ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
+                    l[+a]
+                  };</text></svg>`));
+            }
+          })(),
+        x("wksimprovedlook"))
+      ) {
+        if ("user" == location.pathname.substring(1).split("/")[0]) {
+          let e = document.querySelector(".m-proifo dt img"),
+            t = document.querySelector(".g-bd");
+          e &&
+            e.src &&
+            t &&
+            (document.documentElement.classList.add("has-upb"),
+            (t.style.cssText = `--upb:url("${e.src}")`));
+          let a = document.querySelector(".m-proifo .name .tit"),
+            s = document.querySelector(".m-proifo .name #j-name-wrap");
           a &&
-          ((a.dataset.wkUsernameFull = a.title = s.innerText),
-          a.classList.add("wk-full-username"));
+            s &&
+            ((s.dataset.wkUsernameFull = s.title = a.innerText),
+            s.classList.add("wk-full-username"));
+        }
+        let e = document.querySelector(".g-wrap>.m-info .cover img"),
+          t = document.querySelector(".g-wrap>.m-info");
+        e &&
+          t &&
+          (document.documentElement.classList.add("has-mib"),
+          (t.style.cssText = `--mib:url("${e.src}")`));
       }
-      let e = document.querySelector(".g-wrap>.m-info .cover img"),
-        t = document.querySelector(".g-wrap>.m-info");
-      e &&
-        t &&
-        (document.documentElement.classList.add("has-mib"),
-        (t.style.cssText = `--mib:url("${e.src}")`));
-    }
-    let t =
-        location.hash &&
-        ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
-          "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
-      a = "/" == location.pathname,
-      n =
-        "video" == location.pathname.substring(1).split("/")[0] ||
-        "mv" == location.pathname.substring(1).split("/")[0];
-    if (
-      x("wksmusicsessionmeta") &&
-      "mediaSession" in navigator &&
-      (n || (a && !t))
-    ) {
-      let t = document.querySelector(
-          n ? ".n-mv .title h2" : ".m-playbar .words .name"
-        ),
-        a = document.querySelector(
-          n ? ".n-mv .title .name" : ".m-playbar .words .by"
-        ),
-        l = document.querySelector(
-          n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
-        ),
-        i = [],
-        x =
-          (document.querySelector(n ? null : ".m-playbar .btns .prv"),
-          document.querySelector(
-            n
-              ? ".m-ctvideo.z-play .controls .wrap .play"
-              : ".m-playbar .btns .ply"
+      let t =
+          location.hash &&
+          ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
+            "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
+        s = "/" == location.pathname,
+        n =
+          "video" == location.pathname.substring(1).split("/")[0] ||
+          "mv" == location.pathname.substring(1).split("/")[0];
+      if (
+        x("wksmusicsessionmeta") &&
+        "mediaSession" in navigator &&
+        (n || (s && !t))
+      ) {
+        let t = document.querySelector(
+            n ? ".n-mv .title h2" : ".m-playbar .words .name"
           ),
-          document.querySelector(n ? null : ".m-playbar .btns .nxt"),
-          document.querySelector(n ? ".m-ctvideo" : ".m-playbar .btns .ply"));
-      (x = x
-        ? x.classList.contains(n ? "z-play" : "pas")
-          ? "playing"
-          : x.classList.contains(n ? "z-pause" : "ply")
-          ? "paused"
-          : "none"
-        : "none"),
-        l &&
-          l.src &&
-          (i = [
-            {
-              src: l.src.split("?")[0] + "?param=96y96",
-              sizes: "96x96",
-              type: "image/jpeg",
-            },
-            {
-              src: l.src.split("?")[0] + "?param=128y128",
-              sizes: "128x128",
-              type: "image/jpeg",
-            },
-            {
-              src: l.src.split("?")[0] + "?param=192y192",
-              sizes: "192x192",
-              type: "image/jpeg",
-            },
-            {
-              src: l.src.split("?")[0] + "?param=256y256",
-              sizes: "256x256",
-              type: "image/jpeg",
-            },
-            {
-              src: l.src.split("?")[0] + "?param=384y384",
-              sizes: "384x384",
-              type: "image/jpeg",
-            },
-            {
-              src: l.src.split("?")[0] + "?param=512y512",
-              sizes: "512x512",
-              type: "image/jpeg",
-            },
-            { src: l.src.split("?")[0], sizes: "any", type: "image/jpeg" },
-          ]);
-      try {
-        let e = {
-          title: t ? t.innerText : document.title,
-          artist: a ? a.innerText : "",
-          album: a ? a.innerText : "",
-          artwork: i,
-        };
-        !((e, t) => {
-          if ("object" == typeof e)
-            try {
-              e = JSON.stringify(e);
-            } catch (e) {}
-          if ("object" == typeof t)
-            try {
-              t = JSON.stringify(t);
-            } catch (e) {}
-          return e == t;
-        })(e, s) &&
-          n &&
-          ((s = e), (navigator.mediaSession.metadata = new MediaMetadata(s)));
-      } catch (e) {}
-    }
-  };
-  m(),
-    window.setInterval(m, 500),
+          s = document.querySelector(
+            n ? ".n-mv .title .name" : ".m-playbar .words .by"
+          ),
+          l = document.querySelector(
+            n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+          ),
+          i = [],
+          x =
+            (document.querySelector(n ? null : ".m-playbar .btns .prv"),
+            document.querySelector(
+              n
+                ? ".m-ctvideo.z-play .controls .wrap .play"
+                : ".m-playbar .btns .ply"
+            ),
+            document.querySelector(n ? null : ".m-playbar .btns .nxt"),
+            document.querySelector(n ? ".m-ctvideo" : ".m-playbar .btns .ply"));
+        (x = x
+          ? x.classList.contains(n ? "z-play" : "pas")
+            ? "playing"
+            : x.classList.contains(n ? "z-pause" : "ply")
+            ? "paused"
+            : "none"
+          : "none"),
+          l &&
+            l.src &&
+            (i = [
+              {
+                src: l.src.split("?")[0] + "?param=96y96",
+                sizes: "96x96",
+                type: "image/jpeg",
+              },
+              {
+                src: l.src.split("?")[0] + "?param=128y128",
+                sizes: "128x128",
+                type: "image/jpeg",
+              },
+              {
+                src: l.src.split("?")[0] + "?param=192y192",
+                sizes: "192x192",
+                type: "image/jpeg",
+              },
+              {
+                src: l.src.split("?")[0] + "?param=256y256",
+                sizes: "256x256",
+                type: "image/jpeg",
+              },
+              {
+                src: l.src.split("?")[0] + "?param=384y384",
+                sizes: "384x384",
+                type: "image/jpeg",
+              },
+              {
+                src: l.src.split("?")[0] + "?param=512y512",
+                sizes: "512x512",
+                type: "image/jpeg",
+              },
+              { src: l.src.split("?")[0], sizes: "any", type: "image/jpeg" },
+            ]);
+        try {
+          let e = {
+            title: t ? t.innerText : document.title,
+            artist: s ? s.innerText : "",
+            album: s ? s.innerText : "",
+            artwork: i,
+          };
+          !((e, t) => {
+            if ("object" == typeof e)
+              try {
+                e = JSON.stringify(e);
+              } catch (e) {}
+            if ("object" == typeof t)
+              try {
+                t = JSON.stringify(t);
+              } catch (e) {}
+            return e == t;
+          })(e, a) &&
+            n &&
+            ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
+        } catch (e) {}
+      }
+    };
+  u(),
+    window.setInterval(u, 500),
     c &&
       (function () {
         if ("/user/update" == location.pathname) {
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.11-0.9.11</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${r}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
-                s =
-                  '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.12-0.9.12</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${o}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
                 a =
+                  '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
+                s =
                   '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>&#x4fee;&#x6539;</i></a>&nbsp;<label>{1}</label></li>',
                 l = [
                   {
@@ -591,14 +620,14 @@
                 }
                 if (!t) continue;
                 let n = x(l[e].lsm);
-                "n" == l[e].t || "t" == l[e].t
+                "n" == l[e].t || "t" == l[e].t || "p" == l[e].t
                   ? (i += p(
-                      a,
+                      s,
                       l[e].label,
                       `data-wk-lsm="${l[e].lsm}" data-wk-t="${l[e].t}" data-wk-l="${l[e].label}"`
                     ))
                   : (i += p(
-                      s,
+                      a,
                       l[e].label,
                       `${n ? "checked " : ""}data-wk-lsm="${l[e].lsm}"`
                     ));
@@ -611,27 +640,55 @@
                 n.addEventListener("change", (e) => {
                   let t = e.target.closest("[data-wk-lsm]");
                   if (!t || !t.dataset) return;
-                  let s = t.dataset.wkLsm;
+                  let a = t.dataset.wkLsm;
                   t &&
-                    s &&
+                    a &&
                     ("checkbox" == t.type
-                      ? o(s, t.checked ? "1" : "")
-                      : o(s, t.value));
+                      ? r(a, t.checked ? "1" : "")
+                      : r(a, t.value));
                 }),
                 t.appendChild(n),
                 n.addEventListener("click", (e) => {
                   let t = e.target.closest("[data-wk-t]");
                   if (!t || !t.dataset) return;
-                  let s = t.dataset.wkLsm,
-                    a = t.dataset.wkT,
+                  let a = t.dataset.wkLsm,
+                    s = t.dataset.wkT,
                     l = t.dataset.wkL,
-                    i = x(s),
+                    i = x(a),
                     n = t.closest("[data-prompt-prefix]");
-                  if (((n = n ? n.dataset.promptPrefix : ""), t && s)) {
-                    let e = window.prompt(n + l, i || "");
-                    if ("n" == a && isNaN(+e) && "" != e)
-                      return void alert("&#x65e0;&#x6548;&#x7684;&#x503c;");
-                    null != e && o(s, e || "");
+                  if (((n = n ? n.dataset.promptPrefix : ""), t && a)) {
+                    let e = n + l;
+                    "p" == s && (e = n);
+                    let t = window.prompt(e, i || ""),
+                      x = ((e) => {
+                        let t = 0,
+                          a = "" + e,
+                          s = a.length;
+                        for (let e = 0; e < s; e++) t += a[e].codePointAt();
+                        return t.toString(36) + s;
+                      })(a);
+                    if ("n" == s && isNaN(+t) && "" != t)
+                      return void alert(
+                        ((e) => {
+                          let t = "&#x65e0;&#x6548;&#x7684;&#x503c;",
+                            a = t.match(/\&#x[a-fA-F0-9]+;/g);
+                          if (a)
+                            for (let e = 0; e < a.length; e++) {
+                              let s = a[e].substring(3, a[e].length - 1);
+                              try {
+                                s = JSON.parse(`"\\u${s.padStart(4, 0)}"`);
+                              } catch (e) {}
+                              t = t.replace(a[e], s);
+                            }
+                          return t;
+                        })()
+                      );
+                    null != t && "p" != s
+                      ? r(a, t || "")
+                      : "p" == s &&
+                        m[x] &&
+                        "function" == typeof m[x] &&
+                        m[x](t);
                   }
                 });
             }

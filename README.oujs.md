@@ -4,16 +4,15 @@
 
 <br>
 
-![样式表版本](https://img.shields.io/badge/dynamic/json?color=blue&label=%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%89%88%E6%9C%AC&query=%24.stylesheet&url=https://wtonychen.github.io/flatnmusic/VERSIONS&style=for-the-badge&logo=css3)
-![辅助脚本版本](https://img.shields.io/badge/dynamic/json?color=orange&label=%E8%BE%85%E5%8A%A9%E8%84%9A%E6%9C%AC%E7%89%88%E6%9C%AC&query=%24.script&url=https://wtonychen.github.io/flatnmusic/VERSIONS&style=for-the-badge&logo=javascript)
-![兼容 Google Chrome](https://img.shields.io/badge/dynamic/json?color=red&label=%E5%85%BC%E5%AE%B9%20Google%20Chrome&logo=google-chrome&style=for-the-badge&logoColor=red&query=%24.gc&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
-![兼容 Microsoft Edge](https://img.shields.io/badge/dynamic/json?color=0078d7&label=%E5%85%BC%E5%AE%B9%20Microsoft%20Edge&logo=microsoft-edge&style=for-the-badge&logoColor=0078d7&query=%24.me&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
-![兼容 Mozilla Firefox](https://img.shields.io/badge/dynamic/json?color=ff7139&label=%E5%85%BC%E5%AE%B9%20Mozilla%20Firefox&logo=firefox-browser&style=for-the-badge&query=%24.mf&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
+![兼容 Chrome](https://img.shields.io/badge/dynamic/json?color=red&label=%E5%85%BC%E5%AE%B9%20Google%20Chrome&logo=google-chrome&style=for-the-badge&logoColor=red&query=%24.gc&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
+![兼容 Edge](https://img.shields.io/badge/dynamic/json?color=0078d7&label=%E5%85%BC%E5%AE%B9%20Microsoft%20Edge&logo=microsoft-edge&style=for-the-badge&logoColor=0078d7&query=%24.me&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
+![兼容 Firefox](https://img.shields.io/badge/dynamic/json?color=ff7139&label=%E5%85%BC%E5%AE%B9%20Mozilla%20Firefox&logo=firefox-browser&style=for-the-badge&query=%24.mf&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
 ![兼容 Opera](https://img.shields.io/badge/dynamic/json?color=ff182d&label=%E5%85%BC%E5%AE%B9%20Opera&logo=opera&style=for-the-badge&logoColor=ff182d&query=%24.o&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
-[![许可](https://img.shields.io/badge/dynamic/json?color=d22128&label=%E8%AE%B8%E5%8F%AF&query=%24.license.name&url=https://api.github.com/repos/wTonyChen/flatnmusic&style=for-the-badge)](https://github.com/wTonyChen/flatnmusic/blob/master/LICENSE)
-![GitHub Issues](https://img.shields.io/github/issues-raw/wTonyChen/flatnmusic?color=green&label=Issues&style=for-the-badge)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/wTonyChen/flatnmusic?color=orange&label=Pull%20Requests&style=for-the-badge)
-![更新时间](https://img.shields.io/github/last-commit/wTonyChen/flatnmusic?color=blue&label=%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4&style=for-the-badge)
+![最后更新时间](https://img.shields.io/github/last-commit/wTonyChen/flatnmusic?color=blue&label=%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4&style=for-the-badge)
+
+
+> 加入 QQ 群更快地获取更新消息、提供建议或获取帮助: `1️⃣8️⃣3️⃣7️⃣4️⃣2️⃣7️⃣4️⃣8️⃣`
+
 
 <br>
 
