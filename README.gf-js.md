@@ -11,12 +11,10 @@
 
 ![兼容 Chrome](https://img.shields.io/badge/dynamic/json?color=red&label=%E5%85%BC%E5%AE%B9%20Google%20Chrome&logo=google-chrome&style=for-the-badge&logoColor=red&query=%24.gc&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
 ![兼容 Edge](https://img.shields.io/badge/dynamic/json?color=0078d7&label=%E5%85%BC%E5%AE%B9%20Microsoft%20Edge&logo=microsoft-edge&style=for-the-badge&logoColor=0078d7&query=%24.me&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
-![兼容 Firefox](https://img.shields.io/badge/dynamic/json?color=ff7139&label=%E5%85%BC%E5%AE%B9%20Mozilla%20Firefox&logo=firefox-browser&style=for-the-badge&query=%24.mf&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
 ![兼容 Opera](https://img.shields.io/badge/dynamic/json?color=ff182d&label=%E5%85%BC%E5%AE%B9%20Opera&logo=opera&style=for-the-badge&logoColor=ff182d&query=%24.o&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
+![有限兼容 Firefox](https://img.shields.io/badge/dynamic/json?color=ff7139&label=%E5%85%BC%E5%AE%B9%20Mozilla%20Firefox&logo=firefox-browser&style=for-the-badge&query=%24.mf&url=https://wtonychen.github.io/flatnmusic/COMPATIBILITY)
 ![最后更新时间](https://img.shields.io/github/last-commit/wTonyChen/flatnmusic?color=blue&label=%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4&style=for-the-badge)
 
-
-> 加入 QQ 群更快地获取更新消息、提供建议或获取帮助: `1️⃣8️⃣3️⃣7️⃣4️⃣2️⃣7️⃣4️⃣8️⃣`
 
 
 <br>
@@ -42,7 +40,7 @@
 | ----------- | ----------- | ----------- |
 | [GitHub](https://wtonychen.github.io/flatnmusic/flatnmusic.user.css) | [GitHub](https://wtonychen.github.io/flatnmusic/flatnmusic.min.css) | [GitHub](https://wtonychen.github.io/flatnmusic/flatnmusic.user.js) |
 | [Greasy Fork](https://greasyfork.org/scripts/406821) | [Userstyles.org 0.6.1 版本](https://userstyles.org/styles/186848) | [Greasy Fork](https://greasyfork.org/scripts/369688) |
-|  | [Userstyles.org 0.3.81 版本](https://userstyles.org/styles/155372) | [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC) |
+| [UserStyles.world](https://userstyles.world/style/824) | [Userstyles.org 0.3.81 版本](https://userstyles.org/styles/155372) | [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC) |
 <br>
 
 ## 搭配使用的附加功能

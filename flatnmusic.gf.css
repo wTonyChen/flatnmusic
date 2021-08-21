@@ -6,7 +6,7 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.9.12
+@version 0.9.13
 @author wTonyChen
 @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 @homepageURL https://wtonychen.github.io/flatnmusic/
@@ -15,7 +15,7 @@
 @compatible chrome 92+
 @compatible edge 92+
 @compatible opera 77+
-@compatible firefox 90+
+@compatible firefox 91+ 有限支持
 @license GPL-3.0-or-later
 @preprocessor uso
 @var select font-1st "\u9996\u9009\u5b57\u4f53"{"Segoe UI":"local('Segoe UI Variable Display'),local('Segoe UI Variable'),local('Segoe UI'),local('Segoe UI'),local('Segoe Pro'),local('Segoe WP'),","Arial":"local('Arial'),","Avenir Next":"local('Avenir Next'),local('Avenir Next LT Pro'),local('Avenir Next Pro'),","DIN":"local('Bahnschrift'),local('DIN Pro'),local('DIN Schrift LT'),local('DIN Next LT Pro'),local('DIN Next'),local('DIN Next LT'),local('DIN'),","Calibri":"local('Calibri'),","Century Gothic":"local('Century Gothic'),","Comic Sans":"local('Comic Sans MS'),local('Comic Sans'),","Corbel":"local('Corbel'),","Lucida Sans":"local('Lucida Sans'),","Noto Sans":"local('Noto Sans'),local('Noto Sans Display'),","Roboto":"local('Roboto'),","Tahoma":"local('Tahoma'),","Trebuchet":"local('Trebuchet MS'),local('Trebuchet'),","Tw Cen MT":"local('Tw Cen MT'),","Ubuntu":"local('Ubuntu'),","Verdana":"local('Verdana'),","Cambria":"local('Cambria'),","Century":"local('Century'),","Times New Roman":"local('Times New Roman'),"}
@@ -36,7 +36,7 @@
 @var select ui-color-palettes "\u754c\u9762\u989c\u8272 (Beta)"{"\u6d45\u8272":" ","\u6df1\u8272":"*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}","\u81ea\u52a8":"@media(prefers-color-scheme:dark){*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*:not(fuck),*:not(fuck)::before,*:not(fuck)::after{border-radius:0 !important}"}
 @var select nowplaying-list-style "\u6b63\u5728\u64ad\u653e\u5217\u8868\u98ce\u683c"{"\u7d27\u51d1":" ","\u5bbd\u677e":".m-playbar .list li{height:50px;position:relative;display:flex;flex-direction:row;align-items:center}.m-playbar .col-1{margin:11px}.m-playbar .col-2{font-size:16px;height:22px;line-height:22px;flex-grow:1;padding:0 0 16px 0;font-weight:700}.m-playbar .col-4{display:block;position:absolute;top:50%;transform:translateY(-50%);left:49px;padding:22px 0 0 0;width:calc(100% - 160px);height:16px;line-height:16px}.m-playbar .col-5,.m-playbar .col-6{height:16px;line-height:16px;padding-top:0;padding-bottom:20px}.m-playbar .list li .col-3{display:block;position:absolute;top:50%;transform:translateY(-50%);right:25px;height:16px;line-height:16px;padding-top:20px}.m-playbar .list li .col-3 .ico{margin:0 0 0 5px}.m-playbar .col .icns{display:block;height:16px;bottom:0;top:initial}.m-playbar .col-6{padding-right:20px;padding-left:7px}.m-playbar .col .ico-src{margin:0 7px}.m-playbar .col-5{padding-left:20px}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u652f\u6301"{"\u542f\u7528":".wk-fnm-hi-cfg:not(fuck){--wkhi-a:'0.9.12';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/39/2e/31/2e/31/39/39/30/39/39';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u652f\u6301"{"\u542f\u7528":".wk-fnm-hi-cfg:not(fuck){--wkhi-a:'0.9.13';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/39/2e/31/2e/31/39/39/30/39/39';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
 @var select custom-font "\u4f7f\u7528\u81ea\u5b9a\u4e49\u5b57\u4f53"{"\u7981\u7528":" ","\u542f\u7528":"*{font-family:var(--gv-aa),var(--gv-ab),sans-serif !important}"}
 @var text custom-font-1st "\u9996\u9009\u81ea\u5b9a\u4e49\u5b57\u4f53" " "
 @var text custom-font-2nd "\u5907\u9009\u81ea\u5b9a\u4e49\u5b57\u4f53" " "
@@ -102,7 +102,7 @@
     /*[[ui-color-palettes]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen (https://github.com/wTonyChen) 0.9.12 (20210803)
+	Flat-Style Netease Music by wTonyChen (https://github.com/wTonyChen) 0.9.13 (20210822)
 	https://wtonychen.github.io/flatnmusic/
 	License: GNU General Public License
 */
@@ -113,7 +113,7 @@
   }
   * {
     --gs-ab: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1873 1282"><path fill="grey" d="M1072.4,1275.7H886.2h-151H548.8c-14.1,0-25.2-11.1-25.2-25.2s11.1-25.2,25.2-25.2h186.3v-80.6h151v80.6h186.3 c14.1,0,25.2,11.1,25.2,25.2S1086.5,1275.7,1072.4,1275.7z"/><path d="M10.1,6.9h1601.1c6,0,10.1,4,10.1,10.1v1117.8c0,6-4,10.1-10.1,10.1H10.1c-6,0-10.1-4-10.1-10.1V17 C0,10.9,4,6.9,10.1,6.9z"/><rect x="29" y="34" fill="lightblue" width="1563" height="1076.1"/><path d="M1520.6,450h322.2c17.1,0,30.2,13.1,30.2,30.2v745.2c0,17.1-13.1,30.2-30.2,30.2h-322.2c-17.1,0-30.2-13.1-30.2-30.2V480.2 C1490.3,463.1,1503.4,450,1520.6,450z"/><path fill="pink" d="M1540.7,500.3h282c17.1,0,30.2,13.1,30.2,30.2V1175c0,17.1-13.1,30.2-30.2,30.2h-282 c-17.1,0-30.2-13.1-30.2-30.2V530.5C1510.5,513.4,1523.6,500.3,1540.7,500.3z"/></svg>');
-    --gs-ac: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><style>path{animation:a 1s linear infinite normal both;transform-origin:8px 8px}@keyframes a{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style><path fill="none" d="M 8,1.125 A 6.875,6.875 0 1 1 1.125,8" stroke-width="1" stroke="grey"/></svg>');
+    --gs-ac: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><style>path{animation:a 1s linear infinite normal both;transform-origin:8px 8px;stroke-linecap:round;stroke-width:1;stroke:grey;fill:none}@keyframes a{to{transform:rotate(360deg)}}</style><path d="M 8,1.125 A 6.875,6.875 0 1 1 1.125,8"/></svg>');
     --gc-aa: var(--cp-e1);
     --cp-00: rgba(0, 0, 0, 0);
     --cp-x1: rgba(0, 0, 0, 0.1);
@@ -1541,13 +1541,13 @@
   }
   .m-srch .u-lstlay {
     display: block !important;
-    width: 200px;
+    width: 201px;
     text-shadow: none;
     box-shadow: 0 8px 24px var(--cp-a5);
     top: 60px;
     box-sizing: content-box;
     border-radius: 0 0 15px 15px;
-    left: calc(50% - 101px);
+    left: calc(50% - 102px);
     border: 1px solid var(--cp-d4);
     opacity: 1;
     transition: all 0.2s ease;
@@ -5690,6 +5690,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .u-icn-2.u-video-deny-copy {
+    width: 18px;
+    height: 18px;
+    background: 0 0;
+  }
+  .u-icn-2.u-video-deny-copy::before {
+    content: "\e02d";
+    font-size: 12px;
+  }
   .m-dynamic .dtoggle i {
     margin-left: 5px;
   }
@@ -6407,9 +6416,8 @@
   }
   .u-vip-btn-group .u-btni-vipadd {
     border-radius: 0 5px 5px 0;
-    margin-left: -3px !important;
+    margin-left: 1px !important;
     padding: 0;
-    margin-left: -3px !important;
     position: relative;
   }
   .u-vip-btn-group .u-btni-vipply .ply {
@@ -7341,7 +7349,6 @@
     .m-playbar .ico-dl::before,
     .m-playbar .ico-share::before,
     .m-playbar .listhdc .close::before,
-    .m-playbar .playicn::before,
     .m-playbar .updn .btn::after,
     .m-playbar .words .mv::before,
     .m-playbar .words .src::before,

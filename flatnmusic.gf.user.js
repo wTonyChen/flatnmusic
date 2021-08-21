@@ -6,13 +6,13 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.12-0.9.12
+// @version 0.2.13-0.9.13
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 92+
 // @compatible edge 92+
 // @compatible opera 77+
-// @compatible firefox 90+
+// @compatible firefox 91+ 有限支持
 // @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -497,11 +497,11 @@
           let e = (e) => {
             let t = document.querySelector("#baseBox");
             if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.12-0.9.12</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${o}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
+              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.13-0.9.13</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${o}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
                 a =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 s =
-                  '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>&#x4fee;&#x6539;</i></a>&nbsp;<label>{1}</label></li>',
+                  '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>{3}</i></a>&nbsp;<label>{1}</label></li>',
                 l = [
                   {
                     label:
@@ -624,7 +624,8 @@
                   ? (i += p(
                       s,
                       l[e].label,
-                      `data-wk-lsm="${l[e].lsm}" data-wk-t="${l[e].t}" data-wk-l="${l[e].label}"`
+                      `data-wk-lsm="${l[e].lsm}" data-wk-t="${l[e].t}" data-wk-l="${l[e].label}"`,
+                      "p" == l[e].t ? "&#x5f00;&#x59cb;" : "&#x4fee;&#x6539;"
                     ))
                   : (i += p(
                       a,
