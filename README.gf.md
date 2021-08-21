@@ -41,7 +41,7 @@
 <br>
 
 > 没有 Stylus 扩展? 请见备注2<br>
-> 不了解如何安装？前往了解[如何安装用户脚本?](https://greasyfork.org/help/installing-user-scripts)</a>
+> 不了解如何安装？前往了解[如何安装用户脚本?](https://greasyfork.org/help/installing-user-scripts)
 
 <br>
 
