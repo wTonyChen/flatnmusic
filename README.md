@@ -138,3 +138,10 @@ UserCSS 版本 (适用于 Stylus 扩展，含调整功能)：[![安装样式](ht
 [GNU General Public License](https://github.com/wTonyChen/flatnmusic/blob/master/LICENSE)
 
 您可以在 [https://www.gnu.org/licenses/translations.html](https://www.gnu.org/licenses/translations.html) 查看许可证的翻译版本。
+
+<br>
+
+## 鸣谢
+
+感谢 [JetBrains s.r.o.](https://www.jetbrains.com) 为本项目提供开发工具
+

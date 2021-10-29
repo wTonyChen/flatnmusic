@@ -6,13 +6,13 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.13-0.9.13
+// @version 0.2.14-0.9.14
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
-// @compatible chrome 92+
-// @compatible edge 92+
-// @compatible opera 77+
-// @compatible firefox 91+ 有限支持
+// @compatible chrome 95+
+// @compatible edge 95+
+// @compatible opera 80+
+// @compatible firefox 93+ 有限支持
 // @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -25,15 +25,16 @@
 
 !(function () {
   "use strict";
-  let e = "wk-fnm-hi-cfg",
-    t = document.querySelector("." + e);
-  t ||
-    ((t = document.createElement("div")),
-    (t.className = e),
-    document.body.appendChild(t));
+  let e = "0.2.14-0.9.14",
+    t = "wk-fnm-hi-cfg",
+    l = document.querySelector("." + t);
+  l ||
+    ((l = document.createElement("div")),
+    (l.className = t),
+    document.body.appendChild(l));
   let a,
-    s = getComputedStyle(t),
-    l = {
+    s = getComputedStyle(l),
+    i = {
       86: "1f603",
       85: "1f60a",
       359: "263a",
@@ -95,8 +96,8 @@
       312: "2b55",
       313: "274c",
     },
-    i = "/style/web2/emt/emoji_",
-    n = (e) => {
+    n = "/style/web2/emt/emoji_",
+    x = (e) => {
       let t = s.getPropertyValue("--" + e);
       if (t)
         try {
@@ -111,89 +112,95 @@
         t
       );
     },
-    x = (e) => {
+    r = (e) => {
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    r = (e, t) => {
+    o = (e, t) => {
       window.localStorage && localStorage.setItem(e, t);
     },
-    o = n("wkhi-a"),
-    c = n("wkhi-b");
-  if (!c) return void t.parentElement.removeChild(t);
+    c = x("wkhi-a"),
+    d = x("wkhi-b");
+  if (!d) return void l.parentElement.removeChild(l);
   document.documentElement.setAttribute("wk-style-assist", "true");
-  let d = x("wkoptin") || !1,
-    p = function () {
+  let p = r("wkoptin") || !1,
+    f = function () {
       let e = arguments[0];
       for (let t = 1; t < arguments.length; t++) {
-        let a = RegExp("\\{" + t + "\\}", "g");
-        e = e.replace(a, arguments[t]);
+        let l = RegExp("\\{" + t + "\\}", "g");
+        e = e.replace(l, arguments[t]);
       }
       return e;
     };
   ((e) => {
     let t,
-      a = 0,
-      s = !1,
-      l = document.querySelector("#g-topbar"),
+      l = 0,
+      a = !1,
+      s = document.querySelector("#g-topbar"),
       i = document.querySelector("#g_iframe"),
       n = 0,
-      r = 0,
+      x = 0,
       o = !0;
-    if (!l || !Object.is(window.self, window.top)) return;
-    let c = 1.6 * l.getBoundingClientRect().height,
+    if (!s || !Object.is(window.self, window.top)) return;
+    let c = 1.6 * s.getBoundingClientRect().height,
       d = (e) => {
         t && t.cancel(),
-          (r = 0),
+          (x = 0),
           (n = 0),
-          (a = 0),
+          (l = 0),
           (o = !1),
-          (t = l.animate([{ transform: "translateY(0)" }], {
+          (t = s.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (o = !0), (l.style.transform = "translateY(0)");
+            (o = !0), (s.style.transform = "translateY(0)");
           });
       };
     i.addEventListener("load", (e) => {
       i.contentWindow.addEventListener("beforeunload", d),
         i.contentDocument.addEventListener("scroll", (e) => {
           o || t.cancel(),
-            (a = i.contentWindow.scrollY),
-            s ||
+            (l = i.contentWindow.scrollY),
+            a ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
-                  if (x("wksdscrolling")) {
+                  if (r("wksdscrolling")) {
                     let t = e - n;
-                    (r = Math.max(Math.min(r + t, c), 0)),
-                      (l.style.top = "0 !important"),
-                      (l.style.transform = `translateY(-${r}px)`);
-                  } else (l.style.top = ""), (l.style.transform = ""), (r = 0);
+                    (x = Math.max(Math.min(x + t, c), 0)),
+                      (s.style.top = "0 !important"),
+                      (s.style.transform = `translateY(-${x}px)`);
+                  } else (s.style.top = ""), (s.style.transform = ""), (x = 0);
                   n = e;
-                })(a),
-                  (s = !1);
+                })(l),
+                  (a = !1);
               }),
-              (s = !0));
+              (a = !0));
         });
     });
   })();
-  let f = (e) => {
-    if (!Object.is(window.self, window.top)) return;
-    let t = document.querySelectorAll(
-      ".m-playbar .listlyric>p:not(.wk-upgraded)"
-    );
-    for (let e = 0; e < t.length; e++)
-      (t[e].innerText = t[e].innerText.split("\n")[0]),
-        t[e].classList.add("wk-upgraded");
-  };
-  x("wklrctrans") && document.body.classList.add("wk-playlist-applied"),
+  let m = (e) => {
+      let t = "" + e,
+        l = 0;
+      for (let e = 0; e < t.length; e++) l += t[e].charCodeAt();
+      return l;
+    },
+    u = (e) => {
+      if (!Object.is(window.self, window.top)) return;
+      let t = document.querySelectorAll(
+        ".m-playbar .listlyric>p:not(.wk-upgraded)"
+      );
+      for (let e = 0; e < t.length; e++)
+        (t[e].innerText = t[e].innerText.split("\n")[0]),
+          t[e].classList.add("wk-upgraded");
+    };
+  r("wklrctrans") && document.body.classList.add("wk-playlist-applied"),
     (DocumentFragment.prototype.appendChildHost =
       DocumentFragment.prototype.appendChild),
     (DocumentFragment.prototype.appendChild = function () {
       if (
-        x("wksplayinguiani") &&
+        r("wksplayinguiani") &&
         arguments[0].classList.contains("m-layer") &&
         arguments[0].parentElement
       ) {
@@ -209,37 +216,37 @@
           e.classList.add("hidden");
       }
       let e = "",
-        t = x("wkspipfont"),
-        a = x("wkspipfont2"),
-        s = x("wkspipfsize"),
-        l = x("wkspipfweight"),
-        i = x("wkspipletterspacing"),
-        n = x("wkspipwordspacing"),
-        r = x("wkspiplinespacing"),
-        o = x("wkspiplineheight"),
-        c = x("wkspipcustomstyle");
+        t = r("wkspipfont"),
+        l = r("wkspipfont2"),
+        a = r("wkspipfsize"),
+        s = r("wkspipfweight"),
+        i = r("wkspipletterspacing"),
+        n = r("wkspipwordspacing"),
+        x = r("wkspiplinespacing"),
+        o = r("wkspiplineheight"),
+        c = r("wkspipcustomstyle");
       if ("STYLE" == arguments[0].tagName) {
-        x("wklrctrans") && (e += ".container>.line>.compare{display:none}");
+        r("wklrctrans") && (e += ".container>.line>.compare{display:none}");
         let d = [];
         t && d.push(`"${t.replace(/"/g, '\\"')}"`),
-          a && d.push(`"${a.replace(/"/g, '\\"')}"`),
+          l && d.push(`"${l.replace(/"/g, '\\"')}"`),
           d.length > 0 &&
             (e += `.container{font-family:${d.join(",")} !important}`),
-          l &&
-            !isNaN(+l) &&
-            (e += `.container,.container *{font-weight:${+l} !important}`),
           s &&
             !isNaN(+s) &&
-            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+s}px !important}`),
+            (e += `.container,.container *{font-weight:${+s} !important}`),
+          a &&
+            !isNaN(+a) &&
+            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+a}px !important}`),
           i &&
             !isNaN(+i) &&
             (e += `.container,.container *{letter-spacing:${+i}px !important}`),
           n &&
             !isNaN(+n) &&
             (e += `.container,.container *{word-spacing:${+n}px !important}`),
-          r &&
-            !isNaN(+r) &&
-            (e += `.container>.line{padding:${+r}px 0 !important}`),
+          x &&
+            !isNaN(+x) &&
+            (e += `.container>.line{padding:${+x}px 0 !important}`),
           o &&
             !isNaN(+o) &&
             (e += `.container>.line{line-height:${+o}px !important}`),
@@ -254,7 +261,7 @@
               document.createElement("style")
             ).innerHTML = c);
       }
-      if (!x("wksplayinguiani") || "g_playlist" != arguments[0].id)
+      if (!r("wksplayinguiani") || "g_playlist" != arguments[0].id)
         return this.appendChildHost.call(this, ...arguments);
       arguments[0].classList.add("hidden"),
         document.body.classList.remove("wk-playlist-showing");
@@ -262,43 +269,43 @@
     (Element.prototype.appendChildHost = Element.prototype.appendChild),
     (Element.prototype.appendChild = function () {
       return (
-        x("wksplayinguiani") &&
+        r("wksplayinguiani") &&
           "g_playlist" == arguments[0].id &&
           (arguments[0].classList.remove("hidden"),
           document.body.classList.add("wk-playlist-showing")),
-        x("wksplayinguiani") &&
+        r("wksplayinguiani") &&
           arguments[0].classList &&
           arguments[0].classList.contains("m-layer") &&
           arguments[0].dataset &&
           setTimeout((e) => {
             arguments[0].dataset.wkAdvisedSize = arguments[0].clientHeight;
           }, 50),
-        x("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(f, 50),
+        r("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(u, 50),
         this.appendChildHost.call(this, ...arguments)
       );
     }),
-    x("wksfullpl") &&
+    r("wksfullpl") &&
       ((e) => {
-        let t = n("wkhi-c"),
-          a = n("wkhi-d");
-        if (t && a) {
-          (t = t.split("|")), (a = a.split("|"));
+        let t = x("wkhi-c"),
+          l = x("wkhi-d");
+        if (t && l) {
+          (t = t.split("|")), (l = l.split("|"));
           for (let e = 0; e < t.length; e++)
-            for (let i = 0; i < a.length; i++)
-              (s = t[e]),
-                (l = a[i]),
-                (document.cookie = `${s};path=${l};max-age=3153600000`);
-          var s, l;
+            for (let i = 0; i < l.length; i++)
+              (a = t[e]),
+                (s = l[i]),
+                (document.cookie = `${a};path=${s};max-age=3153600000`);
+          var a, s;
         }
       })(),
-    x("wkslowcontrast") &&
+    r("wkslowcontrast") &&
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter = "contrast(.8)"),
-    x("wkslowbrightness") &&
+    r("wkslowbrightness") &&
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter =
         document.documentElement.style.filter + " brightness(.5)");
-  let m = {
+  let b = {
       kw7: (e) => {
         !isNaN(+e) &&
           +e > 99999 &&
@@ -306,69 +313,69 @@
           alert(
             ((e) => {
               let t = "" + e,
-                a = 0,
-                s = t.length;
-              for (let e = 0; e < s; e++) {
-                let l = (
-                  t[e].codePointAt() * (s - e) * (e + 1) +
+                l = 0,
+                a = t.length;
+              for (let e = 0; e < a; e++) {
+                let s = (
+                  t[e].codePointAt() * (a - e) * (e + 1) +
                   1 +
                   e
                 ).toString(26);
-                a += l
-                  .substr(l.length - 1, 1)
+                l += s
+                  .substr(s.length - 1, 1)
                   .toUpperCase()
                   .codePointAt();
               }
-              let l = ((9301 * a + 49297) % 233280) / 233280;
-              return Math.round(1e5 + 899999 * l);
+              let s = ((9301 * l + 49297) % 233280) / 233280;
+              return Math.round(1e5 + 899999 * s);
             })(e)
           );
       },
     },
-    u = (e) => {
+    w = (e) => {
       if (
-        (x("wklrctrans") && f(),
-        x("wkshiresimages") &&
+        (r("wklrctrans") && u(),
+        r("wkshiresimages") &&
           ((e) => {
             let t = document.querySelectorAll("img[data-src]");
             for (let e = 0; e < t; e++)
               t[e].dataset.src &&
                 "" == t[e].src &&
                 (t[e].src = t[e].dataset.src);
-            let a = document.querySelectorAll('img[src*="param="]');
-            for (let e = 0; e < a.length; e++) {
-              let t = a[e].src.split("?")[0];
-              if (a[e].src != t) {
-                let s = new Image(),
-                  l = (i) => {
-                    a[e] &&
-                      (a[e].src.split("?")[0] == t &&
-                        ((a[e].src = t), a[e].classList.add("wk-hires-loaded")),
-                      s.removeEventListener("load", l, !1));
+            let l = document.querySelectorAll('img[src*="param="]');
+            for (let e = 0; e < l.length; e++) {
+              let t = l[e].src.split("?")[0];
+              if (l[e].src != t) {
+                let a = new Image(),
+                  s = (i) => {
+                    l[e] &&
+                      (l[e].src.split("?")[0] == t &&
+                        ((l[e].src = t), l[e].classList.add("wk-hires-loaded")),
+                      a.removeEventListener("load", s, !1));
                   };
-                s.addEventListener("load", l, !1),
-                  a[e].classList.remove("wk-hires-loaded"),
-                  (s.src = t);
+                a.addEventListener("load", s, !1),
+                  l[e].classList.remove("wk-hires-loaded"),
+                  (a.src = t);
               }
             }
           })(),
-        x("wksemojisym") &&
+        r("wksemojisym") &&
           ((e) => {
-            let t = document.querySelectorAll(`img[src*="${i}"]`);
+            let t = document.querySelectorAll(`img[src*="${n}"]`);
             for (let e = 0; e < t.length; e++) {
-              let a = t[e].src.split(i)[1];
-              a &&
-                ((a = a.split(".")[0]),
-                !isNaN(+a) &&
-                  l[+a] &&
+              let l = t[e].src.split(n)[1];
+              l &&
+                ((l = l.split(".")[0]),
+                !isNaN(+l) &&
+                  i[+l] &&
                   (t[
                     e
                   ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
-                    l[+a]
+                    i[+l]
                   };</text></svg>`));
             }
           })(),
-        x("wksimprovedlook"))
+        r("wksimprovedlook"))
       ) {
         if ("user" == location.pathname.substring(1).split("/")[0]) {
           let e = document.querySelector(".m-proifo dt img"),
@@ -378,12 +385,12 @@
             t &&
             (document.documentElement.classList.add("has-upb"),
             (t.style.cssText = `--upb:url("${e.src}")`));
-          let a = document.querySelector(".m-proifo .name .tit"),
-            s = document.querySelector(".m-proifo .name #j-name-wrap");
-          a &&
-            s &&
-            ((s.dataset.wkUsernameFull = s.title = a.innerText),
-            s.classList.add("wk-full-username"));
+          let l = document.querySelector(".m-proifo .name .tit"),
+            a = document.querySelector(".m-proifo .name #j-name-wrap");
+          l &&
+            a &&
+            ((a.dataset.wkUsernameFull = a.title = l.innerText),
+            a.classList.add("wk-full-username"));
         }
         let e = document.querySelector(".g-wrap>.m-info .cover img"),
           t = document.querySelector(".g-wrap>.m-info");
@@ -396,82 +403,82 @@
           location.hash &&
           ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
             "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
-        s = "/" == location.pathname,
-        n =
+        l = "/" == location.pathname,
+        s =
           "video" == location.pathname.substring(1).split("/")[0] ||
           "mv" == location.pathname.substring(1).split("/")[0];
       if (
-        x("wksmusicsessionmeta") &&
+        r("wksmusicsessionmeta") &&
         "mediaSession" in navigator &&
-        (n || (s && !t))
+        (s || (l && !t))
       ) {
         let t = document.querySelector(
-            n ? ".n-mv .title h2" : ".m-playbar .words .name"
-          ),
-          s = document.querySelector(
-            n ? ".n-mv .title .name" : ".m-playbar .words .by"
+            s ? ".n-mv .title h2" : ".m-playbar .words .name"
           ),
           l = document.querySelector(
-            n ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+            s ? ".n-mv .title .name" : ".m-playbar .words .by"
           ),
-          i = [],
+          i = document.querySelector(
+            s ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+          ),
+          n = [],
           x =
-            (document.querySelector(n ? null : ".m-playbar .btns .prv"),
+            (document.querySelector(s ? null : ".m-playbar .btns .prv"),
             document.querySelector(
-              n
+              s
                 ? ".m-ctvideo.z-play .controls .wrap .play"
                 : ".m-playbar .btns .ply"
             ),
-            document.querySelector(n ? null : ".m-playbar .btns .nxt"),
-            document.querySelector(n ? ".m-ctvideo" : ".m-playbar .btns .ply"));
+            document.querySelector(s ? null : ".m-playbar .btns .nxt"),
+            document.querySelector(s ? ".m-ctvideo" : ".m-playbar .btns .ply"));
         (x = x
-          ? x.classList.contains(n ? "z-play" : "pas")
+          ? x.classList.contains(s ? "z-play" : "pas")
             ? "playing"
-            : x.classList.contains(n ? "z-pause" : "ply")
+            : x.classList.contains(s ? "z-pause" : "ply")
             ? "paused"
             : "none"
           : "none"),
-          l &&
-            l.src &&
-            (i = [
+          i &&
+            i.src &&
+            (n = [
               {
-                src: l.src.split("?")[0] + "?param=96y96",
+                src: i.src.split("?")[0] + "?param=96y96",
                 sizes: "96x96",
                 type: "image/jpeg",
               },
               {
-                src: l.src.split("?")[0] + "?param=128y128",
+                src: i.src.split("?")[0] + "?param=128y128",
                 sizes: "128x128",
                 type: "image/jpeg",
               },
               {
-                src: l.src.split("?")[0] + "?param=192y192",
+                src: i.src.split("?")[0] + "?param=192y192",
                 sizes: "192x192",
                 type: "image/jpeg",
               },
               {
-                src: l.src.split("?")[0] + "?param=256y256",
+                src: i.src.split("?")[0] + "?param=256y256",
                 sizes: "256x256",
                 type: "image/jpeg",
               },
               {
-                src: l.src.split("?")[0] + "?param=384y384",
+                src: i.src.split("?")[0] + "?param=384y384",
                 sizes: "384x384",
                 type: "image/jpeg",
               },
               {
-                src: l.src.split("?")[0] + "?param=512y512",
+                src: i.src.split("?")[0] + "?param=512y512",
                 sizes: "512x512",
                 type: "image/jpeg",
               },
-              { src: l.src.split("?")[0], sizes: "any", type: "image/jpeg" },
+              { src: i.src.split("?")[0], sizes: "any", type: "image/jpeg" },
             ]);
         try {
           let e = {
             title: t ? t.innerText : document.title,
-            artist: s ? s.innerText : "",
-            album: s ? s.innerText : "",
-            artwork: i,
+            artist: l ? l.innerText : "",
+            album: l ? l.innerText : "",
+            artwork: n,
           };
           !((e, t) => {
             if ("object" == typeof e)
@@ -484,25 +491,35 @@
               } catch (e) {}
             return e == t;
           })(e, a) &&
-            n &&
+            s &&
             ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
         } catch (e) {}
       }
     };
-  u(),
-    window.setInterval(u, 500),
-    c &&
+  w(),
+    window.setInterval(w, 500),
+    d &&
       (function () {
         if ("/user/update" == location.pathname) {
-          let e = (e) => {
-            let t = document.querySelector("#baseBox");
-            if (t) {
-              let e = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;0.2.13-0.9.13</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${o}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
+          let t = (t) => {
+            let l = document.querySelector("#baseBox");
+            if (l) {
+              ((e = 0, t = 0) => {
+                let l = ("" + e).split("."),
+                  a = ("" + t).split(".");
+                for (let e = 0; e < Math.max(l.length, a.length); e++) {
+                  let t = m(l[e] ? a[e] : 0),
+                    s = m(a[e] ? a[e] : 0);
+                  if (t > s) return !1;
+                  if (t < s) return !0;
+                }
+              })(e.split("-")[1], c);
+              let t = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;${e}</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
                 a =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 s =
                   '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>{3}</i></a>&nbsp;<label>{1}</label></li>',
-                l = [
+                i = [
                   {
                     label:
                       "&#x6837;&#x5f0f;&#x8868;&#x589e;&#x5f3a;&#x5916;&#x89c2;",
@@ -608,93 +625,93 @@
                     t: "t",
                   },
                 ],
-                i = "";
-              for (let e = 0; e < l.length; e++) {
-                if (l[e].roi && !d) continue;
+                n = "";
+              for (let e = 0; e < i.length; e++) {
+                if (i[e].roi && !p) continue;
                 let t = !0;
-                if (l[e].test) {
+                if (i[e].test) {
                   t = !1;
                   try {
-                    t = !!window.eval(l[e].test);
+                    t = !!window.eval(i[e].test);
                   } catch (e) {}
                 }
                 if (!t) continue;
-                let n = x(l[e].lsm);
-                "n" == l[e].t || "t" == l[e].t || "p" == l[e].t
-                  ? (i += p(
+                let l = r(i[e].lsm);
+                "n" == i[e].t || "t" == i[e].t || "p" == i[e].t
+                  ? (n += f(
                       s,
-                      l[e].label,
-                      `data-wk-lsm="${l[e].lsm}" data-wk-t="${l[e].t}" data-wk-l="${l[e].label}"`,
-                      "p" == l[e].t ? "&#x5f00;&#x59cb;" : "&#x4fee;&#x6539;"
+                      i[e].label,
+                      `data-wk-lsm="${i[e].lsm}" data-wk-t="${i[e].t}" data-wk-l="${i[e].label}"`,
+                      "p" == i[e].t ? "&#x5f00;&#x59cb;" : "&#x4fee;&#x6539;"
                     ))
-                  : (i += p(
+                  : (n += f(
                       a,
-                      l[e].label,
-                      `${n ? "checked " : ""}data-wk-lsm="${l[e].lsm}"`
+                      i[e].label,
+                      `${l ? "checked " : ""}data-wk-lsm="${i[e].lsm}"`
                     ));
               }
-              i = p(e, i);
-              let n = document.createElement("div");
-              (n.className = "n-priv f-cb flatnmusic-settings"),
-                (n.style.display = "none"),
-                (n.innerHTML = i),
-                n.addEventListener("change", (e) => {
+              n = f(t, n);
+              let x = document.createElement("div");
+              (x.className = "n-priv f-cb flatnmusic-settings"),
+                (x.style.display = "none"),
+                (x.innerHTML = n),
+                x.addEventListener("change", (e) => {
                   let t = e.target.closest("[data-wk-lsm]");
                   if (!t || !t.dataset) return;
-                  let a = t.dataset.wkLsm;
+                  let l = t.dataset.wkLsm;
                   t &&
-                    a &&
+                    l &&
                     ("checkbox" == t.type
-                      ? r(a, t.checked ? "1" : "")
-                      : r(a, t.value));
+                      ? o(l, t.checked ? "1" : "")
+                      : o(l, t.value));
                 }),
-                t.appendChild(n),
-                n.addEventListener("click", (e) => {
+                l.appendChild(x),
+                x.addEventListener("click", (e) => {
                   let t = e.target.closest("[data-wk-t]");
                   if (!t || !t.dataset) return;
-                  let a = t.dataset.wkLsm,
-                    s = t.dataset.wkT,
-                    l = t.dataset.wkL,
-                    i = x(a),
+                  let l = t.dataset.wkLsm,
+                    a = t.dataset.wkT,
+                    s = t.dataset.wkL,
+                    i = r(l),
                     n = t.closest("[data-prompt-prefix]");
-                  if (((n = n ? n.dataset.promptPrefix : ""), t && a)) {
-                    let e = n + l;
-                    "p" == s && (e = n);
+                  if (((n = n ? n.dataset.promptPrefix : ""), t && l)) {
+                    let e = n + s;
+                    "p" == a && (e = n);
                     let t = window.prompt(e, i || ""),
                       x = ((e) => {
                         let t = 0,
-                          a = "" + e,
-                          s = a.length;
-                        for (let e = 0; e < s; e++) t += a[e].codePointAt();
-                        return t.toString(36) + s;
-                      })(a);
-                    if ("n" == s && isNaN(+t) && "" != t)
+                          l = "" + e,
+                          a = l.length;
+                        for (let e = 0; e < a; e++) t += l[e].codePointAt();
+                        return t.toString(36) + a;
+                      })(l);
+                    if ("n" == a && isNaN(+t) && "" != t)
                       return void alert(
                         ((e) => {
                           let t = "&#x65e0;&#x6548;&#x7684;&#x503c;",
-                            a = t.match(/\&#x[a-fA-F0-9]+;/g);
-                          if (a)
-                            for (let e = 0; e < a.length; e++) {
-                              let s = a[e].substring(3, a[e].length - 1);
+                            l = t.match(/\&#x[a-fA-F0-9]+;/g);
+                          if (l)
+                            for (let e = 0; e < l.length; e++) {
+                              let a = l[e].substring(3, l[e].length - 1);
                               try {
-                                s = JSON.parse(`"\\u${s.padStart(4, 0)}"`);
+                                a = JSON.parse(`"\\u${a.padStart(4, 0)}"`);
                               } catch (e) {}
-                              t = t.replace(a[e], s);
+                              t = t.replace(l[e], a);
                             }
                           return t;
                         })()
                       );
-                    null != t && "p" != s
-                      ? r(a, t || "")
-                      : "p" == s &&
-                        m[x] &&
-                        "function" == typeof m[x] &&
-                        m[x](t);
+                    null != t && "p" != a
+                      ? o(l, t || "")
+                      : "p" == a &&
+                        b[x] &&
+                        "function" == typeof b[x] &&
+                        b[x](t);
                   }
                 });
             }
           };
-          window.addEventListener("load", e);
+          window.addEventListener("load", t);
         }
       })();
 })();

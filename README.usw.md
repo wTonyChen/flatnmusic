@@ -1,7 +1,7 @@
 # 网易云音乐扁平风格
 一个用于网易云音乐网站的样式表。
 
-兼容 Chrome 92+ | 兼容 Edge 92+ | 兼容 Opera 77+ | Firefox 91+ 有限支持
+兼容 Chrome 95+ | 兼容 Edge 95+ | 兼容 Opera 80+ | Firefox 93+ 有限支持
 
 ## 全部下载源
 
