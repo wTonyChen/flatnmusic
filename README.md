@@ -143,5 +143,5 @@ UserCSS 版本 (适用于 Stylus 扩展，含调整功能)：[![安装样式](ht
 
 ## 鸣谢
 
-感谢 [JetBrains s.r.o.](https://www.jetbrains.com) 为本项目提供开发工具
+![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg)<br>感谢 [JetBrains s.r.o.](https://jb.gg) 为本项目提供开发工具
 

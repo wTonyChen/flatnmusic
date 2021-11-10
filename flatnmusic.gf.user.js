@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.14-0.9.14
+// @version 0.2.15-0.9.15
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 95+
@@ -25,15 +25,15 @@
 
 !(function () {
   "use strict";
-  let e = "0.2.14-0.9.14",
+  let e = "0.2.15-0.9.15",
     t = "wk-fnm-hi-cfg",
     l = document.querySelector("." + t);
   l ||
     ((l = document.createElement("div")),
     (l.className = t),
     document.body.appendChild(l));
-  let a,
-    s = getComputedStyle(l),
+  let s,
+    a = getComputedStyle(l),
     i = {
       86: "1f603",
       85: "1f60a",
@@ -98,7 +98,7 @@
     },
     n = "/style/web2/emt/emoji_",
     x = (e) => {
-      let t = s.getPropertyValue("--" + e);
+      let t = a.getPropertyValue("--" + e);
       if (t)
         try {
           t &&
@@ -135,27 +135,27 @@
   ((e) => {
     let t,
       l = 0,
-      a = !1,
-      s = document.querySelector("#g-topbar"),
+      s = !1,
+      a = document.querySelector("#g-topbar"),
       i = document.querySelector("#g_iframe"),
       n = 0,
       x = 0,
       o = !0;
-    if (!s || !Object.is(window.self, window.top)) return;
-    let c = 1.6 * s.getBoundingClientRect().height,
+    if (!a || !Object.is(window.self, window.top)) return;
+    let c = 1.6 * a.getBoundingClientRect().height,
       d = (e) => {
         t && t.cancel(),
           (x = 0),
           (n = 0),
           (l = 0),
           (o = !1),
-          (t = s.animate([{ transform: "translateY(0)" }], {
+          (t = a.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (o = !0), (s.style.transform = "translateY(0)");
+            (o = !0), (a.style.transform = "translateY(0)");
           });
       };
     i.addEventListener("load", (e) => {
@@ -163,20 +163,20 @@
         i.contentDocument.addEventListener("scroll", (e) => {
           o || t.cancel(),
             (l = i.contentWindow.scrollY),
-            a ||
+            s ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (r("wksdscrolling")) {
                     let t = e - n;
                     (x = Math.max(Math.min(x + t, c), 0)),
-                      (s.style.top = "0 !important"),
-                      (s.style.transform = `translateY(-${x}px)`);
-                  } else (s.style.top = ""), (s.style.transform = ""), (x = 0);
+                      (a.style.top = "0 !important"),
+                      (a.style.transform = `translateY(-${x}px)`);
+                  } else (a.style.top = ""), (a.style.transform = ""), (x = 0);
                   n = e;
                 })(l),
-                  (a = !1);
+                  (s = !1);
               }),
-              (a = !0));
+              (s = !0));
         });
     });
   })();
@@ -218,8 +218,8 @@
       let e = "",
         t = r("wkspipfont"),
         l = r("wkspipfont2"),
-        a = r("wkspipfsize"),
-        s = r("wkspipfweight"),
+        s = r("wkspipfsize"),
+        a = r("wkspipfweight"),
         i = r("wkspipletterspacing"),
         n = r("wkspipwordspacing"),
         x = r("wkspiplinespacing"),
@@ -232,12 +232,12 @@
           l && d.push(`"${l.replace(/"/g, '\\"')}"`),
           d.length > 0 &&
             (e += `.container{font-family:${d.join(",")} !important}`),
-          s &&
-            !isNaN(+s) &&
-            (e += `.container,.container *{font-weight:${+s} !important}`),
           a &&
             !isNaN(+a) &&
-            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+a}px !important}`),
+            (e += `.container,.container *{font-weight:${+a} !important}`),
+          s &&
+            !isNaN(+s) &&
+            (e += `.container>.line>.compare,.container>.line>.origin{font-size:${+s}px !important}`),
           i &&
             !isNaN(+i) &&
             (e += `.container,.container *{letter-spacing:${+i}px !important}`),
@@ -284,20 +284,23 @@
         this.appendChildHost.call(this, ...arguments)
       );
     }),
-    r("wksfullpl") &&
-      ((e) => {
-        let t = x("wkhi-c"),
-          l = x("wkhi-d");
-        if (t && l) {
-          (t = t.split("|")), (l = l.split("|"));
-          for (let e = 0; e < t.length; e++)
-            for (let i = 0; i < l.length; i++)
-              (a = t[e]),
-                (s = l[i]),
-                (document.cookie = `${a};path=${s};max-age=3153600000`);
-          var a, s;
-        }
-      })(),
+    ((e) => {
+      if (r("wklistdisd") && !e) return;
+      let t = x("wkhi-c"),
+        l = x("wkhi-d");
+      if (!t || !l) return;
+      (t = t.split("|")), (l = l.split("|"));
+      let s = e ? 31536e5 : 1,
+        a = (t, l) => {
+          let a =
+            `${t};path=${l};max-age=${s}` +
+            (e ? "" : `;expires=${new Date(70).toGMTString()}`);
+          document.cookie = a;
+        };
+      for (let e = 0; e < t.length; e++)
+        for (let s = 0; s < l.length; s++) a(t[e], l[s]);
+      o("wklistdisd", e ? 0 : 1);
+    })(!!r("wksfullpl")),
     r("wkslowcontrast") &&
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter = "contrast(.8)"),
@@ -314,20 +317,20 @@
             ((e) => {
               let t = "" + e,
                 l = 0,
-                a = t.length;
-              for (let e = 0; e < a; e++) {
-                let s = (
-                  t[e].codePointAt() * (a - e) * (e + 1) +
+                s = t.length;
+              for (let e = 0; e < s; e++) {
+                let a = (
+                  t[e].codePointAt() * (s - e) * (e + 1) +
                   1 +
                   e
                 ).toString(26);
-                l += s
-                  .substr(s.length - 1, 1)
+                l += a
+                  .substr(a.length - 1, 1)
                   .toUpperCase()
                   .codePointAt();
               }
-              let s = ((9301 * l + 49297) % 233280) / 233280;
-              return Math.round(1e5 + 899999 * s);
+              let a = ((9301 * l + 49297) % 233280) / 233280;
+              return Math.round(1e5 + 899999 * a);
             })(e)
           );
       },
@@ -346,16 +349,16 @@
             for (let e = 0; e < l.length; e++) {
               let t = l[e].src.split("?")[0];
               if (l[e].src != t) {
-                let a = new Image(),
-                  s = (i) => {
+                let s = new Image(),
+                  a = (i) => {
                     l[e] &&
                       (l[e].src.split("?")[0] == t &&
                         ((l[e].src = t), l[e].classList.add("wk-hires-loaded")),
-                      a.removeEventListener("load", s, !1));
+                      s.removeEventListener("load", a, !1));
                   };
-                a.addEventListener("load", s, !1),
+                s.addEventListener("load", a, !1),
                   l[e].classList.remove("wk-hires-loaded"),
-                  (a.src = t);
+                  (s.src = t);
               }
             }
           })(),
@@ -386,11 +389,11 @@
             (document.documentElement.classList.add("has-upb"),
             (t.style.cssText = `--upb:url("${e.src}")`));
           let l = document.querySelector(".m-proifo .name .tit"),
-            a = document.querySelector(".m-proifo .name #j-name-wrap");
+            s = document.querySelector(".m-proifo .name #j-name-wrap");
           l &&
-            a &&
-            ((a.dataset.wkUsernameFull = a.title = l.innerText),
-            a.classList.add("wk-full-username"));
+            s &&
+            ((s.dataset.wkUsernameFull = s.title = l.innerText),
+            s.classList.add("wk-full-username"));
         }
         let e = document.querySelector(".g-wrap>.m-info .cover img"),
           t = document.querySelector(".g-wrap>.m-info");
@@ -404,37 +407,37 @@
           ("video" == location.hash.substring(2).split("?")[0].split("/")[0] ||
             "mv" == location.hash.substring(2).split("?")[0].split("/")[0]),
         l = "/" == location.pathname,
-        s =
+        a =
           "video" == location.pathname.substring(1).split("/")[0] ||
           "mv" == location.pathname.substring(1).split("/")[0];
       if (
         r("wksmusicsessionmeta") &&
         "mediaSession" in navigator &&
-        (s || (l && !t))
+        (a || (l && !t))
       ) {
         let t = document.querySelector(
-            s ? ".n-mv .title h2" : ".m-playbar .words .name"
+            a ? ".n-mv .title h2" : ".m-playbar .words .name"
           ),
           l = document.querySelector(
-            s ? ".n-mv .title .name" : ".m-playbar .words .by"
+            a ? ".n-mv .title .name" : ".m-playbar .words .by"
           ),
           i = document.querySelector(
-            s ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
+            a ? ".m-ctvideo .poster .pic" : ".m-playbar .head img"
           ),
           n = [],
           x =
-            (document.querySelector(s ? null : ".m-playbar .btns .prv"),
+            (document.querySelector(a ? null : ".m-playbar .btns .prv"),
             document.querySelector(
-              s
+              a
                 ? ".m-ctvideo.z-play .controls .wrap .play"
                 : ".m-playbar .btns .ply"
             ),
-            document.querySelector(s ? null : ".m-playbar .btns .nxt"),
-            document.querySelector(s ? ".m-ctvideo" : ".m-playbar .btns .ply"));
+            document.querySelector(a ? null : ".m-playbar .btns .nxt"),
+            document.querySelector(a ? ".m-ctvideo" : ".m-playbar .btns .ply"));
         (x = x
-          ? x.classList.contains(s ? "z-play" : "pas")
+          ? x.classList.contains(a ? "z-play" : "pas")
             ? "playing"
-            : x.classList.contains(s ? "z-pause" : "ply")
+            : x.classList.contains(a ? "z-pause" : "ply")
             ? "paused"
             : "none"
           : "none"),
@@ -490,9 +493,9 @@
                 t = JSON.stringify(t);
               } catch (e) {}
             return e == t;
-          })(e, a) &&
-            s &&
-            ((a = e), (navigator.mediaSession.metadata = new MediaMetadata(a)));
+          })(e, s) &&
+            a &&
+            ((s = e), (navigator.mediaSession.metadata = new MediaMetadata(s)));
         } catch (e) {}
       }
     };
@@ -506,19 +509,19 @@
             if (l) {
               ((e = 0, t = 0) => {
                 let l = ("" + e).split("."),
-                  a = ("" + t).split(".");
-                for (let e = 0; e < Math.max(l.length, a.length); e++) {
-                  let t = m(l[e] ? a[e] : 0),
-                    s = m(a[e] ? a[e] : 0);
-                  if (t > s) return !1;
-                  if (t < s) return !0;
+                  s = ("" + t).split(".");
+                for (let e = 0; e < Math.max(l.length, s.length); e++) {
+                  let t = m(l[e] ? s[e] : 0),
+                    a = m(s[e] ? s[e] : 0);
+                  if (t > a) return !1;
+                  if (t < a) return !0;
                 }
               })(e.split("-")[1], c);
               let t = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;${e}</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
-                a =
-                  '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 s =
-                  '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>{3}</i></a>&nbsp;<label>{1}</label></li>',
+                  '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
+                a =
+                  '<li class="wk-settings-button-line"><a class="u-btn2 u-btn2-2 u-btn2-w2" href="javascript:;" {2}><i>{3}</i></a>&nbsp;&nbsp;<label>{1}</label></li>',
                 i = [
                   {
                     label:
@@ -639,13 +642,13 @@
                 let l = r(i[e].lsm);
                 "n" == i[e].t || "t" == i[e].t || "p" == i[e].t
                   ? (n += f(
-                      s,
+                      a,
                       i[e].label,
                       `data-wk-lsm="${i[e].lsm}" data-wk-t="${i[e].t}" data-wk-l="${i[e].label}"`,
                       "p" == i[e].t ? "&#x5f00;&#x59cb;" : "&#x4fee;&#x6539;"
                     ))
                   : (n += f(
-                      a,
+                      s,
                       i[e].label,
                       `${l ? "checked " : ""}data-wk-lsm="${i[e].lsm}"`
                     ));
@@ -670,40 +673,40 @@
                   let t = e.target.closest("[data-wk-t]");
                   if (!t || !t.dataset) return;
                   let l = t.dataset.wkLsm,
-                    a = t.dataset.wkT,
-                    s = t.dataset.wkL,
+                    s = t.dataset.wkT,
+                    a = t.dataset.wkL,
                     i = r(l),
                     n = t.closest("[data-prompt-prefix]");
                   if (((n = n ? n.dataset.promptPrefix : ""), t && l)) {
-                    let e = n + s;
-                    "p" == a && (e = n);
+                    let e = n + a;
+                    "p" == s && (e = n);
                     let t = window.prompt(e, i || ""),
                       x = ((e) => {
                         let t = 0,
                           l = "" + e,
-                          a = l.length;
-                        for (let e = 0; e < a; e++) t += l[e].codePointAt();
-                        return t.toString(36) + a;
+                          s = l.length;
+                        for (let e = 0; e < s; e++) t += l[e].codePointAt();
+                        return t.toString(36) + s;
                       })(l);
-                    if ("n" == a && isNaN(+t) && "" != t)
+                    if ("n" == s && isNaN(+t) && "" != t)
                       return void alert(
                         ((e) => {
                           let t = "&#x65e0;&#x6548;&#x7684;&#x503c;",
                             l = t.match(/\&#x[a-fA-F0-9]+;/g);
                           if (l)
                             for (let e = 0; e < l.length; e++) {
-                              let a = l[e].substring(3, l[e].length - 1);
+                              let s = l[e].substring(3, l[e].length - 1);
                               try {
-                                a = JSON.parse(`"\\u${a.padStart(4, 0)}"`);
+                                s = JSON.parse(`"\\u${s.padStart(4, 0)}"`);
                               } catch (e) {}
-                              t = t.replace(l[e], a);
+                              t = t.replace(l[e], s);
                             }
                           return t;
                         })()
                       );
-                    null != t && "p" != a
+                    null != t && "p" != s
                       ? o(l, t || "")
-                      : "p" == a &&
+                      : "p" == s &&
                         b[x] &&
                         "function" == typeof b[x] &&
                         b[x](t);
