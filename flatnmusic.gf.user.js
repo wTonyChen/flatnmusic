@@ -6,7 +6,7 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.15-0.9.15
+// @version 0.2.16-0.9.16
 // @author wTonyChen
 // @copyright 2021 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 95+
@@ -25,7 +25,7 @@
 
 !(function () {
   "use strict";
-  let e = "0.2.15-0.9.15",
+  let e = "0.2.16-0.9.16",
     t = "wk-fnm-hi-cfg",
     l = document.querySelector("." + t);
   l ||
@@ -181,12 +181,29 @@
     });
   })();
   let m = (e) => {
+    let t = document.querySelector("a.u-btni-fav-dis,a.u-btni-fav-dis2");
+    if (t) {
+      let e = t.parentElement.querySelector("[data-res-id]");
+      e &&
+        ((t.href = "/playlist?id=" + e.dataset.resId),
+        (t.innerHTML =
+          "<i title='&#x8df3;&#x8f6c;&#x5230;&#x6b4c;&#x5355;'>&#x524d;&#x5f80;&#x6b4c;&#x5355;</i>"),
+        t.classList.remove("u-btni-fav-dis", "u-btni-fav-dis2"));
+    }
+  };
+  r("wkstoplistjump") &&
+    0 === location.pathname.indexOf("/discover/toplist") &&
+    m(),
+    r("wksmylistjump") &&
+      0 === location.pathname.indexOf("/my") &&
+      setInterval((e) => m(), 1e3);
+  let u = (e) => {
       let t = "" + e,
         l = 0;
       for (let e = 0; e < t.length; e++) l += t[e].charCodeAt();
       return l;
     },
-    u = (e) => {
+    b = (e) => {
       if (!Object.is(window.self, window.top)) return;
       let t = document.querySelectorAll(
         ".m-playbar .listlyric>p:not(.wk-upgraded)"
@@ -280,7 +297,7 @@
           setTimeout((e) => {
             arguments[0].dataset.wkAdvisedSize = arguments[0].clientHeight;
           }, 50),
-        r("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(u, 50),
+        r("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(b, 50),
         this.appendChildHost.call(this, ...arguments)
       );
     }),
@@ -308,7 +325,7 @@
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter =
         document.documentElement.style.filter + " brightness(.5)");
-  let b = {
+  let w = {
       kw7: (e) => {
         !isNaN(+e) &&
           +e > 99999 &&
@@ -335,9 +352,9 @@
           );
       },
     },
-    w = (e) => {
+    g = (e) => {
       if (
-        (r("wklrctrans") && u(),
+        (r("wklrctrans") && b(),
         r("wkshiresimages") &&
           ((e) => {
             let t = document.querySelectorAll("img[data-src]");
@@ -371,11 +388,25 @@
                 ((l = l.split(".")[0]),
                 !isNaN(+l) &&
                   i[+l] &&
-                  (t[
-                    e
-                  ].src = `data:image/svg+xml;charset=utf-8,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="21"%20height="21"><text%20xmlns="http://www.w3.org/2000/svg"%20font-size="14"%20x="10.5"%20y="12.4"%20font-family="Apple%20Color%20Emoji,'Noto%20Color%20Emoji','Segoe%20UI%20Emoji'"%20style="text-anchor:middle;dominant-baseline:middle">%26%23x${
-                    i[+l]
-                  };</text></svg>`));
+                  (t[e].src =
+                    "data:image/svg+xml;charset=utf-8," +
+                    encodeURIComponent(
+                      [
+                        "<svg",
+                        'xmlns="http://www.w3.org/2000/svg"',
+                        'width="21"',
+                        'height="21"><text',
+                        'x="10.5"',
+                        'y="12.4"',
+                        "style=\"text-anchor:middle;dominant-baseline:middle;font-size:14px;font-family:'Apple",
+                        "Color",
+                        "Emoji','Noto",
+                        "Color",
+                        "Emoji','Segoe",
+                        "UI",
+                        `Emoji'">&#x${i[+l]};</text></svg>`,
+                      ].join(" ")
+                    )));
             }
           })(),
         r("wksimprovedlook"))
@@ -499,8 +530,8 @@
         } catch (e) {}
       }
     };
-  w(),
-    window.setInterval(w, 500),
+  g(),
+    window.setInterval(g, 500),
     d &&
       (function () {
         if ("/user/update" == location.pathname) {
@@ -511,8 +542,8 @@
                 let l = ("" + e).split("."),
                   s = ("" + t).split(".");
                 for (let e = 0; e < Math.max(l.length, s.length); e++) {
-                  let t = m(l[e] ? s[e] : 0),
-                    a = m(s[e] ? s[e] : 0);
+                  let t = u(l[e] ? s[e] : 0),
+                    a = u(s[e] ? s[e] : 0);
                   if (t > a) return !1;
                   if (t < a) return !0;
                 }
@@ -557,6 +588,16 @@
                     label:
                       "&#x6b63;&#x5728;&#x64ad;&#x653e;&#x6b4c;&#x5355;&#x754c;&#x9762;&#x548c;&#x7a97;&#x53e3;&#x7684;&#x589e;&#x5f3a;&#x52a8;&#x753b; (&#x5237;&#x65b0;&#x9875;&#x9762;&#x5e94;&#x7528;&#x66f4;&#x6539;)",
                     lsm: "wksplayinguiani",
+                  },
+                  {
+                    label:
+                      "&#x6392;&#x884c;&#x699c;&#x9875;&#x9762;&#x7684;&#x6536;&#x85cf;&#x6309;&#x94ae;&#x8df3;&#x8f6c;&#x5230;&#x5bf9;&#x5e94;&#x6b4c;&#x5355;",
+                    lsm: "wkstoplistjump",
+                  },
+                  {
+                    label:
+                      "&#x6211;&#x7684;&#x97f3;&#x4e50;&#x4e2d;&#x6b4c;&#x5355;&#x7684;&#x6536;&#x85cf;&#x6309;&#x94ae;&#x8df3;&#x8f6c;&#x5230;&#x5bf9;&#x5e94;&#x6b4c;&#x5355;",
+                    lsm: "wksmylistjump",
                   },
                   {
                     label:
@@ -707,9 +748,9 @@
                     null != t && "p" != s
                       ? o(l, t || "")
                       : "p" == s &&
-                        b[x] &&
-                        "function" == typeof b[x] &&
-                        b[x](t);
+                        w[x] &&
+                        "function" == typeof w[x] &&
+                        w[x](t);
                   }
                 });
             }
