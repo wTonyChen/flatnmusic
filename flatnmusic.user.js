@@ -8,7 +8,7 @@
 // @namespace wTonyChen.flatnmusich
 // @version 0.2.16-0.9.16
 // @author wTonyChen
-// @copyright 2021 wTonyChen (https://github.com/wTonyChen)
+// @copyright 2022 wTonyChen (https://github.com/wTonyChen)
 // @compatible chrome 95+
 // @compatible edge 95+
 // @compatible opera 80+
