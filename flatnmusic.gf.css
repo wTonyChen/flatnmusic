@@ -6,16 +6,16 @@
 @name 网易云音乐扁平风格
 @description 一个用于网易云音乐网站的样式表。
 @namespace wTonyChen.flatnmusic
-@version 0.9.17
+@version 0.9.18
 @author wTonyChen
 @copyright 2022 wTonyChen (https://github.com/wTonyChen)
 @homepageURL https://wtonychen.github.io/flatnmusic/
 @supportURL https://github.com/wTonyChen/flatnmusic/issues
 @updateURL https://wtonychen.github.io/flatnmusic/flatnmusic.user.css
-@compatible chrome 95+
-@compatible edge 95+
-@compatible opera 80+
-@compatible firefox 93+ 有限支持
+@compatible chrome 99+
+@compatible edge 99+
+@compatible opera 85+
+@compatible firefox 98+ 有限支持
 @license GPL-3.0-or-later
 @preprocessor uso
 @var select font-1st "\u9996\u9009\u5b57\u4f53"{"Segoe UI":"local('Segoe UI Variable Display'),local('Segoe UI Variable'),local('Segoe UI'),local('Segoe UI'),local('Segoe Pro'),local('Segoe WP'),","Arial":"local('Arial'),","Avenir Next":"local('Avenir Next'),local('Avenir Next LT Pro'),local('Avenir Next Pro'),","DIN":"local('Bahnschrift'),local('DIN Pro'),local('DIN Schrift LT'),local('DIN Next LT Pro'),local('DIN Next'),local('DIN Next LT'),local('DIN'),local('Barlow'),","Calibri":"local('Calibri'),","Century Gothic":"local('Century Gothic'),","Comic Sans":"local('Comic Sans MS'),local('Comic Sans'),","Corbel":"local('Corbel'),","Lucida Sans":"local('Lucida Sans'),","Noto Sans":"local('Noto Sans'),local('Noto Sans Display'),","Product Sans":"local('Google Sans'),local('Product Sans'),local('Google Sans Display'),local('Google Sans Text'),local('HarmonyOS Sans'),","Roboto":"local('Roboto'),","Tahoma":"local('Tahoma'),","Trebuchet":"local('Trebuchet MS'),local('Trebuchet'),","Tw Cen MT":"local('Tw Cen MT'),","Ubuntu":"local('Ubuntu'),","Verdana":"local('Verdana'),","Cambria":"local('Cambria'),","Century":"local('Century'),","Times New Roman":"local('Times New Roman'),"}
@@ -33,11 +33,11 @@
 @var select topbar-bg-style "\u9876\u680f\u80cc\u666f\u989c\u8272"{"\u4e3b\u9898\u8272":" ","\u754c\u9762\u80cc\u666f\u8272":"body{background:var(--cp-b0)}.m-top{background:var(--cp-b0)}.m-nav a{color:var(--cp-d7)}.m-nav a:hover{color:var(--cp-c3)}.m-nav a.z-slt{color:var(--gc-aa)}.m-srch .parent input{box-shadow:inset 0 32px 0 0 var(--cp-a1)}.m-srch .parent input:hover{box-shadow:inset 0 32px 0 0 var(--cp-a2)}.m-srch .parent input:focus{box-shadow:inset 0 32px 0 0 var(--cp-b0)}.m-topvd{border-color:var(--cp-d7);color:var(--cp-d7)}.m-topvd:hover{border-color:var(--cp-c3);color:var(--cp-c3)}.m-tlist{border-color:var(--cp-d3);background:var(--cp-d1)}.m-tlist a:hover{background:var(--cp-d2)}.m-tlist a:active{background:var(--cp-d3)}.m-tlist a,.m-tlist a:hover,.m-tophead .link,.m-tophead .link:hover,.m-tophead:hover .link{color:var(--cp-a0)}.m-tlist .icn-verify::before{color:var(--cp-d1)}"}
 @var select topbar-nav-style "\u9876\u680f\u5bfc\u822a\u98ce\u683c"{"\u5706\u89d2":" ","\u76f4\u89d2":".m-nav a.z-slt{border-radius:0}","\u836f\u4e38":".m-nav a,.m-nav a.z-slt{transform:scale(.8);border-radius:99vw}.m-nav a:hover,.m-nav a.z-slt{transform:scale(.85)}.m-nav a:active{transform:scale(.9)}"}
 @var select no-artist-alias "\u6b4c\u624b\u9875\u9690\u85cf\u522b\u540d"{"\u7981\u7528":" ","\u542f\u7528":".n-artist .salias,.n-singer .tit span{display:none}"}
-@var select ui-color-palettes "\u754c\u9762\u989c\u8272 (Beta)"{"\u81ea\u52a8":"@media(prefers-color-scheme:dark){*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon,.u-errlg-404,.n-nmusic .u-icn-21,.n-msgnt-tip,.m-newsongbar-normal .nicon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}.m-pbar .btn i:not(.fuck){--v-a:var(--cp-x0)}}","\u6d45\u8272":" ","\u6df1\u8272":"*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon,.u-errlg-404,.n-nmusic .u-icn-21,.n-msgnt-tip,.m-newsongbar-normal .nicon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}.m-pbar .btn i:not(.fuck){--v-a:var(--cp-x0)}"}
+@var select ui-color-palettes "\u754c\u9762\u989c\u8272 (Beta)"{"\u81ea\u52a8":"@media(prefers-color-scheme:dark){*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon,.u-errlg-404,.n-nmusic .u-icn-21,.n-msgnt-tip,.m-newsongbar-normal .nicon,.m-newsonglist .m-dlist .rightbox .playicon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}.m-pbar .btn i:not(.fuck){--v-a:var(--cp-x0)}.n-daily .bg{opacity:.8}}","\u6d45\u8272":" ","\u6df1\u8272":"*:not(fuck){--cp-b1:var(--cp-x1);--cp-b2:var(--cp-x2);--cp-b3:var(--cp-x3);--cp-b4:var(--cp-x4);--cp-b5:var(--cp-x5);--cp-b6:var(--cp-x6);--cp-b7:var(--cp-x7);--cp-b8:var(--cp-x8);--cp-b9:var(--cp-x9);--cp-b0:var(--cp-x0);--cp-a1:var(--cp-z1);--cp-a2:var(--cp-z2);--cp-a3:var(--cp-z3);--cp-a4:var(--cp-z4);--cp-a5:var(--cp-z5);--cp-a6:var(--cp-z6);--cp-a7:var(--cp-z7);--cp-a8:var(--cp-z8);--cp-a9:var(--cp-z9);--cp-a0:var(--cp-z0);--cp-c7:var(--cp-y8);--cp-c6:var(--cp-y9);--cp-c5:var(--cp-ya);--cp-c4:var(--cp-yb);--cp-c3:var(--cp-yc);--cp-c2:var(--cp-yd);--cp-c1:var(--cp-ye);--cp-d1:var(--cp-y1);--cp-d2:var(--cp-y2);--cp-d3:var(--cp-y3);--cp-d4:var(--cp-y4);--cp-d5:var(--cp-y5);--cp-d6:var(--cp-y6);--cp-d7:var(--cp-y7)}.u-goon,.n-pglg,.n-pglg .btn,.member-wrap .member-body,.member-wrap .member-body .user-info .user-head .avatar-img,.member-wrap .member-body .m-privilege,.member-wrap .member-body .n-special,.m-dynamicbar,.n-sltlyr .u-icn,.m-schlist .hd .icn,.m-info-program .rdiname .icon,#player h2 .logo,.m-radio .rditype .apply .icon,.u-errlg-404,.n-nmusic .u-icn-21,.n-msgnt-tip,.m-newsongbar-normal .nicon,.m-newsonglist .m-dlist .rightbox .playicon{filter:invert(1) hue-rotate(180deg)}.member-wrap .member-body .n-special .title em,.member-wrap .member-body .m-privilege .title em{background:none}.m-pbar .btn i:not(.fuck){--v-a:var(--cp-x0)}.n-daily .bg{opacity:.8}"}
 @var select unsupported-theme "\u672a\u53d7\u652f\u6301\u9875\u9762\u7684\u754c\u9762\u989c\u8272 (Beta)"{"\u9ed8\u8ba4":" ","\u6df1\u8272":"html{filter:invert(1) hue-rotate(180deg);background:#fff}body{background:#fff}","\u81ea\u52a8":"@media(prefers-color-scheme:dark){html{filter:invert(1) hue-rotate(180deg);background:#fff}body{background:#fff}}"}
 @var select global-radius "\u754c\u9762\u5706\u89d2\u5143\u7d20"{"\u542f\u7528":" ","\u7981\u7528":"*:not(fuck),*:not(fuck)::before,*:not(fuck)::after{border-radius:0 !important}"}
 @var select nowplaying-list-style "\u6b63\u5728\u64ad\u653e\u5217\u8868\u98ce\u683c"{"\u7d27\u51d1":" ","\u5bbd\u677e":".m-playbar .list li{height:50px;position:relative;display:flex;flex-direction:row;align-items:center}.m-playbar .col-1{margin:11px}.m-playbar .col-2{font-size:16px;height:22px;line-height:22px;flex-grow:1;padding:0 0 16px 0;font-weight:700}.m-playbar .col-4{display:block;position:absolute;top:50%;transform:translateY(-50%);left:49px;padding:22px 0 0 0;width:calc(100% - 160px);height:16px;line-height:16px}.m-playbar .col-5,.m-playbar .col-6{height:16px;line-height:16px;padding-top:0;padding-bottom:20px}.m-playbar .list li .col-3{display:block;position:absolute;top:50%;transform:translateY(-50%);right:25px;height:16px;line-height:16px;padding-top:20px}.m-playbar .list li .col-3 .ico{margin:0 0 0 5px}.m-playbar .col .icns{display:block;height:16px;bottom:0;top:initial}.m-playbar .col-6{padding-right:20px;padding-left:7px}.m-playbar .col .ico-src{margin:0 7px}.m-playbar .col-5{padding-left:20px}.m-playbar li:not(.z-sel) .col-2{transform:translateX(-35px)}.m-playbar li:not(.z-sel) .col-4{transform:translate(-35px,-50%)}"}
-@var select helper-integration "\u8f85\u52a9\u811a\u672c\u652f\u6301"{"\u542f\u7528":".wk-fnm-hi-cfg:not(fuck){--wkhi-a:'0.9.17';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/39/2e/35/2e/31/39/39/34/32/34';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74|/2f/64/69/73/63/6f/76/65/72/2f/74/6f/70/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
+@var select helper-integration "\u8f85\u52a9\u811a\u672c\u652f\u6301"{"\u542f\u7528":".wk-fnm-hi-cfg:not(fuck){--wkhi-a:'0.9.18';--wkhi-b:1;--wkhi-c:'/6f/73/3d/70/63|/61/70/70/76/65/72/3d/32/2e/39/2e/38/2e/31/39/39/37/35/39';--wkhi-d:'/2f/77/65/61/70/69/2f/76/36/2f/70/6c/61/79/6c/69/73/74/2f/64/65/74/61/69/6c|/2f/70/6c/61/79/6c/69/73/74|/2f/64/69/73/63/6f/76/65/72/2f/74/6f/70/6c/69/73/74'}.flatnmusic-settings{display:block !important}","\u7981\u7528":" "}
 @var select custom-font "\u4f7f\u7528\u81ea\u5b9a\u4e49\u5b57\u4f53"{"\u7981\u7528":" ","\u542f\u7528":"*{font-family:var(--gv-aa),var(--gv-ab),sans-serif !important}"}
 @var text custom-font-1st "\u9996\u9009\u81ea\u5b9a\u4e49\u5b57\u4f53" " "
 @var text custom-font-2nd "\u5907\u9009\u81ea\u5b9a\u4e49\u5b57\u4f53" " "
@@ -107,7 +107,7 @@
     /*[[ui-color-palettes]]*/
   }
   /*
-	Flat-Style Netease Music by wTonyChen (https://github.com/wTonyChen) 0.9.17 (20220111)
+	Flat-Style Netease Music by wTonyChen (https://github.com/wTonyChen) 0.9.18 (20220331)
 	https://wtonychen.github.io/flatnmusic/
 	License: GNU General Public License
 */
@@ -2503,6 +2503,12 @@
   }
   .m-schlist .s-fc3 {
     white-space: nowrap;
+  }
+  .v-hd2 .more > i {
+    transition: transform 0.2s var(--gb-ad);
+  }
+  .v-hd2 .more > a:hover + i {
+    transform: translateX(5px);
   }
   .v-hd2 .more .s-fc3 {
     vertical-align: middle;
@@ -7768,6 +7774,9 @@
     :-c {
       --a: b;
     } /*[[custom-font]]*/
+    :-c {
+      --a: b;
+    } /*[[bigger-playbar-album]]*/
   } /*[[custom-style]]*/
 }
 @-moz-document regexp("^\\S*\\:\\/\\/music\\.163\\.com\\/(?!(discover|playlist|my|friend|user|song|artist|search|msg|member|topic|album|program|outchain|dj|download|mv|video|event|activity|lyric|login|series|404|share|radio|prime\\/member)[\\s\\S]*)[a-zA-Z]+[\\s\\S]*$") {

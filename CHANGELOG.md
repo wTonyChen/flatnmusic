@@ -1,6 +1,10 @@
 > 此更新日志适用于这些位置的更新内容: [GitHub](https://github.com/wTonyChen/flatnmusic) | [Greasy Fork (Style)](https://greasyfork.org/scripts/406821) | [Greasy Fork (Script)](https://greasyfork.org/scripts/369688) | [OpenUserJS](https://openuserjs.org/scripts/wTonyChen/%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%81%E5%B9%B3%E9%A3%8E%E6%A0%BC%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC)
 
 
+0.9.18 / 0.2.16-0.9.16 / 2022-03-31
+===================
+- 优化细节
+
 0.9.17 / 0.2.16-0.9.16 / 2022-01-11
 ===================
 - 优化细节
