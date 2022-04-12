@@ -6,13 +6,13 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.16-0.9.16
+// @version 0.2.17-0.9.19
 // @author wTonyChen
 // @copyright 2022 wTonyChen (https://github.com/wTonyChen)
-// @compatible chrome 99+
-// @compatible edge 99+
+// @compatible chrome 100+
+// @compatible edge 100+
 // @compatible opera 85+
-// @compatible firefox 98+ 有限支持
+// @compatible firefox 99+ 有限支持
 // @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -25,7 +25,7 @@
 
 !(function () {
   "use strict";
-  let e = "0.2.16-0.9.16",
+  let e = "0.2.17-0.9.19",
     t = "wk-fnm-hi-cfg",
     l = document.querySelector("." + t);
   l ||
@@ -180,30 +180,31 @@
         });
     });
   })();
-  let m = (e) => {
-    let t = document.querySelector("a.u-btni-fav-dis,a.u-btni-fav-dis2");
-    if (t) {
-      let e = t.parentElement.querySelector("[data-res-id]");
-      e &&
-        ((t.href = "/playlist?id=" + e.dataset.resId),
-        (t.innerHTML =
-          "<i title='&#x8df3;&#x8f6c;&#x5230;&#x6b4c;&#x5355;'>&#x524d;&#x5f80;&#x6b4c;&#x5355;</i>"),
-        t.classList.remove("u-btni-fav-dis", "u-btni-fav-dis2"));
-    }
-  };
+  let m = "",
+    b = (e) => {
+      let t = document.querySelector("a.u-btni-fav-dis,a.u-btni-fav-dis2");
+      if (t) {
+        let e = t.parentElement.querySelector("[data-res-id]");
+        e &&
+          ((t.href = "/playlist?id=" + e.dataset.resId),
+          (t.innerHTML =
+            "<i title='&#x8df3;&#x8f6c;&#x5230;&#x6b4c;&#x5355;'>&#x524d;&#x5f80;&#x6b4c;&#x5355;</i>"),
+          t.classList.remove("u-btni-fav-dis", "u-btni-fav-dis2"));
+      }
+    };
   r("wkstoplistjump") &&
     0 === location.pathname.indexOf("/discover/toplist") &&
-    m(),
+    b(),
     r("wksmylistjump") &&
       0 === location.pathname.indexOf("/my") &&
-      setInterval((e) => m(), 1e3);
+      setInterval((e) => b(), 1e3);
   let u = (e) => {
       let t = "" + e,
         l = 0;
       for (let e = 0; e < t.length; e++) l += t[e].charCodeAt();
       return l;
     },
-    b = (e) => {
+    w = (e) => {
       if (!Object.is(window.self, window.top)) return;
       let t = document.querySelectorAll(
         ".m-playbar .listlyric>p:not(.wk-upgraded)"
@@ -297,7 +298,7 @@
           setTimeout((e) => {
             arguments[0].dataset.wkAdvisedSize = arguments[0].clientHeight;
           }, 50),
-        r("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(b, 50),
+        r("wklrctrans") && "g_playlist" == arguments[0].id && setTimeout(w, 50),
         this.appendChildHost.call(this, ...arguments)
       );
     }),
@@ -325,7 +326,7 @@
       Object.is(window.self, window.top) &&
       (document.documentElement.style.filter =
         document.documentElement.style.filter + " brightness(.5)");
-  let w = {
+  let g = {
       kw7: (e) => {
         !isNaN(+e) &&
           +e > 99999 &&
@@ -352,9 +353,9 @@
           );
       },
     },
-    g = (e) => {
+    y = (e) => {
       if (
-        (r("wklrctrans") && b(),
+        (r("wklrctrans") && w(),
         r("wkshiresimages") &&
           ((e) => {
             let t = document.querySelectorAll("img[data-src]");
@@ -407,6 +408,19 @@
                         `Emoji'">&#x${i[+l]};</text></svg>`,
                       ].join(" ")
                     )));
+            }
+          })(),
+        r("wksadptbg") &&
+          Object.is(window.self, window.top) &&
+          ((e) => {
+            let t = document.querySelector(".m-playbar .head img"),
+              l = document.querySelector(".m-playbar .bg");
+            if (t && l && t.src && t.src != m) {
+              l.classList.add("wksplybrbg");
+              let e = t.src;
+              e.indexOf("?") < 0 && (e += "?param=34y34"),
+                (l.style.cssText = `--a_plybarimgsrc:url(${e})`),
+                (m = t.src);
             }
           })(),
         r("wksimprovedlook"))
@@ -530,8 +544,8 @@
         } catch (e) {}
       }
     };
-  g(),
-    window.setInterval(g, 500),
+  y(),
+    window.setInterval(y, 500),
     d &&
       (function () {
         if ("/user/update" == location.pathname) {
@@ -616,6 +630,11 @@
                   },
                   {
                     label:
+                      "&#x64ad;&#x653e;&#x5e95;&#x680f;&#x52a8;&#x6001;&#x80cc;&#x666f; (Beta)",
+                    lsm: "wksadptbg",
+                  },
+                  {
+                    label:
                       "&#x753b;&#x4e2d;&#x753b;&#x663e;&#x793a;&#x9996;&#x9009;&#x5b57;&#x4f53;&#x540d;&#x79f0; (&#x6362;&#x6b4c;&#x5e94;&#x7528;&#x66f4;&#x6539;)",
                     lsm: "wkspipfont",
                     t: "t",
@@ -628,7 +647,7 @@
                   },
                   {
                     label:
-                      "&#x753b;&#x4e2d;&#x753b;&#x663e;&#x793a;&#x5b57;&#x4f53;&#x7c97;&#x7ec6; (&#x8303;&#x56f4; 100-900&#xff0c;&#x6362;&#x6b4c;&#x5e94;&#x7528;&#x66f4;&#x6539;)",
+                      "&#x753b;&#x4e2d;&#x753b;&#x663e;&#x793a;&#x5b57;&#x4f53;&#x7c97;&#x7ec6; (&#x8303;&#x56f4; 100-900, &#x6362;&#x6b4c;&#x5e94;&#x7528;&#x66f4;&#x6539;)",
                     lsm: "wkspipfweight",
                     t: "n",
                   },
@@ -748,9 +767,9 @@
                     null != t && "p" != s
                       ? o(l, t || "")
                       : "p" == s &&
-                        w[x] &&
-                        "function" == typeof w[x] &&
-                        w[x](t);
+                        g[x] &&
+                        "function" == typeof g[x] &&
+                        g[x](t);
                   }
                 });
             }
