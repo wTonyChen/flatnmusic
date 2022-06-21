@@ -6,13 +6,13 @@
 // @name 适用于网易云音乐扁平风格样式表的辅助用户脚本
 // @description 为网易云音乐扁平风格样式表提供更佳的用户体验。
 // @namespace wTonyChen.flatnmusich
-// @version 0.2.17-0.9.19
+// @version 0.2.18-0.9.20
 // @author wTonyChen
 // @copyright 2022 wTonyChen (https://github.com/wTonyChen)
-// @compatible chrome 100+
-// @compatible edge 100+
-// @compatible opera 85+
-// @compatible firefox 99+ 有限支持
+// @compatible chrome 101+
+// @compatible edge 101+
+// @compatible opera 87+
+// @compatible firefox 100+ 有限支持
 // @license GPL-3.0-or-later
 // @homepage https://wtonychen.github.io/flatnmusic/
 // @supportURL https://github.com/wTonyChen/flatnmusic/issues
@@ -25,7 +25,7 @@
 
 !(function () {
   "use strict";
-  let e = "0.2.17-0.9.19",
+  let e = "0.2.18-0.9.20",
     t = "wk-fnm-hi-cfg",
     l = document.querySelector("." + t);
   l ||
@@ -116,10 +116,10 @@
       let t;
       return window.localStorage && (t = localStorage.getItem(e)), t;
     },
-    o = (e, t) => {
+    c = (e, t) => {
       window.localStorage && localStorage.setItem(e, t);
     },
-    c = x("wkhi-a"),
+    o = x("wkhi-a"),
     d = x("wkhi-b");
   if (!d) return void l.parentElement.removeChild(l);
   document.documentElement.setAttribute("wk-style-assist", "true");
@@ -140,35 +140,35 @@
       i = document.querySelector("#g_iframe"),
       n = 0,
       x = 0,
-      o = !0;
+      c = !0;
     if (!a || !Object.is(window.self, window.top)) return;
-    let c = 1.6 * a.getBoundingClientRect().height,
+    let o = 1.6 * a.getBoundingClientRect().height,
       d = (e) => {
         t && t.cancel(),
           (x = 0),
           (n = 0),
           (l = 0),
-          (o = !1),
+          (c = !1),
           (t = a.animate([{ transform: "translateY(0)" }], {
             duration: 200,
             fill: "backwards",
             easing: "cubic-bezier(.16,1,.29,.99)",
           })),
           (t.onfinish = (e) => {
-            (o = !0), (a.style.transform = "translateY(0)");
+            (c = !0), (a.style.transform = "translateY(0)");
           });
       };
     i.addEventListener("load", (e) => {
       i.contentWindow.addEventListener("beforeunload", d),
         i.contentDocument.addEventListener("scroll", (e) => {
-          o || t.cancel(),
+          c || t.cancel(),
             (l = i.contentWindow.scrollY),
             s ||
               (window.requestAnimationFrame((e) => {
                 ((e) => {
                   if (r("wksdscrolling")) {
                     let t = e - n;
-                    (x = Math.max(Math.min(x + t, c), 0)),
+                    (x = Math.max(Math.min(x + t, o), 0)),
                       (a.style.top = "0 !important"),
                       (a.style.transform = `translateY(-${x}px)`);
                   } else (a.style.top = ""), (a.style.transform = ""), (x = 0);
@@ -211,6 +211,7 @@
       );
       for (let e = 0; e < t.length; e++)
         (t[e].innerText = t[e].innerText.split("\n")[0]),
+          (t[e].innerHTML = t[e].innerHTML.replace(/\&nbsp;/g, " ")),
           t[e].classList.add("wk-upgraded");
     };
   r("wklrctrans") && document.body.classList.add("wk-playlist-applied"),
@@ -241,8 +242,8 @@
         i = r("wkspipletterspacing"),
         n = r("wkspipwordspacing"),
         x = r("wkspiplinespacing"),
-        o = r("wkspiplineheight"),
-        c = r("wkspipcustomstyle");
+        c = r("wkspiplineheight"),
+        o = r("wkspipcustomstyle");
       if ("STYLE" == arguments[0].tagName) {
         r("wklrctrans") && (e += ".container>.line>.compare{display:none}");
         let d = [];
@@ -265,19 +266,19 @@
           x &&
             !isNaN(+x) &&
             (e += `.container>.line{padding:${+x}px 0 !important}`),
-          o &&
-            !isNaN(+o) &&
-            (e += `.container>.line{line-height:${+o}px !important}`),
+          c &&
+            !isNaN(+c) &&
+            (e += `.container>.line{line-height:${+c}px !important}`),
           e &&
             (this.appendChildHost.call(
               this,
               document.createElement("style")
             ).innerHTML = e),
-          c &&
+          o &&
             (this.appendChildHost.call(
               this,
               document.createElement("style")
-            ).innerHTML = c);
+            ).innerHTML = o);
       }
       if (!r("wksplayinguiani") || "g_playlist" != arguments[0].id)
         return this.appendChildHost.call(this, ...arguments);
@@ -317,7 +318,7 @@
         };
       for (let e = 0; e < t.length; e++)
         for (let s = 0; s < l.length; s++) a(t[e], l[s]);
-      o("wklistdisd", e ? 0 : 1);
+      c("wklistdisd", e ? 0 : 1);
     })(!!r("wksfullpl")),
     r("wkslowcontrast") &&
       Object.is(window.self, window.top) &&
@@ -414,7 +415,7 @@
           Object.is(window.self, window.top) &&
           ((e) => {
             let t = document.querySelector(".m-playbar .head img"),
-              l = document.querySelector(".m-playbar .bg");
+              l = document.querySelector(".m-playbar");
             if (t && l && t.src && t.src != m) {
               l.classList.add("wksplybrbg");
               let e = t.src;
@@ -561,8 +562,8 @@
                   if (t > a) return !1;
                   if (t < a) return !0;
                 }
-              })(e.split("-")[1], c);
-              let t = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;${e}</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${c}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
+              })(e.split("-")[1], o);
+              let t = `<div class="item"><h3><span class="f-fs1">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x8bbe;&#x7f6e;</span><span class="sub s-fc3">&#x8f85;&#x52a9;&#x811a;&#x672c;&#x7248;&#x672c;&#xff1a;${e}</span><span class="sub s-fc3">&#x6837;&#x5f0f;&#x8868;&#x7248;&#x672c;&#xff1a;${o}</span></h3><ul class="n-plist n-plist-1" data-prompt-prefix="&#x8bf7;&#x8f93;&#x5165;">{1}</ul></div>`,
                 s =
                   '<li><label><input type="checkbox" class="f-rdi" {2}>{1}</label></li>',
                 a =
@@ -630,7 +631,7 @@
                   },
                   {
                     label:
-                      "&#x64ad;&#x653e;&#x5e95;&#x680f;&#x52a8;&#x6001;&#x80cc;&#x666f; (Beta)",
+                      "&#x64ad;&#x653e;&#x5e95;&#x680f;&#x548c;&#x6b4c;&#x8bcd;&#x52a8;&#x6001;&#x80cc;&#x666f; (Beta)",
                     lsm: "wksadptbg",
                   },
                   {
@@ -725,8 +726,8 @@
                   t &&
                     l &&
                     ("checkbox" == t.type
-                      ? o(l, t.checked ? "1" : "")
-                      : o(l, t.value));
+                      ? c(l, t.checked ? "1" : "")
+                      : c(l, t.value));
                 }),
                 l.appendChild(x),
                 x.addEventListener("click", (e) => {
@@ -765,7 +766,7 @@
                         })()
                       );
                     null != t && "p" != s
-                      ? o(l, t || "")
+                      ? c(l, t || "")
                       : "p" == s &&
                         g[x] &&
                         "function" == typeof g[x] &&
